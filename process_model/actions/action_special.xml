@@ -1,0 +1,676 @@
+<testset xmlns="http://cpee.org/ns/properties/2.0">
+  <executionhandler>ruby</executionhandler>
+  <dataelements>
+    <title/>
+    <message/>
+    <current_player/>
+    <game_state/>
+    <player_data/>
+    <initiative_order/>
+    <terrain_pieces/>
+    <terrain_template/>
+    <special/>
+  </dataelements>
+  <endpoints>
+    <timeout>https-post://cpee.org/services/timeout.php</timeout>
+    <subprocess>https-post://cpee.org/flow/start/url/</subprocess>
+    <frames_display>https-put://cpee.org/out/frames/</frames_display>
+  </endpoints>
+  <attributes>
+    <info>action_special</info>
+    <guarded>none</guarded>
+    <modeltype>CPEE</modeltype>
+    <theme>dataflow</theme>
+    <guarded_id/>
+    <creator>Christine Ashcreek</creator>
+    <author>Christine Ashcreek</author>
+    <model_uuid>5208f558-8f05-42c8-8dae-497f020e0575</model_uuid>
+    <model_version/>
+    <design_dir>Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/actions.dir</design_dir>
+    <design_stage>development</design_stage>
+    <fid>gridsanddragons</fid>
+  </attributes>
+  <description>
+    <description xmlns="http://cpee.org/ns/description/1.0">
+      <call id="a17" endpoint="subprocess">
+        <parameters>
+          <label>Validate Special Action</label>
+          <color/>
+          <method>:post</method>
+          <arguments>
+            <behavior>wait_running</behavior>
+            <url>https://cpee.org/hub/server/Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/actions.dir/validate_special.xml</url>
+            <init>
+              <current_player>!data.current_player</current_player>
+            </init>
+            <endpoints/>
+            <attributes/>
+            <customization/>
+          </arguments>
+        </parameters>
+        <code>
+          <signal/>
+          <prepare/>
+          <finalize output="result">data.title = result["title"]
+data.message = result["message"]
+data.special = result["special"]
+data.current_player = result["current_player"]</finalize>
+          <update output="result"/>
+          <rescue output="result"/>
+        </code>
+        <annotations>
+          <_generic/>
+          <_logging_behavior>
+            <_exclude/>
+            <_include/>
+          </_logging_behavior>
+          <_timing>
+            <_timing_weight/>
+            <_timing_avg/>
+            <explanations/>
+          </_timing>
+          <_shifting>
+            <_shifting_type>Duration</_shifting_type>
+          </_shifting>
+          <_context_data_analysis>
+            <probes/>
+            <ips/>
+          </_context_data_analysis>
+          <report>
+            <url/>
+          </report>
+          <_notes>
+            <_notes_general/>
+          </_notes>
+        </annotations>
+        <documentation>
+          <input/>
+          <output/>
+          <implementation>
+            <description/>
+          </implementation>
+          <code>
+            <description/>
+          </code>
+        </documentation>
+      </call>
+      <choose mode="exclusive" label="">
+        <alternative condition="data.special == true">
+          <manipulate id="a3" label="Handle Special Action Conditions">
+            <code># --- Variables ---
+action_id = data.current_player["chosen_action"].to_i
+
+skills = data.current_player["skills"] || []
+skill  = skills.find { |s| (s["id"] || 0).to_i == action_id } || {}
+
+m_cost = (skill["m_cost"] || 0).to_i
+a_cost = (skill["a_cost"] || 0).to_i
+
+mana = data.current_player["mana"].to_i
+adr  = data.current_player["adrenaline"].to_i
+
+conds = (data.current_player["conditions"] || []).map(&amp;:to_s)
+
+# --- Apply Special Action Results ---
+
+case action_id
+when 14
+  max_move = data.current_player["max_movement"].to_i
+  cur_move = data.current_player["current_movement"].to_i
+  data.current_player["current_movement"] = cur_move + max_move
+
+  if data.current_player["id"].to_s == "rogue"
+    data.current_player["b_action_available"] = false
+  else
+    data.current_player["action_available"] = false
+  end
+
+when 3, 9, 11
+  data.current_player["mana"] = [mana - m_cost, 0].max
+  data.current_player["adrenaline"] = [adr - a_cost, 0].max
+
+  case action_id
+  when 3
+    conds &lt;&lt; "raging" unless conds.include?("raging")
+  when 9
+    conds &lt;&lt; "hidden" unless conds.include?("hidden")
+  when 11
+    conds &lt;&lt; "shielded" unless conds.include?("shielded")
+  end
+
+  data.current_player["b_action_available"] = false
+end
+
+data.current_player["conditions"] = conds</code>
+            <annotations>
+              <_logging_behavior>
+                <_exclude/>
+              </_logging_behavior>
+              <_context_data_analysis>
+                <probes/>
+              </_context_data_analysis>
+            </annotations>
+          </manipulate>
+          <parallel wait="-1" cancel="last">
+            <parallel_branch>
+              <call id="a7" endpoint="frames_display">
+                <parameters>
+                  <label>Display Special Action Result Message</label>
+                  <color/>
+                  <arguments>
+                    <type>set</type>
+                    <lx>6</lx>
+                    <ly>3</ly>
+                    <x_amount>3</x_amount>
+                    <y_amount>1</y_amount>
+                    <button/>
+                    <style/>
+                    <urls>
+                      <urls_item>
+                        <lang>de-at</lang>
+                        <url>https://lehre.bpm.in.tum.de/~ge87max/instruction/instruction.html</url>
+                      </urls_item>
+                    </urls>
+                    <default>
+                      <title>!data.title</title>
+                      <message>!data.message</message>
+                      <player_id>!data.current_player["title"]</player_id>
+                    </default>
+                  </arguments>
+                </parameters>
+                <code>
+                  <signal/>
+                  <prepare>endpoints.frames_display += attributes.fid</prepare>
+                  <finalize output="result"/>
+                  <update output="result"/>
+                  <rescue output="result"/>
+                </code>
+                <annotations>
+                  <_generic/>
+                  <_logging_behavior>
+                    <_exclude/>
+                    <_include/>
+                  </_logging_behavior>
+                  <_timing>
+                    <_timing_weight/>
+                    <_timing_avg/>
+                    <explanations/>
+                  </_timing>
+                  <_shifting>
+                    <_shifting_type>Duration</_shifting_type>
+                  </_shifting>
+                  <_context_data_analysis>
+                    <probes/>
+                    <ips/>
+                  </_context_data_analysis>
+                  <report>
+                    <url/>
+                  </report>
+                  <_notes>
+                    <_notes_general/>
+                  </_notes>
+                </annotations>
+                <documentation>
+                  <input/>
+                  <output/>
+                  <implementation>
+                    <description/>
+                  </implementation>
+                  <code>
+                    <description/>
+                  </code>
+                </documentation>
+              </call>
+              <call id="a6" endpoint="timeout">
+                <parameters>
+                  <label>Wait for Special Action Message Display</label>
+                  <color/>
+                  <method>:post</method>
+                  <arguments>
+                    <timeout>4</timeout>
+                    <data/>
+                  </arguments>
+                </parameters>
+                <annotations>
+                  <_generic/>
+                  <_logging_behavior>
+                    <_exclude/>
+                    <_include/>
+                  </_logging_behavior>
+                  <_timing>
+                    <_timing_weight/>
+                    <_timing_avg/>
+                    <explanations/>
+                  </_timing>
+                  <_shifting>
+                    <_shifting_type>Duration</_shifting_type>
+                  </_shifting>
+                  <_context_data_analysis>
+                    <probes/>
+                    <ips/>
+                  </_context_data_analysis>
+                  <report>
+                    <url/>
+                  </report>
+                  <_notes>
+                    <_notes_general/>
+                  </_notes>
+                </annotations>
+                <documentation>
+                  <input/>
+                  <output/>
+                  <implementation>
+                    <description/>
+                  </implementation>
+                </documentation>
+              </call>
+              <call id="a8" endpoint="frames_display">
+                <parameters>
+                  <label>Reset Special Action Display</label>
+                  <color/>
+                  <arguments>
+                    <type>set</type>
+                    <lx>6</lx>
+                    <ly>3</ly>
+                    <x_amount>3</x_amount>
+                    <y_amount>1</y_amount>
+                    <button/>
+                    <style/>
+                    <urls/>
+                    <default/>
+                  </arguments>
+                </parameters>
+                <code>
+                  <signal/>
+                  <prepare>endpoints.frames_display += attributes.fid</prepare>
+                  <finalize output="result">data.title = nil
+data.message = nil
+data.special = nil</finalize>
+                  <update output="result"/>
+                  <rescue output="result"/>
+                </code>
+                <annotations>
+                  <_generic/>
+                  <_logging_behavior>
+                    <_exclude/>
+                    <_include/>
+                  </_logging_behavior>
+                  <_timing>
+                    <_timing_weight/>
+                    <_timing_avg/>
+                    <explanations/>
+                  </_timing>
+                  <_shifting>
+                    <_shifting_type>Duration</_shifting_type>
+                  </_shifting>
+                  <_context_data_analysis>
+                    <probes/>
+                    <ips/>
+                  </_context_data_analysis>
+                  <report>
+                    <url/>
+                  </report>
+                  <_notes>
+                    <_notes_general/>
+                  </_notes>
+                </annotations>
+                <documentation>
+                  <input/>
+                  <output/>
+                  <implementation>
+                    <description/>
+                  </implementation>
+                  <code>
+                    <description/>
+                  </code>
+                </documentation>
+              </call>
+            </parallel_branch>
+            <parallel_branch>
+              <call id="a9" endpoint="subprocess">
+                <parameters>
+                  <label>Visualize Intermediate Stats</label>
+                  <color/>
+                  <method>:post</method>
+                  <arguments>
+                    <behavior>wait_running</behavior>
+                    <url>https://cpee.org/hub/server/Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/visualize_stats.xml</url>
+                    <init>
+                      <current_player>!data.current_player</current_player>
+                    </init>
+                    <endpoints/>
+                    <attributes/>
+                    <customization/>
+                  </arguments>
+                </parameters>
+                <annotations>
+                  <_generic/>
+                  <_logging_behavior>
+                    <_exclude/>
+                    <_include/>
+                  </_logging_behavior>
+                  <_timing>
+                    <_timing_weight/>
+                    <_timing_avg/>
+                    <explanations/>
+                  </_timing>
+                  <_shifting>
+                    <_shifting_type>Duration</_shifting_type>
+                  </_shifting>
+                  <_context_data_analysis>
+                    <probes/>
+                    <ips/>
+                  </_context_data_analysis>
+                  <report>
+                    <url/>
+                  </report>
+                  <_notes>
+                    <_notes_general/>
+                  </_notes>
+                </annotations>
+                <documentation>
+                  <input/>
+                  <output/>
+                  <implementation>
+                    <description/>
+                  </implementation>
+                </documentation>
+              </call>
+            </parallel_branch>
+          </parallel>
+          <choose mode="exclusive" label="">
+            <alternative condition="data.current_player[&quot;chosen_action&quot;].to_i  == 14">
+              <call id="a10" endpoint="subprocess">
+                <parameters>
+                  <label>Rule: If Player Dashed, Perform Player Movement</label>
+                  <color/>
+                  <method>:post</method>
+                  <arguments>
+                    <behavior>wait_running</behavior>
+                    <url>https://cpee.org/hub/server/Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/actions.dir/action_move.xml</url>
+                    <init>
+                      <current_player>!data.current_player</current_player>
+                      <game_state>!data.game_state</game_state>
+                      <player_data>!data.player_data</player_data>
+                      <initiative_order>!data.initiative_order</initiative_order>
+                      <terrain_pieces>!data.terrain_pieces</terrain_pieces>
+                      <terrain_template>!data.terrain_template</terrain_template>
+                    </init>
+                    <endpoints/>
+                    <attributes/>
+                    <customization/>
+                  </arguments>
+                </parameters>
+                <code>
+                  <signal/>
+                  <prepare/>
+                  <finalize output="result">data.current_player = result["current_player"]
+data.game_state = result["game_state"]
+data.player_data = result["player_data"]
+data.initiative_order = result["initiative_order"]
+data.terrain_pieces = result["terrain_pieces"]</finalize>
+                  <update output="result"/>
+                  <rescue output="result"/>
+                </code>
+                <annotations>
+                  <_generic/>
+                  <_logging_behavior>
+                    <_exclude/>
+                    <_include/>
+                  </_logging_behavior>
+                  <_timing>
+                    <_timing_weight/>
+                    <_timing_avg/>
+                    <explanations/>
+                  </_timing>
+                  <_shifting>
+                    <_shifting_type>Duration</_shifting_type>
+                  </_shifting>
+                  <_context_data_analysis>
+                    <probes/>
+                    <ips/>
+                  </_context_data_analysis>
+                  <report>
+                    <url/>
+                  </report>
+                  <_notes>
+                    <_notes_general/>
+                  </_notes>
+                </annotations>
+                <documentation>
+                  <input/>
+                  <output/>
+                  <implementation>
+                    <description/>
+                  </implementation>
+                  <code>
+                    <description/>
+                  </code>
+                </documentation>
+              </call>
+              <_probability>
+                <_probability_min/>
+                <_probability_max/>
+                <_probability_avg/>
+              </_probability>
+            </alternative>
+            <otherwise/>
+          </choose>
+          <_probability>
+            <_probability_min/>
+            <_probability_max/>
+            <_probability_avg/>
+          </_probability>
+        </alternative>
+        <otherwise>
+          <call id="a16" endpoint="frames_display">
+            <parameters>
+              <label>Display Unable Action Instruction Message</label>
+              <color/>
+              <arguments>
+                <type>set</type>
+                <lx>6</lx>
+                <ly>3</ly>
+                <x_amount>3</x_amount>
+                <y_amount>1</y_amount>
+                <button/>
+                <style/>
+                <urls>
+                  <urls_item>
+                    <lang>de-at</lang>
+                    <url>https://lehre.bpm.in.tum.de/~ge87max/instruction/instruction.html</url>
+                  </urls_item>
+                </urls>
+                <default>
+                  <title>!data.title</title>
+                  <message>!data.message</message>
+                  <player_id>!data.current_player["title"]</player_id>
+                </default>
+              </arguments>
+            </parameters>
+            <code>
+              <signal/>
+              <prepare>endpoints.frames_display += attributes.fid</prepare>
+              <finalize output="result"/>
+              <update output="result"/>
+              <rescue output="result"/>
+            </code>
+            <annotations>
+              <_generic/>
+              <_logging_behavior>
+                <_exclude/>
+                <_include/>
+              </_logging_behavior>
+              <_timing>
+                <_timing_weight/>
+                <_timing_avg/>
+                <explanations/>
+              </_timing>
+              <_shifting>
+                <_shifting_type>Duration</_shifting_type>
+              </_shifting>
+              <_context_data_analysis>
+                <probes/>
+                <ips/>
+              </_context_data_analysis>
+              <report>
+                <url/>
+              </report>
+              <_notes>
+                <_notes_general/>
+              </_notes>
+            </annotations>
+            <documentation>
+              <input/>
+              <output/>
+              <implementation>
+                <description/>
+              </implementation>
+              <code>
+                <description/>
+              </code>
+            </documentation>
+          </call>
+          <call id="a15" endpoint="timeout">
+            <parameters>
+              <label>Wait for Unable Action Instruction Display</label>
+              <color/>
+              <method>:post</method>
+              <arguments>
+                <timeout>4</timeout>
+                <data/>
+              </arguments>
+            </parameters>
+            <annotations>
+              <_generic/>
+              <_logging_behavior>
+                <_exclude/>
+                <_include/>
+              </_logging_behavior>
+              <_timing>
+                <_timing_weight/>
+                <_timing_avg/>
+                <explanations/>
+              </_timing>
+              <_shifting>
+                <_shifting_type>Duration</_shifting_type>
+              </_shifting>
+              <_context_data_analysis>
+                <probes/>
+                <ips/>
+              </_context_data_analysis>
+              <report>
+                <url/>
+              </report>
+              <_notes>
+                <_notes_general/>
+              </_notes>
+            </annotations>
+            <documentation>
+              <input/>
+              <output/>
+              <implementation>
+                <description/>
+              </implementation>
+            </documentation>
+          </call>
+          <call id="a14" endpoint="frames_display">
+            <parameters>
+              <label>Reset Unable Action Display</label>
+              <color/>
+              <arguments>
+                <type>set</type>
+                <lx>6</lx>
+                <ly>3</ly>
+                <x_amount>3</x_amount>
+                <y_amount>1</y_amount>
+                <button/>
+                <style/>
+                <urls/>
+                <default/>
+              </arguments>
+            </parameters>
+            <code>
+              <signal/>
+              <prepare>endpoints.frames_display += attributes.fid</prepare>
+              <finalize output="result">data.title = nil
+data.message = nil
+data.special = nil</finalize>
+              <update output="result"/>
+              <rescue output="result"/>
+            </code>
+            <annotations>
+              <_generic/>
+              <_logging_behavior>
+                <_exclude/>
+                <_include/>
+              </_logging_behavior>
+              <_timing>
+                <_timing_weight/>
+                <_timing_avg/>
+                <explanations/>
+              </_timing>
+              <_shifting>
+                <_shifting_type>Duration</_shifting_type>
+              </_shifting>
+              <_context_data_analysis>
+                <probes/>
+                <ips/>
+              </_context_data_analysis>
+              <report>
+                <url/>
+              </report>
+              <_notes>
+                <_notes_general/>
+              </_notes>
+            </annotations>
+            <documentation>
+              <input/>
+              <output/>
+              <implementation>
+                <description/>
+              </implementation>
+              <code>
+                <description/>
+              </code>
+            </documentation>
+          </call>
+        </otherwise>
+      </choose>
+      <manipulate id="a1" label="Sync Player Data">
+        <code># --- Sync into Initiative Order ---
+
+data.initiative_order.map! do |ent|
+  if ent &amp;&amp; ent["type"] == "player" &amp;&amp; (ent["id"] || "").to_s == (data.current_player["id"]).to_s
+    data.current_player
+  else
+    ent
+  end
+end
+
+# --- Sync into Player Data ---
+
+data.player_data.map! do |pl|
+  if pl &amp;&amp; (pl["id"] || "").to_s == (data.current_player["id"]).to_s
+    data.current_player
+  else
+    pl
+  end
+end</code>
+        <annotations>
+          <_logging_behavior>
+            <_exclude/>
+          </_logging_behavior>
+          <_context_data_analysis>
+            <probes/>
+          </_context_data_analysis>
+        </annotations>
+      </manipulate>
+    </description>
+  </description>
+  <transformation>
+    <description type="copy"/>
+    <dataelements type="none"/>
+    <endpoints type="none"/>
+  </transformation>
+</testset>

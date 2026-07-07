@@ -1,0 +1,324 @@
+<testset xmlns="http://cpee.org/ns/properties/2.0">
+  <executionhandler>ruby</executionhandler>
+  <dataelements>
+    <title/>
+    <message/>
+    <attack/>
+    <current_player/>
+    <reason/>
+    <initiative_order/>
+  </dataelements>
+  <endpoints>
+    <timeout>https-post://cpee.org/services/timeout.php</timeout>
+    <subprocess>https-post://cpee.org/flow/start/url/</subprocess>
+    <validateTargets>https://lehre.bpm.in.tum.de/ports/5104/validateTargets/</validateTargets>
+  </endpoints>
+  <attributes>
+    <info>validate_attack</info>
+    <guarded>none</guarded>
+    <modeltype>CPEE</modeltype>
+    <theme>dataflow</theme>
+    <creator>Christine Ashcreek</creator>
+    <guarded_id/>
+    <author>Christine Ashcreek</author>
+    <model_uuid>ac4cf4df-a846-453e-92d3-218f0f3c7fde</model_uuid>
+    <model_version/>
+    <design_dir>Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/actions.dir</design_dir>
+    <design_stage>development</design_stage>
+  </attributes>
+  <description>
+    <description xmlns="http://cpee.org/ns/description/1.0">
+      <manipulate id="a8" label="Validate Action Availability">
+        <code>if data.current_player["action_available"] != true
+  data.reason = 0
+  return
+else
+  data.reason = 9
+  return
+end</code>
+        <annotations>
+          <_logging_behavior>
+            <_exclude/>
+          </_logging_behavior>
+          <_context_data_analysis>
+            <probes/>
+          </_context_data_analysis>
+        </annotations>
+      </manipulate>
+      <choose mode="exclusive" label="">
+        <alternative eid="e1" condition="data.reason.to_i == 0">
+          <_probability>
+            <_probability_min/>
+            <_probability_max/>
+            <_probability_avg/>
+          </_probability>
+          <manipulate id="a1" label="Attack Unavailable: Action Unavailable">
+            <code>data.title = "#, you have already used your action!"
+data.message = "Please wait..."
+data.attack = false</code>
+            <annotations>
+              <_logging_behavior>
+                <_exclude/>
+              </_logging_behavior>
+              <_context_data_analysis>
+                <probes/>
+              </_context_data_analysis>
+            </annotations>
+          </manipulate>
+        </alternative>
+        <otherwise>
+          <manipulate id="a2" label="Validate Resources">
+            <code>action_id = data.current_player["chosen_action"].to_i
+skills = data.current_player["skills"]
+skill = skills.find { |s| (s["id"]).to_i == action_id }
+mana = data.current_player["mana"]
+adr = data.current_player["adrenaline"]
+m_cost = skill["m_cost"].to_i
+a_cost = skill["a_cost"].to_i
+
+if mana &lt; m_cost &amp;&amp; adr &lt; a_cost
+  data.reason = 1
+  return
+elsif mana &lt; m_cost
+  data.reason = 2
+  return
+elsif adr &lt; a_cost
+  data.reason = 3
+  return
+else
+  data.reason = 9
+  return
+end</code>
+            <annotations>
+              <_logging_behavior>
+                <_exclude/>
+              </_logging_behavior>
+              <_context_data_analysis>
+                <probes/>
+              </_context_data_analysis>
+            </annotations>
+          </manipulate>
+          <choose mode="exclusive" label="">
+            <alternative condition="data.reason.to_i == 1">
+              <manipulate id="a3" label="Attack Unavailable: Not Enough Mana and Adrenaline">
+                <code>data.title = "#, you do not have enough mana and adrenaline!"
+data.message = "Please wait to select another action..."
+data.attack = false</code>
+                <annotations>
+                  <_logging_behavior>
+                    <_exclude/>
+                  </_logging_behavior>
+                  <_context_data_analysis>
+                    <probes/>
+                  </_context_data_analysis>
+                </annotations>
+              </manipulate>
+              <_probability>
+                <_probability_min/>
+                <_probability_max/>
+                <_probability_avg/>
+              </_probability>
+            </alternative>
+            <alternative condition="data.reason.to_i == 2">
+              <manipulate id="a4" label="Attack Unavailable: Not Enough Mana">
+                <code>data.title = "#, you do not have enough mana!"
+data.message = "Please wait to select another action..."
+data.attack = false</code>
+                <annotations>
+                  <_logging_behavior>
+                    <_exclude/>
+                  </_logging_behavior>
+                  <_context_data_analysis>
+                    <probes/>
+                  </_context_data_analysis>
+                </annotations>
+              </manipulate>
+              <_probability>
+                <_probability_min/>
+                <_probability_max/>
+                <_probability_avg/>
+              </_probability>
+            </alternative>
+            <alternative condition="data.reason.to_i == 3">
+              <_probability>
+                <_probability_min/>
+                <_probability_max/>
+                <_probability_avg/>
+              </_probability>
+              <manipulate id="a5" label="Attack Unavailable: Not Enough Adrenaline">
+                <code>data.title = "#, you do not have enough adrenaline!"
+data.message = "Please wait to select another action..."
+data.attack = false</code>
+                <annotations>
+                  <_logging_behavior>
+                    <_exclude/>
+                  </_logging_behavior>
+                  <_context_data_analysis>
+                    <probes/>
+                  </_context_data_analysis>
+                </annotations>
+              </manipulate>
+            </alternative>
+            <otherwise>
+              <manipulate id="a6" label="Validate Prerequisites">
+                <code>action_id = data.current_player["chosen_action"].to_i
+skills = data.current_player["skills"]
+skill = skills.find { |s| (s["id"]).to_i == action_id }
+
+# --- Validate Prerequisites ---
+
+prereq = skill["prerequisite"].to_s.strip
+conds = data.current_player["conditions"].map(&amp;:to_s)
+
+if !prereq.empty? &amp;&amp; !conds.include?(prereq)
+  data.reason = 4
+  return
+else
+  data.reason = 9
+  return
+end</code>
+                <annotations>
+                  <_logging_behavior>
+                    <_exclude/>
+                  </_logging_behavior>
+                  <_context_data_analysis>
+                    <probes/>
+                  </_context_data_analysis>
+                </annotations>
+              </manipulate>
+              <choose mode="exclusive" label="">
+                <alternative condition="data.reason.to_i == 4">
+                  <_probability>
+                    <_probability_min/>
+                    <_probability_max/>
+                    <_probability_avg/>
+                  </_probability>
+                  <manipulate id="a7" label="Attack Unavailable: Not Hidden for Sneak Attack">
+                    <code>if action_id == 8
+  data.title = "#, you are not hidden to use Sneak Attack!"
+else
+  data.title = "#, you do not meet the prerequisites for that action!"
+end
+
+data.message = "Please wait to select another action..."
+data.attack = false</code>
+                    <annotations>
+                      <_logging_behavior>
+                        <_exclude/>
+                      </_logging_behavior>
+                      <_context_data_analysis>
+                        <probes/>
+                      </_context_data_analysis>
+                    </annotations>
+                  </manipulate>
+                </alternative>
+                <otherwise>
+                  <call id="a11" endpoint="validateTargets">
+                    <parameters>
+                      <label>Validate Targets</label>
+                      <color/>
+                      <method>:post</method>
+                      <arguments>
+                        <mode>enemy</mode>
+                        <game_state>!data.game_state</game_state>
+                        <terrain_pieces>!data.terrain_pieces</terrain_pieces>
+                        <initiative_order>!data.initiative_order</initiative_order>
+                        <player_data>!data.player_data</player_data>
+                        <current_player>!data.current_player</current_player>
+                      </arguments>
+                    </parameters>
+                    <code>
+                      <signal/>
+                      <prepare/>
+                      <finalize output="result">data.reason = result["reason"]
+data.current_player = result["current_player"]</finalize>
+                      <update output="result"/>
+                      <rescue output="result"/>
+                    </code>
+                    <annotations>
+                      <_generic/>
+                      <_logging_behavior>
+                        <_exclude/>
+                        <_include/>
+                      </_logging_behavior>
+                      <_timing>
+                        <_timing_weight/>
+                        <_timing_avg/>
+                        <explanations/>
+                      </_timing>
+                      <_shifting>
+                        <_shifting_type>Duration</_shifting_type>
+                      </_shifting>
+                      <_context_data_analysis>
+                        <probes/>
+                        <ips/>
+                      </_context_data_analysis>
+                      <report>
+                        <url/>
+                      </report>
+                      <_notes>
+                        <_notes_general/>
+                      </_notes>
+                    </annotations>
+                    <documentation>
+                      <input/>
+                      <output/>
+                      <implementation>
+                        <description/>
+                      </implementation>
+                      <code>
+                        <description/>
+                      </code>
+                    </documentation>
+                  </call>
+                  <choose mode="exclusive" label="">
+                    <alternative condition="data.reason.to_i == 5">
+                      <_probability>
+                        <_probability_min/>
+                        <_probability_max/>
+                        <_probability_avg/>
+                      </_probability>
+                      <manipulate id="a9" label="Attack Unavailable: No Enemies in Range">
+                        <code>data.title = "#, there are no enemies within range!!"
+data.message = "Please wait to select another action..."
+data.attack = false</code>
+                        <annotations>
+                          <_logging_behavior>
+                            <_exclude/>
+                          </_logging_behavior>
+                          <_context_data_analysis>
+                            <probes/>
+                          </_context_data_analysis>
+                        </annotations>
+                      </manipulate>
+                    </alternative>
+                    <otherwise>
+                      <manipulate id="a10" label="Attack Available">
+                        <code>data.title = "#, please select a target to attack!"
+data.message = nil
+data.attack = true</code>
+                        <annotations>
+                          <_logging_behavior>
+                            <_exclude/>
+                          </_logging_behavior>
+                          <_context_data_analysis>
+                            <probes/>
+                          </_context_data_analysis>
+                        </annotations>
+                      </manipulate>
+                    </otherwise>
+                  </choose>
+                </otherwise>
+              </choose>
+            </otherwise>
+          </choose>
+        </otherwise>
+      </choose>
+    </description>
+  </description>
+  <transformation>
+    <description type="copy"/>
+    <dataelements type="none"/>
+    <endpoints type="none"/>
+  </transformation>
+</testset>

@@ -1,0 +1,150 @@
+<testset xmlns="http://cpee.org/ns/properties/2.0">
+  <executionhandler>ruby</executionhandler>
+  <dataelements>
+    <current_player/>
+  </dataelements>
+  <endpoints>
+    <timeout>https-post://cpee.org/services/timeout.php</timeout>
+    <subprocess>https-post://cpee.org/flow/start/url/</subprocess>
+  </endpoints>
+  <attributes>
+    <info>initialize_player</info>
+    <guarded>none</guarded>
+    <modeltype>CPEE</modeltype>
+    <theme>dataflow</theme>
+    <creator>Christine Ashcreek</creator>
+    <guarded_id/>
+    <author>Christine Ashcreek</author>
+    <model_uuid>6d2d35f2-cdf9-42da-b5b5-23fbacba3b12</model_uuid>
+    <model_version/>
+    <design_dir>Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir</design_dir>
+    <design_stage>development</design_stage>
+  </attributes>
+  <description>
+    <description xmlns="http://cpee.org/ns/description/1.0">
+      <choose mode="exclusive" label="">
+        <alternative condition="data.current_player[&quot;id&quot;].to_s == &quot;wizard&quot;">
+          <manipulate id="a1" label="Rule: Remove Wizard's Shield at Turn Start">
+            <code>data.current_player["conditions"].delete("shielded")</code>
+            <annotations>
+              <_logging_behavior>
+                <_exclude/>
+              </_logging_behavior>
+              <_context_data_analysis>
+                <probes/>
+              </_context_data_analysis>
+            </annotations>
+          </manipulate>
+          <_probability>
+            <_probability_min/>
+            <_probability_max/>
+            <_probability_avg/>
+          </_probability>
+        </alternative>
+        <alternative condition="data.current_player[&quot;id&quot;].to_s == &quot;barbarian&quot;">
+          <manipulate id="a2" label="Rule: Remove Barbarian's Reckless at Turn Start">
+            <code>data.current_player["conditions"].delete("reckless")</code>
+            <annotations>
+              <_logging_behavior>
+                <_exclude/>
+              </_logging_behavior>
+              <_context_data_analysis>
+                <probes/>
+              </_context_data_analysis>
+            </annotations>
+          </manipulate>
+          <choose mode="exclusive" label="">
+            <alternative condition="data.current_player[&quot;conditions&quot;].include?(&quot;raging&quot;)">
+              <choose mode="exclusive" label="">
+                <alternative condition="data.current_player[&quot;conditions&quot;].include?(&quot;damaged&quot;)">
+                  <manipulate id="a5" label="Rule: Rage Continues as Barbarian was Damaged">
+                    <code/>
+                    <annotations>
+                      <_logging_behavior>
+                        <_exclude/>
+                      </_logging_behavior>
+                      <_context_data_analysis>
+                        <probes/>
+                      </_context_data_analysis>
+                    </annotations>
+                  </manipulate>
+                  <_probability>
+                    <_probability_min/>
+                    <_probability_max/>
+                    <_probability_avg/>
+                  </_probability>
+                </alternative>
+                <alternative condition="data.current_player[&quot;conditions&quot;].include?(&quot;attacked&quot;)">
+                  <manipulate id="a4" label="Rule: Rage Continues as Barbarian Attacked">
+                    <code/>
+                    <annotations>
+                      <_logging_behavior>
+                        <_exclude/>
+                      </_logging_behavior>
+                      <_context_data_analysis>
+                        <probes/>
+                      </_context_data_analysis>
+                    </annotations>
+                  </manipulate>
+                  <_probability>
+                    <_probability_min/>
+                    <_probability_max/>
+                    <_probability_avg/>
+                  </_probability>
+                </alternative>
+                <otherwise>
+                  <manipulate id="a3" label="Rule: Rage Ends as Barbarian Neither Attacked nor was Damaged">
+                    <code>data.current_player["conditions"].delete("raging")</code>
+                    <annotations>
+                      <_logging_behavior>
+                        <_exclude/>
+                      </_logging_behavior>
+                      <_context_data_analysis>
+                        <probes/>
+                      </_context_data_analysis>
+                    </annotations>
+                  </manipulate>
+                </otherwise>
+              </choose>
+              <_probability>
+                <_probability_min/>
+                <_probability_max/>
+                <_probability_avg/>
+              </_probability>
+            </alternative>
+            <otherwise/>
+          </choose>
+          <_probability>
+            <_probability_min/>
+            <_probability_max/>
+            <_probability_avg/>
+          </_probability>
+        </alternative>
+        <otherwise/>
+      </choose>
+      <manipulate id="a6" label="Rule: Remove General Conditions (Damaged, Moved, Attacked)">
+        <code># --- Remove per-turn "damaged, moved, and attacked" conditions for any player
+conds = (data.current_player["conditions"] || []).map(&amp;:to_s)
+
+conds.delete("attacked")
+conds.delete("moved")
+conds.delete("damaged")
+
+data.current_player["conditions"] = conds</code>
+        <annotations>
+          <_logging_behavior>
+            <_exclude/>
+          </_logging_behavior>
+          <_context_data_analysis>
+            <probes/>
+          </_context_data_analysis>
+        </annotations>
+      </manipulate>
+    </description>
+  </description>
+  <transformation>
+    <description type="copy"/>
+    <dataelements type="none"/>
+    <endpoints type="none"/>
+  </transformation>
+</testset>

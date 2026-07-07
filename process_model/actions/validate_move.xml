@@ -1,0 +1,115 @@
+<testset xmlns="http://cpee.org/ns/properties/2.0">
+  <executionhandler>ruby</executionhandler>
+  <dataelements>
+    <current_player>{"type":"player","id":"wizard","title":"Wizard","position":[7,5],"initiative":21,"init_bonus":2,"ac":15,"hp":28,"max_hp":28,"mana":10,"max_mana":15,"adrenaline":5,"max_adrenaline":15,"insanity":0,"max_insanity":10,"max_movement":3,"current_movement":3,"abilities":[{"id":"str","title":"Strength","value":8,"mod":-1,"saving_throw":-1},{"id":"dex","title":"Dexterity","value":14,"mod":2,"saving_throw":2},{"id":"con","title":"Constitution","value":14,"mod":1,"saving_throw":2},{"id":"int","title":"Intelligence","value":20,"mod":5,"saving_throw":8},{"id":"wis","title":"Wisdom","value":14,"mod":2,"saving_throw":5}],"skills":[{"id":10,"type":0,"title":"Arcane Burst","no_of_dice":2,"die":"d10","prerequisite":null,"condition":null,"m_cost":1,"a_cost":1,"range":3},{"id":11,"type":2,"title":"Arcane Shield","no_of_dice":0,"die":null,"prerequisite":null,"condition":"shielded","m_cost":1,"a_cost":1,"range":0},{"id":12,"type":2,"title":"Stabilize","no_of_dice":0,"die":null,"prerequisite":null,"condition":null,"m_cost":2,"a_cost":2,"range":3}],"valid_targets":[],"target":null,"chosen_action":13,"attack_bonus":8,"attack_roll":null,"damage_roll":null,"conditions":[],"equipment":[],"action_available":true,"b_action_available":true,"first_turn":true}</current_player>
+    <reason>2</reason>
+    <title>#, you may take your movement!</title>
+    <message>You can only move a number of cells allowed by your movement...</message>
+    <move>true</move>
+  </dataelements>
+  <endpoints>
+    <timeout>https-post://cpee.org/services/timeout.php</timeout>
+    <subprocess>https-post://cpee.org/flow/start/url/</subprocess>
+    <frames_display>https-put://cpee.org/out/frames/</frames_display>
+  </endpoints>
+  <attributes>
+    <info>validate_move</info>
+    <guarded>none</guarded>
+    <modeltype>CPEE</modeltype>
+    <theme>dataflow</theme>
+    <guarded_id/>
+    <creator>Christine Ashcreek</creator>
+    <author>Christine Ashcreek</author>
+    <model_uuid>d1c064de-ffed-44b0-9fa7-7b408dd07b20</model_uuid>
+    <model_version/>
+    <design_dir>Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/actions.dir</design_dir>
+    <design_stage>development</design_stage>
+    <fid>gridsanddragons</fid>
+  </attributes>
+  <description>
+    <description xmlns="http://cpee.org/ns/description/1.0">
+      <manipulate id="a2" label="Validate Movement Availability">
+        <code>if data.current_player["current_movement"].to_i == 0
+  data.reason = 0
+  return
+elsif data.current_player["conditions"].map(&amp;:to_s).include?("grappled")
+  data.reason = 1
+  return
+else
+  data.reason = 9
+  return
+end</code>
+        <annotations>
+          <_logging_behavior>
+            <_exclude/>
+          </_logging_behavior>
+          <_context_data_analysis>
+            <probes/>
+          </_context_data_analysis>
+        </annotations>
+      </manipulate>
+      <choose mode="exclusive" label="">
+        <alternative eid="e1" condition="data.reason.to_i == 0">
+          <_probability>
+            <_probability_min/>
+            <_probability_max/>
+            <_probability_avg/>
+          </_probability>
+          <manipulate id="a8" label="Movement Unavailable: Has No Movement Left">
+            <code>data.title = "#, you do not have any movement left!"
+data.message = "Please wait to select another action..."
+data.move = false</code>
+            <annotations>
+              <_logging_behavior>
+                <_exclude/>
+              </_logging_behavior>
+              <_context_data_analysis>
+                <probes/>
+              </_context_data_analysis>
+            </annotations>
+          </manipulate>
+        </alternative>
+        <alternative eid="e2" condition="data.reason.to_i == 1">
+          <_probability>
+            <_probability_min/>
+            <_probability_max/>
+            <_probability_avg/>
+          </_probability>
+          <manipulate id="a1" label="Movement Unavailable: Player is Grappled">
+            <code>data.title = "#, you are grappled so you cannot move!"
+data.message = "Please wait to select another action..."
+data.move = false</code>
+            <annotations>
+              <_logging_behavior>
+                <_exclude/>
+              </_logging_behavior>
+              <_context_data_analysis>
+                <probes/>
+              </_context_data_analysis>
+            </annotations>
+          </manipulate>
+        </alternative>
+        <otherwise>
+          <manipulate id="a7" label="Movement Available: Has Movement &amp; Not Grappled">
+            <code>data.title = "#, you may take your movement!"
+data.message = "You can only move a number of cells allowed by your movement..."
+data.move = true</code>
+            <annotations>
+              <_logging_behavior>
+                <_exclude/>
+              </_logging_behavior>
+              <_context_data_analysis>
+                <probes/>
+              </_context_data_analysis>
+            </annotations>
+          </manipulate>
+        </otherwise>
+      </choose>
+    </description>
+  </description>
+  <transformation>
+    <description type="copy"/>
+    <dataelements type="none"/>
+    <endpoints type="none"/>
+  </transformation>
+</testset>

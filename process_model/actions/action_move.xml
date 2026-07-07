@@ -1,0 +1,927 @@
+<testset xmlns="http://cpee.org/ns/properties/2.0">
+  <executionhandler>ruby</executionhandler>
+  <dataelements>
+    <current_player/>
+    <title/>
+    <game_state/>
+    <player_data/>
+    <initiative_order/>
+    <terrain_pieces/>
+    <terrain_template/>
+    <message/>
+    <result/>
+    <checking/>
+  </dataelements>
+  <endpoints>
+    <timeout>https-post://cpee.org/services/timeout.php</timeout>
+    <subprocess>https-post://cpee.org/flow/start/url/</subprocess>
+    <frames_display>https-put://cpee.org/out/frames/</frames_display>
+    <waitMovement>https://lehre.bpm.in.tum.de/ports/5104/waitMovement/</waitMovement>
+    <validateMovement>https://lehre.bpm.in.tum.de/ports/5104/validateMovement/</validateMovement>
+  </endpoints>
+  <attributes>
+    <info>action_move</info>
+    <guarded>none</guarded>
+    <modeltype>CPEE</modeltype>
+    <theme>dataflow</theme>
+    <guarded_id/>
+    <creator>Christine Ashcreek</creator>
+    <author>Christine Ashcreek</author>
+    <model_uuid>e9f6f788-d78b-4843-babd-f2cc44ba0d18</model_uuid>
+    <model_version/>
+    <design_dir>Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/actions.dir</design_dir>
+    <design_stage>development</design_stage>
+    <fid>gridsanddragons</fid>
+  </attributes>
+  <description>
+    <description xmlns="http://cpee.org/ns/description/1.0">
+      <call id="a21" endpoint="subprocess">
+        <parameters>
+          <label>Validate Move</label>
+          <color/>
+          <method>:post</method>
+          <arguments>
+            <behavior>wait_running</behavior>
+            <url>https://cpee.org/hub/server/Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/actions.dir/validate_move.xml</url>
+            <init>
+              <current_player>!data.current_player</current_player>
+            </init>
+            <endpoints/>
+            <attributes/>
+            <customization/>
+          </arguments>
+        </parameters>
+        <code>
+          <signal/>
+          <prepare/>
+          <finalize output="result">data.move = result["move"]
+data.title = result["title"]
+data.message = result["message"]
+data.current_player = result["current_player"]</finalize>
+          <update output="result"/>
+          <rescue output="result"/>
+        </code>
+        <annotations>
+          <_generic/>
+          <_logging_behavior>
+            <_exclude/>
+            <_include/>
+          </_logging_behavior>
+          <_timing>
+            <_timing_weight/>
+            <_timing_avg/>
+            <explanations/>
+          </_timing>
+          <_shifting>
+            <_shifting_type>Duration</_shifting_type>
+          </_shifting>
+          <_context_data_analysis>
+            <probes/>
+            <ips/>
+          </_context_data_analysis>
+          <report>
+            <url/>
+          </report>
+          <_notes>
+            <_notes_general/>
+          </_notes>
+        </annotations>
+        <documentation>
+          <input/>
+          <output/>
+          <implementation>
+            <description/>
+          </implementation>
+          <code>
+            <description/>
+          </code>
+        </documentation>
+      </call>
+      <choose mode="exclusive" label="">
+        <alternative condition="data.move == true">
+          <loop mode="post_test" condition="data.checking">
+            <call id="a8" endpoint="frames_display">
+              <parameters>
+                <label>Display Available Movement Message</label>
+                <color/>
+                <arguments>
+                  <type>set</type>
+                  <lx>6</lx>
+                  <ly>3</ly>
+                  <x_amount>3</x_amount>
+                  <y_amount>1</y_amount>
+                  <button/>
+                  <style/>
+                  <urls>
+                    <urls_item>
+                      <lang>de-at</lang>
+                      <url>https://lehre.bpm.in.tum.de/~ge87max/instruction/instruction.html</url>
+                    </urls_item>
+                  </urls>
+                  <default>
+                    <title>!data.title</title>
+                    <message>!data.message</message>
+                    <player_id>!data.current_player["title"]</player_id>
+                  </default>
+                </arguments>
+              </parameters>
+              <code>
+                <signal/>
+                <prepare>endpoints.frames_display += attributes.fid</prepare>
+                <finalize output="result"/>
+                <update output="result"/>
+                <rescue output="result"/>
+              </code>
+              <annotations>
+                <_generic/>
+                <_logging_behavior>
+                  <_exclude/>
+                  <_include/>
+                </_logging_behavior>
+                <_timing>
+                  <_timing_weight/>
+                  <_timing_avg/>
+                  <explanations/>
+                </_timing>
+                <_shifting>
+                  <_shifting_type>Duration</_shifting_type>
+                </_shifting>
+                <_context_data_analysis>
+                  <probes/>
+                  <ips/>
+                </_context_data_analysis>
+                <report>
+                  <url/>
+                </report>
+                <_notes>
+                  <_notes_general/>
+                </_notes>
+              </annotations>
+              <documentation>
+                <input/>
+                <output/>
+                <implementation>
+                  <description/>
+                </implementation>
+                <code>
+                  <description/>
+                </code>
+              </documentation>
+            </call>
+            <call id="a10" endpoint="waitMovement">
+              <parameters>
+                <label>Wait for Position</label>
+                <color/>
+                <method>:post</method>
+                <arguments/>
+              </parameters>
+              <code>
+                <signal/>
+                <prepare/>
+                <finalize output="result">data.result = result["position"]
+data.checking = true</finalize>
+                <update output="result"/>
+                <rescue output="result"/>
+              </code>
+              <annotations>
+                <_generic/>
+                <_timing>
+                  <_timing_weight/>
+                  <_timing_avg/>
+                  <explanations/>
+                </_timing>
+                <_shifting>
+                  <_shifting_type>Duration</_shifting_type>
+                </_shifting>
+                <_context_data_analysis>
+                  <probes/>
+                  <ips/>
+                </_context_data_analysis>
+                <report>
+                  <url/>
+                </report>
+                <_notes>
+                  <_notes_general/>
+                </_notes>
+              </annotations>
+              <documentation>
+                <input/>
+                <output/>
+                <implementation>
+                  <description/>
+                </implementation>
+                <code>
+                  <description/>
+                </code>
+              </documentation>
+            </call>
+            <call id="a7" endpoint="validateMovement">
+              <parameters>
+                <label>Validate Position</label>
+                <color/>
+                <method>:post</method>
+                <arguments>
+                  <current_player>!data.current_player</current_player>
+                  <result>!data.result</result>
+                  <game_state>!data.game_state</game_state>
+                  <terrain_pieces>!data.terrain_pieces</terrain_pieces>
+                </arguments>
+              </parameters>
+              <code>
+                <signal/>
+                <prepare/>
+                <finalize output="result">data.reason = result["reason"]
+data.current_player = result["current_player"]</finalize>
+                <update output="result"/>
+                <rescue output="result"/>
+              </code>
+              <annotations>
+                <_generic/>
+                <_logging_behavior>
+                  <_exclude/>
+                  <_include/>
+                </_logging_behavior>
+                <_timing>
+                  <_timing_weight/>
+                  <_timing_avg/>
+                  <explanations/>
+                </_timing>
+                <_shifting>
+                  <_shifting_type>Duration</_shifting_type>
+                </_shifting>
+                <_context_data_analysis>
+                  <probes/>
+                  <ips/>
+                </_context_data_analysis>
+                <report>
+                  <url/>
+                </report>
+                <_notes>
+                  <_notes_general/>
+                </_notes>
+              </annotations>
+              <documentation>
+                <input/>
+                <output/>
+                <implementation>
+                  <description/>
+                </implementation>
+                <code>
+                  <description/>
+                </code>
+              </documentation>
+            </call>
+            <choose mode="exclusive" label="">
+              <alternative condition="data.reason.to_i == 1">
+                <_probability>
+                  <_probability_min/>
+                  <_probability_max/>
+                  <_probability_avg/>
+                </_probability>
+                <manipulate id="a3" label="Invalid Movement: Terrain Not Revealed">
+                  <code>data.message = "Please choose a revealed cell to move to..."</code>
+                  <annotations>
+                    <_logging_behavior>
+                      <_exclude/>
+                    </_logging_behavior>
+                    <_context_data_analysis>
+                      <probes/>
+                    </_context_data_analysis>
+                  </annotations>
+                </manipulate>
+              </alternative>
+              <alternative condition="data.reason.to_i == 2">
+                <manipulate id="a13" label="Invalid Movement: Cell Occupied">
+                  <code>data.message = "Please choose an unoocupied cell to move to..."</code>
+                  <annotations>
+                    <_logging_behavior>
+                      <_exclude/>
+                    </_logging_behavior>
+                    <_context_data_analysis>
+                      <probes/>
+                    </_context_data_analysis>
+                  </annotations>
+                </manipulate>
+                <_probability>
+                  <_probability_min/>
+                  <_probability_max/>
+                  <_probability_avg/>
+                </_probability>
+              </alternative>
+              <alternative condition="data.reason.to_i == 3">
+                <manipulate id="a16" label="Invalid Movement: Not Enough Movement">
+                  <code>data.message = "Please move only as much as allowed by your movement..."</code>
+                  <annotations>
+                    <_logging_behavior>
+                      <_exclude/>
+                    </_logging_behavior>
+                    <_context_data_analysis>
+                      <probes/>
+                    </_context_data_analysis>
+                  </annotations>
+                </manipulate>
+                <_probability>
+                  <_probability_min/>
+                  <_probability_max/>
+                  <_probability_avg/>
+                </_probability>
+              </alternative>
+              <alternative condition="data.reason.to_i == 4">
+                <_probability>
+                  <_probability_min/>
+                  <_probability_max/>
+                  <_probability_avg/>
+                </_probability>
+                <manipulate id="a9" label="Invalid Movement: Blocked Path">
+                  <code>data.message = "There is no valid path to your destination..."</code>
+                  <annotations>
+                    <_logging_behavior>
+                      <_exclude/>
+                    </_logging_behavior>
+                    <_context_data_analysis>
+                      <probes/>
+                    </_context_data_analysis>
+                  </annotations>
+                </manipulate>
+              </alternative>
+              <otherwise>
+                <manipulate id="a17" label="Valid Movement: Valid Cell Choice">
+                  <code>data.checking = false</code>
+                  <annotations>
+                    <_logging_behavior>
+                      <_exclude/>
+                    </_logging_behavior>
+                    <_context_data_analysis>
+                      <probes/>
+                    </_context_data_analysis>
+                  </annotations>
+                </manipulate>
+              </otherwise>
+            </choose>
+            <call id="a11" endpoint="frames_display">
+              <parameters>
+                <label>Reset Movement Message Display</label>
+                <color/>
+                <arguments>
+                  <type>set</type>
+                  <lx>6</lx>
+                  <ly>3</ly>
+                  <x_amount>3</x_amount>
+                  <y_amount>1</y_amount>
+                  <button/>
+                  <style/>
+                  <urls/>
+                  <default/>
+                </arguments>
+              </parameters>
+              <code>
+                <signal/>
+                <prepare>endpoints.frames_display += attributes.fid</prepare>
+                <finalize output="result"/>
+                <update output="result"/>
+                <rescue output="result"/>
+              </code>
+              <annotations>
+                <_generic/>
+                <_logging_behavior>
+                  <_exclude/>
+                  <_include/>
+                </_logging_behavior>
+                <_timing>
+                  <_timing_weight/>
+                  <_timing_avg/>
+                  <explanations/>
+                </_timing>
+                <_shifting>
+                  <_shifting_type>Duration</_shifting_type>
+                </_shifting>
+                <_context_data_analysis>
+                  <probes/>
+                  <ips/>
+                </_context_data_analysis>
+                <report>
+                  <url/>
+                </report>
+                <_notes>
+                  <_notes_general/>
+                </_notes>
+              </annotations>
+              <documentation>
+                <input/>
+                <output/>
+                <implementation>
+                  <description/>
+                </implementation>
+                <code>
+                  <description/>
+                </code>
+              </documentation>
+            </call>
+            <_probability>
+              <_probability_min/>
+              <_probability_max/>
+              <_probability_avg/>
+            </_probability>
+            <_annotations>
+              <_logging_behavior>
+                <_iteration/>
+              </_logging_behavior>
+            </_annotations>
+          </loop>
+          <manipulate id="a2" label="Update Player Position and Conditions">
+            <code># --- Helper ---
+def find_cell(game_state, r, c)
+  game_state.flatten.find do |cell|
+    g = cell["global"]
+    g &amp;&amp; g[0].to_i == r.to_i &amp;&amp; g[1].to_i == c.to_i
+  end
+end
+
+# --- Initialize Cell Variables ---
+res = data.result
+
+if res.is_a?(String) &amp;&amp; res.strip.start_with?('[')
+  res = JSON.parse(res)
+end
+
+if res.is_a?(String) &amp;&amp; res.include?(',')
+  res = res.split(',').map(&amp;:to_i)
+end
+
+old_r, old_c = data.current_player["position"]
+new_r, new_c = res
+
+# --- Find the Grid Cells ---
+old_cell = find_cell(data.game_state, old_r, old_c)
+new_cell = find_cell(data.game_state, new_r, new_c)
+
+# --- Update current_player position ---
+data.current_player["position"] = [new_r, new_c]
+
+# --- Update current_player conditions ---
+cur_cond = (data.current_player["conditions"] || []).dup
+cur_cond &lt;&lt; "moved" unless cur_cond.include?("moved")
+
+# --- Update game_state occupancy ---
+old_cell["occupied"] = nil if old_cell
+new_cell["occupied"] = data.current_player["id"].to_s
+
+# --- Handle end-condition ---
+end_effect_map = {
+  "rogue" =&gt; "rogueE",
+  "barbarian" =&gt; "barbarianE",
+  "wizard" =&gt; "wizardE",
+  "cleric" =&gt; "clericE"
+}
+
+effect_here  = new_cell["effect"]
+expected_effect = end_effect_map[data.current_player["id"].to_s]
+
+if expected_effect &amp;&amp; effect_here.to_s == expected_effect.to_s
+  cur_cond &lt;&lt; "reached_end" unless cur_cond.include?("reached_end")
+else
+  cur_cond.delete("reached_end")
+end
+
+data.current_player["conditions"] = cur_cond
+
+# --- Propagate changes into player_data &amp; initiative_order ---
+[data.initiative_order, data.player_data].each do |arr|
+  pl = arr.find { |p| p["id"].to_s == data.current_player["id"].to_s }
+  next unless pl
+
+  pl["position"] = [new_r, new_c]
+  pl["conditions"] = cur_cond.dup
+end</code>
+            <annotations>
+              <_logging_behavior>
+                <_exclude/>
+              </_logging_behavior>
+              <_context_data_analysis>
+                <probes/>
+              </_context_data_analysis>
+            </annotations>
+          </manipulate>
+          <call id="a1" endpoint="subprocess">
+            <parameters>
+              <label>Manipulate Grid?</label>
+              <color/>
+              <method>:post</method>
+              <arguments>
+                <behavior>wait_running</behavior>
+                <url>https://cpee.org/hub/server/Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/manipulate_grid.xml</url>
+                <init>
+                  <current_player>!data.current_player</current_player>
+                  <initiative_order>!data.initiative_order</initiative_order>
+                  <player_data>!data.player_data</player_data>
+                  <terrain_pieces>!data.terrain_pieces</terrain_pieces>
+                  <terrain_template>!data.terrain_template</terrain_template>
+                  <game_state>!data.game_state</game_state>
+                </init>
+                <endpoints/>
+                <attributes/>
+                <customization/>
+              </arguments>
+            </parameters>
+            <code>
+              <signal/>
+              <prepare/>
+              <finalize output="result">data.initiative_order = result["initiative_order"]
+data.current_player = result["current_player"]
+data.player_data = result["player_data"]
+data.terrain_template = result["terrain_template"]
+data.terrain_pieces = result["terrain_pieces"]
+data.game_state = result["game_state"]
+data.terrain_shift = result["terrain_shift"]</finalize>
+              <update output="result"/>
+              <rescue output="result"/>
+            </code>
+            <annotations>
+              <_generic/>
+              <_logging_behavior>
+                <_exclude/>
+                <_include/>
+              </_logging_behavior>
+              <_timing>
+                <_timing_weight/>
+                <_timing_avg/>
+                <explanations/>
+              </_timing>
+              <_shifting>
+                <_shifting_type>Duration</_shifting_type>
+              </_shifting>
+              <_context_data_analysis>
+                <probes/>
+                <ips/>
+              </_context_data_analysis>
+              <report>
+                <url/>
+              </report>
+              <_notes>
+                <_notes_general/>
+              </_notes>
+            </annotations>
+            <documentation>
+              <input/>
+              <output/>
+              <implementation>
+                <description/>
+              </implementation>
+              <code>
+                <description/>
+              </code>
+            </documentation>
+          </call>
+          <choose mode="exclusive" label="">
+            <alternative condition="(data.reason.to_i  == 5) &amp;&amp; data.terrain_shift == true">
+              <_probability>
+                <_probability_min/>
+                <_probability_max/>
+                <_probability_avg/>
+              </_probability>
+              <call id="a20" endpoint="subprocess">
+                <parameters>
+                  <label>Visualize Grid: Grid Changed</label>
+                  <color/>
+                  <method>:post</method>
+                  <arguments>
+                    <behavior>wait_running</behavior>
+                    <url>https://cpee.org/hub/server/Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/visualize_grid.xml</url>
+                    <init>
+                      <game_state>!data.game_state</game_state>
+                      <terrain_pieces>!data.terrain_pieces</terrain_pieces>
+                    </init>
+                    <endpoints/>
+                    <attributes/>
+                    <customization/>
+                  </arguments>
+                </parameters>
+                <annotations>
+                  <_generic/>
+                  <_logging_behavior>
+                    <_exclude/>
+                    <_include/>
+                  </_logging_behavior>
+                  <_timing>
+                    <_timing_weight/>
+                    <_timing_avg/>
+                    <explanations/>
+                  </_timing>
+                  <_shifting>
+                    <_shifting_type>Duration</_shifting_type>
+                  </_shifting>
+                  <_context_data_analysis>
+                    <probes/>
+                    <ips/>
+                  </_context_data_analysis>
+                  <report>
+                    <url/>
+                  </report>
+                  <_notes>
+                    <_notes_general/>
+                  </_notes>
+                </annotations>
+                <documentation>
+                  <input/>
+                  <output/>
+                  <implementation>
+                    <description/>
+                  </implementation>
+                </documentation>
+              </call>
+            </alternative>
+            <alternative condition="data.reason.to_i == 6">
+              <_probability>
+                <_probability_min/>
+                <_probability_max/>
+                <_probability_avg/>
+              </_probability>
+              <call id="a18" endpoint="subprocess">
+                <parameters>
+                  <label>Visualize Grid: Player Moved</label>
+                  <color/>
+                  <method>:post</method>
+                  <arguments>
+                    <behavior>wait_running</behavior>
+                    <url>https://cpee.org/hub/server/Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/visualize_grid.xml</url>
+                    <init>
+                      <game_state>!data.game_state</game_state>
+                      <terrain_pieces>!data.terrain_pieces</terrain_pieces>
+                    </init>
+                    <endpoints/>
+                    <attributes/>
+                    <customization/>
+                  </arguments>
+                </parameters>
+                <annotations>
+                  <_generic/>
+                  <_logging_behavior>
+                    <_exclude/>
+                    <_include/>
+                  </_logging_behavior>
+                  <_timing>
+                    <_timing_weight/>
+                    <_timing_avg/>
+                    <explanations/>
+                  </_timing>
+                  <_shifting>
+                    <_shifting_type>Duration</_shifting_type>
+                  </_shifting>
+                  <_context_data_analysis>
+                    <probes/>
+                    <ips/>
+                  </_context_data_analysis>
+                  <report>
+                    <url/>
+                  </report>
+                  <_notes>
+                    <_notes_general/>
+                  </_notes>
+                </annotations>
+                <documentation>
+                  <input/>
+                  <output/>
+                  <implementation>
+                    <description/>
+                  </implementation>
+                </documentation>
+              </call>
+              <call id="a19" endpoint="subprocess">
+                <parameters>
+                  <label>Visualize Stats: Player Moved</label>
+                  <color/>
+                  <method>:post</method>
+                  <arguments>
+                    <behavior>wait_running</behavior>
+                    <url>https://cpee.org/hub/server/Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/visualize_stats.xml</url>
+                    <init>
+                      <current_player>!data.current_player</current_player>
+                    </init>
+                    <endpoints/>
+                    <attributes/>
+                    <customization/>
+                  </arguments>
+                </parameters>
+                <annotations>
+                  <_generic/>
+                  <_logging_behavior>
+                    <_exclude/>
+                    <_include/>
+                  </_logging_behavior>
+                  <_timing>
+                    <_timing_weight/>
+                    <_timing_avg/>
+                    <explanations/>
+                  </_timing>
+                  <_shifting>
+                    <_shifting_type>Duration</_shifting_type>
+                  </_shifting>
+                  <_context_data_analysis>
+                    <probes/>
+                    <ips/>
+                  </_context_data_analysis>
+                  <report>
+                    <url/>
+                  </report>
+                  <_notes>
+                    <_notes_general/>
+                  </_notes>
+                </annotations>
+                <documentation>
+                  <input/>
+                  <output/>
+                  <implementation>
+                    <description/>
+                  </implementation>
+                </documentation>
+              </call>
+            </alternative>
+            <otherwise/>
+          </choose>
+          <_probability>
+            <_probability_min/>
+            <_probability_max/>
+            <_probability_avg/>
+          </_probability>
+        </alternative>
+        <otherwise>
+          <call id="a6" endpoint="frames_display">
+            <parameters>
+              <label>Display Unavailable Movement Message</label>
+              <color/>
+              <arguments>
+                <type>set</type>
+                <lx>6</lx>
+                <ly>3</ly>
+                <x_amount>3</x_amount>
+                <y_amount>1</y_amount>
+                <button/>
+                <style/>
+                <urls>
+                  <urls_item>
+                    <lang>de-at</lang>
+                    <url>https://lehre.bpm.in.tum.de/~ge87max/instruction/instruction.html</url>
+                  </urls_item>
+                </urls>
+                <default>
+                  <title>!data.title</title>
+                  <message>!data.message</message>
+                  <player_id>!data.current_player["title"]</player_id>
+                </default>
+              </arguments>
+            </parameters>
+            <code>
+              <signal/>
+              <prepare>endpoints.frames_display += attributes.fid</prepare>
+              <finalize output="result"/>
+              <update output="result"/>
+              <rescue output="result"/>
+            </code>
+            <annotations>
+              <_generic/>
+              <_logging_behavior>
+                <_exclude/>
+                <_include/>
+              </_logging_behavior>
+              <_timing>
+                <_timing_weight/>
+                <_timing_avg/>
+                <explanations/>
+              </_timing>
+              <_shifting>
+                <_shifting_type>Duration</_shifting_type>
+              </_shifting>
+              <_context_data_analysis>
+                <probes/>
+                <ips/>
+              </_context_data_analysis>
+              <report>
+                <url/>
+              </report>
+              <_notes>
+                <_notes_general/>
+              </_notes>
+            </annotations>
+            <documentation>
+              <input/>
+              <output/>
+              <implementation>
+                <description/>
+              </implementation>
+              <code>
+                <description/>
+              </code>
+            </documentation>
+          </call>
+          <call id="a5" endpoint="timeout">
+            <parameters>
+              <label>Wait for Message Display</label>
+              <color/>
+              <method>:post</method>
+              <arguments>
+                <timeout>4</timeout>
+                <data/>
+              </arguments>
+            </parameters>
+            <annotations>
+              <_generic/>
+              <_logging_behavior>
+                <_exclude/>
+                <_include/>
+              </_logging_behavior>
+              <_timing>
+                <_timing_weight/>
+                <_timing_avg/>
+                <explanations/>
+              </_timing>
+              <_shifting>
+                <_shifting_type>Duration</_shifting_type>
+              </_shifting>
+              <_context_data_analysis>
+                <probes/>
+                <ips/>
+              </_context_data_analysis>
+              <report>
+                <url/>
+              </report>
+              <_notes>
+                <_notes_general/>
+              </_notes>
+            </annotations>
+            <documentation>
+              <input/>
+              <output/>
+              <implementation>
+                <description/>
+              </implementation>
+            </documentation>
+          </call>
+          <call id="a4" endpoint="frames_display">
+            <parameters>
+              <label>Reset Message Display</label>
+              <color/>
+              <arguments>
+                <type>set</type>
+                <lx>6</lx>
+                <ly>3</ly>
+                <x_amount>3</x_amount>
+                <y_amount>1</y_amount>
+                <button/>
+                <style/>
+                <urls/>
+                <default/>
+              </arguments>
+            </parameters>
+            <code>
+              <signal/>
+              <prepare>endpoints.frames_display += attributes.fid</prepare>
+              <finalize output="result"/>
+              <update output="result"/>
+              <rescue output="result"/>
+            </code>
+            <annotations>
+              <_generic/>
+              <_logging_behavior>
+                <_exclude/>
+                <_include/>
+              </_logging_behavior>
+              <_timing>
+                <_timing_weight/>
+                <_timing_avg/>
+                <explanations/>
+              </_timing>
+              <_shifting>
+                <_shifting_type>Duration</_shifting_type>
+              </_shifting>
+              <_context_data_analysis>
+                <probes/>
+                <ips/>
+              </_context_data_analysis>
+              <report>
+                <url/>
+              </report>
+              <_notes>
+                <_notes_general/>
+              </_notes>
+            </annotations>
+            <documentation>
+              <input/>
+              <output/>
+              <implementation>
+                <description/>
+              </implementation>
+              <code>
+                <description/>
+              </code>
+            </documentation>
+          </call>
+        </otherwise>
+      </choose>
+    </description>
+  </description>
+  <transformation>
+    <description type="copy"/>
+    <dataelements type="none"/>
+    <endpoints type="none"/>
+  </transformation>
+</testset>

@@ -1,0 +1,164 @@
+<testset xmlns="http://cpee.org/ns/properties/2.0">
+  <executionhandler>ruby</executionhandler>
+  <dataelements/>
+  <endpoints>
+    <timeout>https-post://cpee.org/services/timeout.php</timeout>
+    <subprocess>https-post://cpee.org/flow/start/url/</subprocess>
+  </endpoints>
+  <attributes>
+    <info>finalize_player</info>
+    <guarded>none</guarded>
+    <modeltype>CPEE</modeltype>
+    <theme>dataflow</theme>
+    <guarded_id/>
+    <creator>Christine Ashcreek</creator>
+    <author>Christine Ashcreek</author>
+    <model_uuid>b5e61089-304d-41ec-a5ad-6932accd26e8</model_uuid>
+    <model_version/>
+    <design_dir>Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir</design_dir>
+    <design_stage>development</design_stage>
+  </attributes>
+  <description>
+    <description xmlns="http://cpee.org/ns/description/1.0">
+      <manipulate id="a2" label="Rule: Reset Per-Turn Player Selections &amp; Inputs">
+        <code>data.current_player["valid_targets"] = []
+data.current_player["damage_roll"] = nil
+data.current_player["attack_roll"] = nil
+data.current_player["target"] = nil
+data.current_player["chosen_action"] = nil</code>
+        <annotations>
+          <_logging_behavior>
+            <_exclude/>
+          </_logging_behavior>
+          <_context_data_analysis>
+            <probes/>
+          </_context_data_analysis>
+        </annotations>
+      </manipulate>
+      <manipulate id="a3" label="Rule: Reset Action &amp; Bonus Action to Available">
+        <code>data.current_player["action_available"] = true
+data.current_player["b_action_available"] = true</code>
+        <annotations>
+          <_logging_behavior>
+            <_exclude/>
+          </_logging_behavior>
+          <_context_data_analysis>
+            <probes/>
+          </_context_data_analysis>
+        </annotations>
+      </manipulate>
+      <manipulate id="a4" label="Rule: Reset Player Movement to Max Movement">
+        <code>data.current_player["current_movement"] = data.current_player["max_movement"].to_i</code>
+        <annotations>
+          <_logging_behavior>
+            <_exclude/>
+          </_logging_behavior>
+          <_context_data_analysis>
+            <probes/>
+          </_context_data_analysis>
+        </annotations>
+      </manipulate>
+      <manipulate id="a5" label="Rule: Remove Grappled Condition at the End of Turn">
+        <code>conds = data.current_player["conditions"].map(&amp;:to_s)
+conds.delete("grappled")
+data.current_player["conditions"] = conds</code>
+        <annotations>
+          <_logging_behavior>
+            <_exclude/>
+          </_logging_behavior>
+          <_context_data_analysis>
+            <probes/>
+          </_context_data_analysis>
+        </annotations>
+      </manipulate>
+      <choose eid="e1" mode="exclusive" label="">
+        <alternative eid="e2" condition="data.hidden == true">
+          <_probability>
+            <_probability_min/>
+            <_probability_max/>
+            <_probability_avg/>
+          </_probability>
+        </alternative>
+        <otherwise>
+          <manipulate id="a7" label="Rule: Remove Hidden Condition if Rogue Did Not Hide This Turn">
+            <code>conds = data.current_player["conditions"].map(&amp;:to_s)
+conds.delete("hidden")
+data.current_player["conditions"] = conds</code>
+            <annotations>
+              <_logging_behavior>
+                <_exclude/>
+              </_logging_behavior>
+              <_context_data_analysis>
+                <probes/>
+              </_context_data_analysis>
+            </annotations>
+          </manipulate>
+        </otherwise>
+      </choose>
+      <manipulate id="a1" label="Rule: Player Regains Mana &amp; Adrenaline at the End of Turn">
+        <code># --- Increase Mana &amp; Adrenaline ---
+
+gm_factor = data.configuration["gm_factor"].to_f
+
+if gm_factor &gt; 1.0
+  mana = (data.current_player["mana"]).to_i + 1
+  adr = (data.current_player["adrenaline"]).to_i + 1
+else
+  mana = (data.current_player["mana"]).to_i + 2
+  adr  = (data.current_player["adrenaline"]).to_i + 2
+end
+
+max_mana = data.current_player["max_mana"].to_i
+max_adr  = data.current_player["max_adrenaline"].to_i
+
+mana = [mana, max_mana.to_i].min
+adr = [adr,  max_adr.to_i].min
+
+data.current_player["mana"] = mana
+data.current_player["adrenaline"] = adr</code>
+        <annotations>
+          <_logging_behavior>
+            <_exclude/>
+          </_logging_behavior>
+          <_context_data_analysis>
+            <probes/>
+          </_context_data_analysis>
+        </annotations>
+      </manipulate>
+      <manipulate id="a6" label="Reset Player Elements, Check for Consistency &amp; Update Resources">
+        <code># --- Sync into initiative_order (full copy of current_player) ---
+
+data.initiative_order.map! do |ent|
+  if ent &amp;&amp; ent["type"] == "player" &amp;&amp; ent["id"].to_s == data.current_player["id"].to_s
+    data.current_player
+  else
+    ent
+  end
+end
+
+# --- Sync into player_data (full copy of current_player) ---
+
+data.player_data.map! do |pl|
+  if pl &amp;&amp; pl["id"].to_s == data.current_player["id"].to_s
+    data.current_player
+  else
+    pl
+  end
+end</code>
+        <annotations>
+          <_logging_behavior>
+            <_exclude/>
+          </_logging_behavior>
+          <_context_data_analysis>
+            <probes/>
+          </_context_data_analysis>
+        </annotations>
+      </manipulate>
+    </description>
+  </description>
+  <transformation>
+    <description type="copy"/>
+    <dataelements type="none"/>
+    <endpoints type="none"/>
+  </transformation>
+</testset>

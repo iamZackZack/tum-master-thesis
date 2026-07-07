@@ -1,0 +1,974 @@
+<testset xmlns="http://cpee.org/ns/properties/2.0">
+  <executionhandler>ruby</executionhandler>
+  <dataelements>
+    <initiative_order/>
+    <title/>
+    <turn_continue/>
+    <current_player/>
+    <message/>
+    <round/>
+    <game_state/>
+    <player_data/>
+    <terrain_pieces/>
+    <configuration/>
+    <terrain_template/>
+    <traps/>
+    <items/>
+    <hidden/>
+  </dataelements>
+  <endpoints>
+    <timeout>https-post://cpee.org/services/timeout.php</timeout>
+    <subprocess>https-post://cpee.org/flow/start/url/</subprocess>
+    <frames_display>https-put://cpee.org/out/frames/</frames_display>
+    <visualizeAction>https://lehre.bpm.in.tum.de/ports/5104/visualizeAction</visualizeAction>
+  </endpoints>
+  <attributes>
+    <info>player_turn</info>
+    <guarded>none</guarded>
+    <modeltype>Signavio</modeltype>
+    <theme>dataflow</theme>
+    <guarded_id/>
+    <creator>Christine Ashcreek</creator>
+    <author>Christine Ashcreek</author>
+    <model_uuid>19ba476a-70e6-4d79-8821-1e32dc88e87c</model_uuid>
+    <model_version/>
+    <design_dir>Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/virtual.dir/</design_dir>
+    <design_stage>development</design_stage>
+    <fid>gridsanddragons</fid>
+  </attributes>
+  <description>
+    <description xmlns="http://cpee.org/ns/description/1.0">
+      <call id="a4" endpoint="subprocess">
+        <parameters>
+          <label>Initialize Player Conditions</label>
+          <color/>
+          <method>:post</method>
+          <arguments>
+            <behavior>wait_running</behavior>
+            <url>https://cpee.org/hub/server/Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/initialize_player.xml</url>
+            <init>
+              <current_player>!data.current_player</current_player>
+            </init>
+            <endpoints/>
+            <attributes/>
+            <customization/>
+          </arguments>
+        </parameters>
+        <code>
+          <signal/>
+          <prepare/>
+          <finalize output="result">data.current_player = result["current_player"]
+
+# --- Initialize Title &amp; Message
+data.title = "#, please choose an action or end your turn."
+data.message = "Please keep in mind the mana and adrenaline costs..."</finalize>
+          <update output="result"/>
+          <rescue output="result"/>
+        </code>
+        <annotations>
+          <_generic/>
+          <_logging_behavior>
+            <_exclude/>
+            <_include/>
+          </_logging_behavior>
+          <_timing>
+            <_timing_weight/>
+            <_timing_avg/>
+            <explanations/>
+          </_timing>
+          <_shifting>
+            <_shifting_type>Duration</_shifting_type>
+          </_shifting>
+          <_context_data_analysis>
+            <probes/>
+            <ips/>
+          </_context_data_analysis>
+          <report>
+            <url/>
+          </report>
+          <_notes>
+            <_notes_general/>
+          </_notes>
+        </annotations>
+        <documentation>
+          <input/>
+          <output/>
+          <implementation>
+            <description/>
+          </implementation>
+          <code>
+            <description/>
+          </code>
+        </documentation>
+      </call>
+      <call id="a1" endpoint="subprocess">
+        <parameters>
+          <label>Visualize Stats</label>
+          <color/>
+          <method>:post</method>
+          <arguments>
+            <behavior>wait_running</behavior>
+            <url>https://cpee.org/hub/server/Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/visualize_stats.xml</url>
+            <init>
+              <current_player>!data.current_player</current_player>
+            </init>
+            <endpoints/>
+            <attributes/>
+            <customization/>
+          </arguments>
+        </parameters>
+        <annotations>
+          <_generic/>
+          <_logging_behavior>
+            <_exclude/>
+            <_include/>
+          </_logging_behavior>
+          <_timing>
+            <_timing_weight/>
+            <_timing_avg/>
+            <explanations/>
+          </_timing>
+          <_shifting>
+            <_shifting_type>Duration</_shifting_type>
+          </_shifting>
+          <_context_data_analysis>
+            <probes/>
+            <ips/>
+          </_context_data_analysis>
+          <report>
+            <url/>
+          </report>
+          <_notes>
+            <_notes_general/>
+          </_notes>
+        </annotations>
+        <documentation>
+          <input/>
+          <output/>
+          <implementation>
+            <description/>
+          </implementation>
+          <code>
+            <description/>
+          </code>
+        </documentation>
+      </call>
+      <loop mode="post_test" condition="data.turn_continue">
+        <_probability>
+          <_probability_min/>
+          <_probability_max/>
+          <_probability_avg/>
+        </_probability>
+        <_annotations>
+          <_logging_behavior>
+            <_iteration/>
+          </_logging_behavior>
+        </_annotations>
+        <call id="a12" endpoint="subprocess">
+          <parameters>
+            <label>Get Player Action Choice</label>
+            <color/>
+            <method>:post</method>
+            <arguments>
+              <behavior>wait_running</behavior>
+              <url>https://cpee.org/hub/server/Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/get_selection.xml</url>
+              <init>
+                <title>!data.title</title>
+                <message>!data.message</message>
+                <current_player>!data.current_player</current_player>
+                <type>2</type>
+              </init>
+              <endpoints/>
+              <attributes/>
+              <customization/>
+            </arguments>
+          </parameters>
+          <code>
+            <signal/>
+            <prepare>data.current_player["chosen_action"] = nil</prepare>
+            <finalize output="result">data.current_player["chosen_action"] = result["selection"]
+data.turn_continue = true</finalize>
+            <update output="result"/>
+            <rescue output="result"/>
+          </code>
+          <annotations>
+            <_generic/>
+            <_logging_behavior>
+              <_exclude/>
+              <_include/>
+            </_logging_behavior>
+            <_timing>
+              <_timing_weight/>
+              <_timing_avg/>
+              <explanations/>
+            </_timing>
+            <_shifting>
+              <_shifting_type>Duration</_shifting_type>
+            </_shifting>
+            <_context_data_analysis>
+              <probes/>
+              <ips/>
+            </_context_data_analysis>
+            <report>
+              <url/>
+            </report>
+            <_notes>
+              <_notes_general/>
+            </_notes>
+          </annotations>
+          <documentation>
+            <input/>
+            <output/>
+            <implementation>
+              <description/>
+            </implementation>
+            <code>
+              <description/>
+            </code>
+          </documentation>
+        </call>
+        <choose mode="exclusive" label="">
+          <alternative condition="data.current_player[&quot;chosen_action&quot;].to_i == 0">
+            <call id="a6" endpoint="subprocess">
+              <parameters>
+                <label>Perform Player End Turn</label>
+                <color/>
+                <method>:post</method>
+                <arguments>
+                  <behavior>wait_running</behavior>
+                  <url>https://cpee.org/hub/server/Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/actions.dir/action_end.xml</url>
+                  <init>
+                    <current_player>!data.current_player</current_player>
+                  </init>
+                  <endpoints/>
+                  <attributes/>
+                  <customization/>
+                </arguments>
+              </parameters>
+              <code>
+                <signal/>
+                <prepare/>
+                <finalize output="result">data.current_player = result["current_player"]
+data.turn_continue = false</finalize>
+                <update output="result"/>
+                <rescue output="result"/>
+              </code>
+              <annotations>
+                <_generic/>
+                <_logging_behavior>
+                  <_exclude/>
+                  <_include/>
+                </_logging_behavior>
+                <_timing>
+                  <_timing_weight/>
+                  <_timing_avg/>
+                  <explanations/>
+                </_timing>
+                <_shifting>
+                  <_shifting_type>Duration</_shifting_type>
+                </_shifting>
+                <_context_data_analysis>
+                  <probes/>
+                  <ips/>
+                </_context_data_analysis>
+                <report>
+                  <url/>
+                </report>
+                <_notes>
+                  <_notes_general/>
+                </_notes>
+              </annotations>
+              <documentation>
+                <input/>
+                <output/>
+                <implementation>
+                  <description/>
+                </implementation>
+                <code>
+                  <description/>
+                </code>
+              </documentation>
+            </call>
+            <_probability>
+              <_probability_min/>
+              <_probability_max/>
+              <_probability_avg/>
+            </_probability>
+          </alternative>
+          <alternative condition="data.current_player[&quot;chosen_action&quot;].to_i == 13">
+            <_probability>
+              <_probability_min/>
+              <_probability_max/>
+              <_probability_avg/>
+            </_probability>
+            <call id="a7" endpoint="subprocess">
+              <parameters>
+                <label>Perform Player Movement</label>
+                <color/>
+                <method>:post</method>
+                <arguments>
+                  <behavior>wait_running</behavior>
+                  <url>https://cpee.org/hub/server/Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/virtual.dir/action_move.xml</url>
+                  <init>
+                    <current_player>!data.current_player</current_player>
+                    <game_state>!data.game_state</game_state>
+                    <player_data>!data.player_data</player_data>
+                    <initiative_order>!data.initiative_order</initiative_order>
+                    <terrain_pieces>!data.terrain_pieces</terrain_pieces>
+                    <terrain_template>!data.terrain_template</terrain_template>
+                  </init>
+                  <endpoints/>
+                  <attributes/>
+                  <customization/>
+                </arguments>
+              </parameters>
+              <code>
+                <signal/>
+                <prepare/>
+                <finalize output="result">data.current_player = result["current_player"]
+data.game_state = result["game_state"]
+data.player_data = result["player_data"]
+data.initiative_order = result["initiative_order"]
+data.terrain_pieces = result["terrain_pieces"]</finalize>
+                <update output="result"/>
+                <rescue output="result"/>
+              </code>
+              <annotations>
+                <_generic/>
+                <_logging_behavior>
+                  <_exclude/>
+                  <_include/>
+                </_logging_behavior>
+                <_timing>
+                  <_timing_weight/>
+                  <_timing_avg/>
+                  <explanations/>
+                </_timing>
+                <_shifting>
+                  <_shifting_type>Duration</_shifting_type>
+                </_shifting>
+                <_context_data_analysis>
+                  <probes/>
+                  <ips/>
+                </_context_data_analysis>
+                <report>
+                  <url/>
+                </report>
+                <_notes>
+                  <_notes_general/>
+                </_notes>
+              </annotations>
+              <documentation>
+                <input/>
+                <output/>
+                <implementation>
+                  <description/>
+                </implementation>
+                <code>
+                  <description/>
+                </code>
+              </documentation>
+            </call>
+          </alternative>
+          <alternative condition="(data.current_player[&quot;chosen_action&quot;].to_i  == 1) || (data.current_player[&quot;chosen_action&quot;].to_i  == 2) || (data.current_player[&quot;chosen_action&quot;].to_i == 4) || (data.current_player[&quot;chosen_action&quot;].to_i  == 7) || (data.current_player[&quot;chosen_action&quot;].to_i  == 8) || (data.current_player[&quot;chosen_action&quot;].to_i  == 10) ">
+            <_probability>
+              <_probability_min/>
+              <_probability_max/>
+              <_probability_avg/>
+            </_probability>
+            <call id="a8" endpoint="subprocess">
+              <parameters>
+                <label>Perform Player Attack</label>
+                <color/>
+                <method>:post</method>
+                <arguments>
+                  <behavior>wait_running</behavior>
+                  <url>https://cpee.org/hub/server/Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/actions.dir/action_attack.xml</url>
+                  <init>
+                    <current_player>!data.current_player</current_player>
+                    <initiative_order>!data.initiative_order</initiative_order>
+                    <player_data>!data.player_data</player_data>
+                    <configuration>!data.configuration</configuration>
+                    <game_state>!data.game_state</game_state>
+                    <terrain_pieces>!data.terrain_pieces</terrain_pieces>
+                  </init>
+                  <endpoints/>
+                  <attributes/>
+                  <customization/>
+                </arguments>
+              </parameters>
+              <code>
+                <signal/>
+                <prepare/>
+                <finalize output="result">data.current_player = result["current_player"]
+data.initiative_order = result["initiative_order"]
+data.player_data = result["player_data"]
+data.configuration = result["configuration"]</finalize>
+                <update output="result"/>
+                <rescue output="result"/>
+              </code>
+              <annotations>
+                <_generic/>
+                <_logging_behavior>
+                  <_exclude/>
+                  <_include/>
+                </_logging_behavior>
+                <_timing>
+                  <_timing_weight/>
+                  <_timing_avg/>
+                  <explanations/>
+                </_timing>
+                <_shifting>
+                  <_shifting_type>Duration</_shifting_type>
+                </_shifting>
+                <_context_data_analysis>
+                  <probes/>
+                  <ips/>
+                </_context_data_analysis>
+                <report>
+                  <url/>
+                </report>
+                <_notes>
+                  <_notes_general/>
+                </_notes>
+              </annotations>
+              <documentation>
+                <input/>
+                <output/>
+                <implementation>
+                  <description/>
+                </implementation>
+                <code>
+                  <description/>
+                </code>
+              </documentation>
+            </call>
+          </alternative>
+          <alternative condition="(data.current_player[&quot;chosen_action&quot;].to_i  == 3) || (data.current_player[&quot;chosen_action&quot;].to_i  == 9) || (data.current_player[&quot;chosen_action&quot;].to_i  == 11) || (data.current_player[&quot;chosen_action&quot;].to_i  == 14)">
+            <_probability>
+              <_probability_min/>
+              <_probability_max/>
+              <_probability_avg/>
+            </_probability>
+            <call id="a14" endpoint="subprocess">
+              <parameters>
+                <label>Perform Player Special Actions</label>
+                <color/>
+                <method>:post</method>
+                <arguments>
+                  <behavior>wait_running</behavior>
+                  <url>https://cpee.org/hub/server/Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/virtual.dir/action_special.xml</url>
+                  <init>
+                    <current_player>!data.current_player</current_player>
+                    <initiative_order>!data.initiative_order</initiative_order>
+                    <player_data>!data.player_data</player_data>
+                    <game_state>!data.game_state</game_state>
+                    <terrain_pieces>!data.terrain_pieces</terrain_pieces>
+                    <terrain_template>!data.terrain_template</terrain_template>
+                  </init>
+                  <endpoints/>
+                  <attributes/>
+                  <customization/>
+                </arguments>
+              </parameters>
+              <code>
+                <signal/>
+                <prepare/>
+                <finalize output="result">data.current_player = result["current_player"]
+data.initiative_order = result["initiative_order"]
+data.player_data = result["player_data"]
+data.game_state = result["game_state"]
+data.terrain_pieces = result["terrain_pieces"]
+
+if ((data.current_player["conditions"].include?("hidden")) &amp;&amp; (result["special"] == true))
+  data.hidden = true
+else
+  data.hidden = false
+end</finalize>
+                <update output="result"/>
+                <rescue output="result"/>
+              </code>
+              <annotations>
+                <_generic/>
+                <_logging_behavior>
+                  <_exclude/>
+                  <_include/>
+                </_logging_behavior>
+                <_timing>
+                  <_timing_weight/>
+                  <_timing_avg/>
+                  <explanations/>
+                </_timing>
+                <_shifting>
+                  <_shifting_type>Duration</_shifting_type>
+                </_shifting>
+                <_context_data_analysis>
+                  <probes/>
+                  <ips/>
+                </_context_data_analysis>
+                <report>
+                  <url/>
+                </report>
+                <_notes>
+                  <_notes_general/>
+                </_notes>
+              </annotations>
+              <documentation>
+                <input/>
+                <output/>
+                <implementation>
+                  <description/>
+                </implementation>
+                <code>
+                  <description/>
+                </code>
+              </documentation>
+            </call>
+          </alternative>
+          <alternative condition="(data.current_player[&quot;chosen_action&quot;].to_i  == 5) || (data.current_player[&quot;chosen_action&quot;].to_i  == 12)">
+            <_probability>
+              <_probability_min/>
+              <_probability_max/>
+              <_probability_avg/>
+            </_probability>
+            <call id="a15" endpoint="subprocess">
+              <parameters>
+                <label>Perform Player Heal &amp; Stabilize</label>
+                <color/>
+                <method>:post</method>
+                <arguments>
+                  <behavior>wait_running</behavior>
+                  <url>https://cpee.org/hub/server/Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/actions.dir/action_rejuvenate.xml</url>
+                  <init>
+                    <current_player>!data.current_player</current_player>
+                    <initiative_order>!data.initiative_order</initiative_order>
+                    <player_data>!data.player_data</player_data>
+                    <terrain_pieces>!data.terrain_pieces</terrain_pieces>
+                    <game_state>!data.game_state</game_state>
+                  </init>
+                  <endpoints/>
+                  <attributes/>
+                  <customization/>
+                </arguments>
+              </parameters>
+              <code>
+                <signal/>
+                <prepare/>
+                <finalize output="result">data.current_player = result["current_player"]
+data.initiative_order = result["initiative_order"]
+data.player_data = result["player_data"]</finalize>
+                <update output="result"/>
+                <rescue output="result"/>
+              </code>
+              <annotations>
+                <_generic/>
+                <_logging_behavior>
+                  <_exclude/>
+                  <_include/>
+                </_logging_behavior>
+                <_timing>
+                  <_timing_weight/>
+                  <_timing_avg/>
+                  <explanations/>
+                </_timing>
+                <_shifting>
+                  <_shifting_type>Duration</_shifting_type>
+                </_shifting>
+                <_context_data_analysis>
+                  <probes/>
+                  <ips/>
+                </_context_data_analysis>
+                <report>
+                  <url/>
+                </report>
+                <_notes>
+                  <_notes_general/>
+                </_notes>
+              </annotations>
+              <documentation>
+                <input/>
+                <output/>
+                <implementation>
+                  <description/>
+                </implementation>
+                <code>
+                  <description/>
+                </code>
+              </documentation>
+            </call>
+          </alternative>
+          <alternative condition="data.current_player[&quot;chosen_action&quot;].to_i  == 6">
+            <_probability>
+              <_probability_min/>
+              <_probability_max/>
+              <_probability_avg/>
+            </_probability>
+            <call id="a16" endpoint="subprocess">
+              <parameters>
+                <label>Perform Player Resurrection</label>
+                <color/>
+                <method>:post</method>
+                <arguments>
+                  <behavior>wait_running</behavior>
+                  <url>https://cpee.org/hub/server/Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/actions.dir/action_rejuvenate.xml</url>
+                  <init>
+                    <current_player>!data.current_player</current_player>
+                    <player_data>!data.player_data</player_data>
+                    <initiative_order>!data.initiative_order</initiative_order>
+                    <game_state>!data.game_state</game_state>
+                    <round>!data.round</round>
+                    <terrain_pieces>!data.terrain_pieces</terrain_pieces>
+                  </init>
+                  <endpoints/>
+                  <attributes/>
+                  <customization/>
+                </arguments>
+              </parameters>
+              <code>
+                <signal/>
+                <prepare/>
+                <finalize output="result">data.current_player = result["current_player"]
+data.initiative_order = result["initiative_order"]
+data.player_data = result["player_data"]
+data.game_state = result["game_state"]
+data.round = result["round"]</finalize>
+                <update output="result"/>
+                <rescue output="result"/>
+              </code>
+              <annotations>
+                <_generic/>
+                <_logging_behavior>
+                  <_exclude/>
+                  <_include/>
+                </_logging_behavior>
+                <_timing>
+                  <_timing_weight/>
+                  <_timing_avg/>
+                  <explanations/>
+                </_timing>
+                <_shifting>
+                  <_shifting_type>Duration</_shifting_type>
+                </_shifting>
+                <_context_data_analysis>
+                  <probes/>
+                  <ips/>
+                </_context_data_analysis>
+                <report>
+                  <url/>
+                </report>
+                <_notes>
+                  <_notes_general/>
+                </_notes>
+              </annotations>
+              <documentation>
+                <input/>
+                <output/>
+                <implementation>
+                  <description/>
+                </implementation>
+                <code>
+                  <description/>
+                </code>
+              </documentation>
+            </call>
+          </alternative>
+          <alternative condition="data.current_player[&quot;chosen_action&quot;].to_i  == 15">
+            <call id="a2" endpoint="subprocess">
+              <parameters>
+                <label>Perform Player Search</label>
+                <color/>
+                <method>:post</method>
+                <arguments>
+                  <behavior>wait_running</behavior>
+                  <url>https://cpee.org/hub/server/Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/actions.dir/action_search.xml</url>
+                  <init>
+                    <current_player>!data.current_player</current_player>
+                    <initiative_order>!data.initiative_order</initiative_order>
+                    <player_data>!data.player_data</player_data>
+                    <configuration>!data.configuration</configuration>
+                    <items>!data.items</items>
+                    <traps>!data.traps</traps>
+                  </init>
+                  <endpoints/>
+                  <attributes/>
+                  <customization/>
+                </arguments>
+              </parameters>
+              <code>
+                <signal/>
+                <prepare/>
+                <finalize output="result">data.current_player = result["current_player"]
+data.initiative_order = result["initiative_order"]
+data.player_data = result["player_data"]
+data.configuration = result["configuration"]</finalize>
+                <update output="result"/>
+                <rescue output="result"/>
+              </code>
+              <annotations>
+                <_generic/>
+                <_logging_behavior>
+                  <_exclude/>
+                  <_include/>
+                </_logging_behavior>
+                <_timing>
+                  <_timing_weight/>
+                  <_timing_avg/>
+                  <explanations/>
+                </_timing>
+                <_shifting>
+                  <_shifting_type>Duration</_shifting_type>
+                </_shifting>
+                <_context_data_analysis>
+                  <probes/>
+                  <ips/>
+                </_context_data_analysis>
+                <report>
+                  <url/>
+                </report>
+                <_notes>
+                  <_notes_general/>
+                </_notes>
+              </annotations>
+              <documentation>
+                <input/>
+                <output/>
+                <implementation>
+                  <description/>
+                </implementation>
+                <code>
+                  <description/>
+                </code>
+              </documentation>
+            </call>
+            <_probability>
+              <_probability_min/>
+              <_probability_max/>
+              <_probability_avg/>
+            </_probability>
+          </alternative>
+          <alternative condition="data.current_player[&quot;chosen_action&quot;].to_i  == 16">
+            <call id="a3" endpoint="subprocess">
+              <parameters>
+                <label>Perform Player Item Use</label>
+                <color/>
+                <method>:post</method>
+                <arguments>
+                  <behavior>wait_running</behavior>
+                  <url>https://cpee.org/hub/server/Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/actions.dir/action_use.xml</url>
+                  <init>
+                    <current_player>!data.current_player</current_player>
+                    <initiative_order>!data.initiative_order</initiative_order>
+                    <player_data>!data.player_data</player_data>
+                    <items>!data.items</items>
+                  </init>
+                  <endpoints/>
+                  <attributes/>
+                  <customization/>
+                </arguments>
+              </parameters>
+              <code>
+                <signal/>
+                <prepare/>
+                <finalize output="result">data.current_player = result["current_player"]
+data.initiative_order = result["initiative_order"]
+data.player_data = result["player_data"]</finalize>
+                <update output="result"/>
+                <rescue output="result"/>
+              </code>
+              <annotations>
+                <_generic/>
+                <_logging_behavior>
+                  <_exclude/>
+                  <_include/>
+                </_logging_behavior>
+                <_timing>
+                  <_timing_weight/>
+                  <_timing_avg/>
+                  <explanations/>
+                </_timing>
+                <_shifting>
+                  <_shifting_type>Duration</_shifting_type>
+                </_shifting>
+                <_context_data_analysis>
+                  <probes/>
+                  <ips/>
+                </_context_data_analysis>
+                <report>
+                  <url/>
+                </report>
+                <_notes>
+                  <_notes_general/>
+                </_notes>
+              </annotations>
+              <documentation>
+                <input/>
+                <output/>
+                <implementation>
+                  <description/>
+                </implementation>
+                <code>
+                  <description/>
+                </code>
+              </documentation>
+            </call>
+            <_probability>
+              <_probability_min/>
+              <_probability_max/>
+              <_probability_avg/>
+            </_probability>
+          </alternative>
+          <otherwise/>
+        </choose>
+        <call id="a17" endpoint="subprocess">
+          <parameters>
+            <label>Check for Deaths</label>
+            <color/>
+            <method>:post</method>
+            <arguments>
+              <behavior>wait_running</behavior>
+              <url>https://cpee.org/hub/server/Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/check_deaths.xml</url>
+              <init>
+                <initiative_order>!data.initiative_order</initiative_order>
+                <round>!data.round</round>
+                <game_state>!data.game_state</game_state>
+                <current_player>!data.current_player</current_player>
+                <player_data>!data.player_data</player_data>
+                <configuration>!data.configuration</configuration>
+                <terrain_pieces>!data.terrain_pieces</terrain_pieces>
+              </init>
+              <endpoints/>
+              <attributes/>
+              <customization/>
+            </arguments>
+          </parameters>
+          <code>
+            <signal/>
+            <prepare/>
+            <finalize output="result">data.initiative_order = result["initiative_order"]
+data.current_player = result["current_player"]
+data.round = result["round"]
+data.game_state = result["game_state"]
+data.player_data = result["player_data"]
+data.configuration = result["configuration"]
+
+if data.current_player.nil?
+  data.turn_continue = false
+end</finalize>
+            <update output="result"/>
+            <rescue output="result"/>
+          </code>
+          <annotations>
+            <_generic/>
+            <_logging_behavior>
+              <_exclude/>
+              <_include/>
+            </_logging_behavior>
+            <_timing>
+              <_timing_weight/>
+              <_timing_avg/>
+              <explanations/>
+            </_timing>
+            <_shifting>
+              <_shifting_type>Duration</_shifting_type>
+            </_shifting>
+            <_context_data_analysis>
+              <probes/>
+              <ips/>
+            </_context_data_analysis>
+            <report>
+              <url/>
+            </report>
+            <_notes>
+              <_notes_general/>
+            </_notes>
+          </annotations>
+          <documentation>
+            <input/>
+            <output/>
+            <implementation>
+              <description/>
+            </implementation>
+            <code>
+              <description/>
+            </code>
+          </documentation>
+        </call>
+      </loop>
+      <call id="a5" endpoint="subprocess">
+        <parameters>
+          <label>Finalize Player Conditions &amp; Resources</label>
+          <color/>
+          <method>:post</method>
+          <arguments>
+            <behavior>wait_running</behavior>
+            <url>https://cpee.org/hub/server/Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/finalize_player.xml</url>
+            <init>
+              <current_player>!data.current_player</current_player>
+              <player_data>!data.player_data</player_data>
+              <initiative_order>!data.initiative_order</initiative_order>
+              <configuration>!data.configuration</configuration>
+              <hidden>!data.hidden</hidden>
+            </init>
+            <endpoints/>
+            <attributes/>
+            <customization/>
+          </arguments>
+        </parameters>
+        <code>
+          <signal/>
+          <prepare/>
+          <finalize output="result">data.current_player = result["current_player"]
+data.player_data = result["player_data"]
+data.initiative_order = result["initiative_order"]
+data.configuration = result["configuration"]
+
+data.title = nil
+data.turn_continue = nil
+data.message = nil</finalize>
+          <update output="result"/>
+          <rescue output="result"/>
+        </code>
+        <annotations>
+          <_generic/>
+          <_logging_behavior>
+            <_exclude/>
+            <_include/>
+          </_logging_behavior>
+          <_timing>
+            <_timing_weight/>
+            <_timing_avg/>
+            <explanations/>
+          </_timing>
+          <_shifting>
+            <_shifting_type>Duration</_shifting_type>
+          </_shifting>
+          <_context_data_analysis>
+            <probes/>
+            <ips/>
+          </_context_data_analysis>
+          <report>
+            <url/>
+          </report>
+          <_notes>
+            <_notes_general/>
+          </_notes>
+        </annotations>
+        <documentation>
+          <input/>
+          <output/>
+          <implementation>
+            <description/>
+          </implementation>
+          <code>
+            <description/>
+          </code>
+        </documentation>
+      </call>
+    </description>
+  </description>
+  <transformation>
+    <description type="copy"/>
+    <dataelements type="none"/>
+    <endpoints type="none"/>
+  </transformation>
+</testset>

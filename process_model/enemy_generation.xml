@@ -1,0 +1,1091 @@
+<testset xmlns="http://cpee.org/ns/properties/2.0">
+  <executionhandler>ruby</executionhandler>
+  <dataelements>
+    <despawn_enemy/>
+    <game_state/>
+    <spawn_enemy/>
+    <round/>
+    <initiative_order/>
+    <configuration/>
+    <enemy_template/>
+    <current_player/>
+    <terrain_pieces/>
+  </dataelements>
+  <endpoints>
+    <timeout>https-post://cpee.org/services/timeout.php</timeout>
+    <subprocess>https-post://cpee.org/flow/start/url/</subprocess>
+    <frames_display>https-put://cpee.org/out/frames/</frames_display>
+  </endpoints>
+  <attributes>
+    <guarded>none</guarded>
+    <modeltype>Signavio</modeltype>
+    <theme>dataflow</theme>
+    <guarded_id/>
+    <info>enemy_generation</info>
+    <creator>Christine Ashcreek</creator>
+    <author>Christine Ashcreek</author>
+    <model_uuid>732d5f1f-33b9-4ba2-be4e-6522240fd770</model_uuid>
+    <model_version/>
+    <design_dir>Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir</design_dir>
+    <design_stage>development</design_stage>
+    <fid>gridsanddragons</fid>
+  </attributes>
+  <description>
+    <description xmlns="http://cpee.org/ns/description/1.0">
+      <manipulate id="a3" label="Determine Enemy Despawn(s)">
+        <code># --- Helpers ---
+
+def clear_occupancy_for_actor(game_state, actor_id)
+  return unless game_state.is_a?(Array) &amp;&amp; actor_id
+
+  game_state.each do |row|
+    next unless row.is_a?(Array)
+    row.each do |cell|
+      next unless cell.is_a?(Hash)
+      occ = cell["occupied"]
+      cell["occupied"] = nil if occ &amp;&amp; occ.to_s == actor_id.to_s
+    end
+  end
+end
+
+# --- Variables ---
+
+order = data.initiative_order
+game  = data.game_state
+
+new_order = []
+round_adjust = 0
+removed_count = 0
+despawned = []
+
+# --- Despawn Enemies with Activation &gt;= 3 ---
+
+order.each do |ent|
+  next unless ent.is_a?(Hash)
+
+  if ent["type"].to_s == "enemy" &amp;&amp; ent["activation"].to_i &gt;= 3
+    clear_occupancy_for_actor(game, ent["id"].to_s)
+
+    if ent["initiative"].to_i &gt; data.current_player["initiative"].to_i
+      round_adjust -= 1
+    end
+
+    removed_count += 1
+    despawned &lt;&lt; ent
+
+    next
+  end
+
+  new_order &lt;&lt; ent
+end
+
+# --- Enable De-Spawn UI ---
+
+if removed_count &gt; 0
+  data.despawn_enemy = true
+end
+
+data.despawned = despawned
+
+# --- Update Initiative Order ---
+data.initiative_order = new_order
+data.initiative_order.sort_by! { |e| -(e["initiative"].to_i) }
+
+# --- Update Game State ---
+data.game_state = game
+
+# Refund Fear per De-spawned Enemy
+data.configuration["fear"] = data.configuration["fear"].to_i + removed_count
+
+# Adjust Round per De-spawned Enemy
+data.round = [data.round.to_i + round_adjust, 0].max</code>
+        <annotations>
+          <_logging_behavior>
+            <_exclude>false</_exclude>
+          </_logging_behavior>
+          <_context_data_analysis>
+            <probes/>
+          </_context_data_analysis>
+        </annotations>
+      </manipulate>
+      <choose mode="exclusive" label="">
+        <alternative condition="data.despawn_enemy == true">
+          <loop eid="e1" mode="post_test" condition="data.despawned.length &gt; 0">
+            <_probability>
+              <_probability_min/>
+              <_probability_max/>
+              <_probability_avg/>
+            </_probability>
+            <_annotations>
+              <_generic/>
+              <_logging_behavior>
+                <_iteration>false</_iteration>
+              </_logging_behavior>
+            </_annotations>
+            <manipulate id="a11" label="Rule: An Enemy Despawns if it was NOT Activated for the Past 3 Rounds">
+              <code>despawned = data.despawned || []
+
+enemy = despawned.first
+despawned = despawned.drop(1)
+
+data.despawned = despawned
+
+if enemy
+  data.despawn_position = enemy["position"]
+  data.title = "#{enemy['title']} has despawned!"
+  data.message = "Please stand clear of the robot..."
+end</code>
+              <annotations>
+                <_logging_behavior>
+                  <_exclude>false</_exclude>
+                </_logging_behavior>
+                <_context_data_analysis>
+                  <probes/>
+                </_context_data_analysis>
+              </annotations>
+            </manipulate>
+            <parallel eid="e2" wait="-1" cancel="last">
+              <parallel_branch>
+                <call id="a8" endpoint="frames_display">
+                  <parameters>
+                    <label>Instruct Player of Enemy Despawn</label>
+                    <color/>
+                    <arguments>
+                      <type>set</type>
+                      <lx>6</lx>
+                      <ly>3</ly>
+                      <x_amount>3</x_amount>
+                      <y_amount>1</y_amount>
+                      <button/>
+                      <style/>
+                      <urls>
+                        <urls_item>
+                          <lang>de-at</lang>
+                          <url>https://lehre.bpm.in.tum.de/~ge87max/instruction/instruction.html</url>
+                        </urls_item>
+                      </urls>
+                      <default>
+                        <title>!data.title</title>
+                        <message>!data.message</message>
+                      </default>
+                    </arguments>
+                  </parameters>
+                  <code>
+                    <signal/>
+                    <prepare>endpoints.frames_display += attributes.fid</prepare>
+                    <finalize output="result"/>
+                    <update output="result"/>
+                    <rescue output="result"/>
+                  </code>
+                  <annotations>
+                    <_generic/>
+                    <_logging_behavior>
+                      <_exclude/>
+                      <_include/>
+                    </_logging_behavior>
+                    <_timing>
+                      <_timing_weight/>
+                      <_timing_avg/>
+                      <explanations/>
+                    </_timing>
+                    <_shifting>
+                      <_shifting_type>Duration</_shifting_type>
+                    </_shifting>
+                    <_context_data_analysis>
+                      <probes/>
+                      <ips/>
+                    </_context_data_analysis>
+                    <report>
+                      <url/>
+                    </report>
+                    <_notes>
+                      <_notes_general/>
+                    </_notes>
+                  </annotations>
+                  <documentation>
+                    <input/>
+                    <output/>
+                    <implementation>
+                      <description/>
+                    </implementation>
+                    <code>
+                      <description/>
+                    </code>
+                  </documentation>
+                </call>
+                <call id="a2" endpoint="subprocess">
+                  <parameters>
+                    <label>Visualize Grid After Spawn</label>
+                    <color/>
+                    <arguments>
+                      <behavior>wait_running</behavior>
+                      <url>https://cpee.org/hub/server/Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/visualize_grid.xml</url>
+                      <init>
+                        <game_state>!data.game_state</game_state>
+                        <terrain_pieces>!data.terrain_pieces</terrain_pieces>
+                      </init>
+                      <endpoints/>
+                      <attributes/>
+                      <customization/>
+                    </arguments>
+                  </parameters>
+                  <code>
+                    <signal>false</signal>
+                    <prepare/>
+                    <finalize output="result"/>
+                    <update output="result"/>
+                    <rescue output="result"/>
+                  </code>
+                  <annotations>
+                    <_generic/>
+                    <_logging_behavior>
+                      <_exclude>false</_exclude>
+                      <_include>false</_include>
+                    </_logging_behavior>
+                    <_timing>
+                      <_timing_weight/>
+                      <_timing_avg/>
+                      <explanations/>
+                    </_timing>
+                    <_shifting>
+                      <_shifting_type>Duration</_shifting_type>
+                    </_shifting>
+                    <_context_data_analysis>
+                      <probes/>
+                      <ips/>
+                    </_context_data_analysis>
+                    <report>
+                      <url/>
+                    </report>
+                    <_notes>
+                      <_notes_general/>
+                    </_notes>
+                  </annotations>
+                  <documentation>
+                    <input/>
+                    <output/>
+                    <implementation>
+                      <description/>
+                    </implementation>
+                    <code>
+                      <description/>
+                    </code>
+                  </documentation>
+                </call>
+                <call id="a7" endpoint="timeout">
+                  <parameters>
+                    <label>Wait for Despawn Message</label>
+                    <color/>
+                    <arguments>
+                      <timeout>4</timeout>
+                      <data/>
+                    </arguments>
+                  </parameters>
+                  <annotations>
+                    <_generic/>
+                    <_logging_behavior>
+                      <_exclude>false</_exclude>
+                      <_include>false</_include>
+                    </_logging_behavior>
+                    <_timing>
+                      <_timing_weight/>
+                      <_timing_avg/>
+                      <explanations/>
+                    </_timing>
+                    <_shifting>
+                      <_shifting_type>Duration</_shifting_type>
+                    </_shifting>
+                    <_context_data_analysis>
+                      <probes/>
+                      <ips/>
+                    </_context_data_analysis>
+                    <report>
+                      <url/>
+                    </report>
+                    <_notes>
+                      <_notes_general/>
+                    </_notes>
+                  </annotations>
+                  <documentation>
+                    <input/>
+                    <output/>
+                    <implementation>
+                      <description/>
+                    </implementation>
+                  </documentation>
+                </call>
+                <call id="a6" endpoint="frames_display">
+                  <parameters>
+                    <label>Clear Despawn Message</label>
+                    <color/>
+                    <arguments>
+                      <type>set</type>
+                      <lx>6</lx>
+                      <ly>3</ly>
+                      <x_amount>3</x_amount>
+                      <y_amount>1</y_amount>
+                      <button/>
+                      <style/>
+                      <urls/>
+                      <default/>
+                    </arguments>
+                  </parameters>
+                  <code>
+                    <signal/>
+                    <prepare>endpoints.frames_display += attributes.fid</prepare>
+                    <finalize output="result"/>
+                    <update output="result"/>
+                    <rescue output="result"/>
+                  </code>
+                  <annotations>
+                    <_generic/>
+                    <_logging_behavior>
+                      <_exclude/>
+                      <_include/>
+                    </_logging_behavior>
+                    <_timing>
+                      <_timing_weight/>
+                      <_timing_avg/>
+                      <explanations/>
+                    </_timing>
+                    <_shifting>
+                      <_shifting_type>Duration</_shifting_type>
+                    </_shifting>
+                    <_context_data_analysis>
+                      <probes/>
+                      <ips/>
+                    </_context_data_analysis>
+                    <report>
+                      <url/>
+                    </report>
+                    <_notes>
+                      <_notes_general/>
+                    </_notes>
+                  </annotations>
+                  <documentation>
+                    <input/>
+                    <output/>
+                    <implementation>
+                      <description/>
+                    </implementation>
+                    <code>
+                      <description/>
+                    </code>
+                  </documentation>
+                </call>
+              </parallel_branch>
+              <parallel_branch>
+                <call id="a17" endpoint="timeout">
+                  <parameters>
+                    <label>Set Enemy Despawn Position</label>
+                    <color/>
+                    <arguments>
+                      <timeout>!data.duration</timeout>
+                      <data>
+                        <value>!data.despawn_position</value>
+                      </data>
+                    </arguments>
+                  </parameters>
+                  <code>
+                    <signal>false</signal>
+                    <prepare>data.duration = [1,2,3].sample</prepare>
+                    <finalize output="result"/>
+                    <update output="result"/>
+                    <rescue output="result"/>
+                  </code>
+                  <annotations>
+                    <_generic/>
+                    <_logging_behavior>
+                      <_exclude>false</_exclude>
+                      <_include>false</_include>
+                    </_logging_behavior>
+                    <_timing>
+                      <_timing_weight/>
+                      <_timing_avg/>
+                      <explanations/>
+                    </_timing>
+                    <_shifting>
+                      <_shifting_type>Duration</_shifting_type>
+                    </_shifting>
+                    <_context_data_analysis>
+                      <probes/>
+                      <ips/>
+                    </_context_data_analysis>
+                    <report>
+                      <url/>
+                    </report>
+                    <_notes>
+                      <_notes_general/>
+                    </_notes>
+                  </annotations>
+                  <documentation>
+                    <input/>
+                    <output/>
+                    <implementation>
+                      <description/>
+                    </implementation>
+                    <code>
+                      <description/>
+                    </code>
+                  </documentation>
+                </call>
+                <call id="a18" endpoint="timeout">
+                  <parameters>
+                    <label>Remove Enemy from Grid</label>
+                    <color/>
+                    <arguments>
+                      <timeout>!data.duration</timeout>
+                      <data/>
+                    </arguments>
+                  </parameters>
+                  <code>
+                    <signal>false</signal>
+                    <prepare>data.duration = [3,4,5,6,7].sample</prepare>
+                    <finalize output="result"/>
+                    <update output="result"/>
+                    <rescue output="result"/>
+                  </code>
+                  <annotations>
+                    <_generic/>
+                    <_logging_behavior>
+                      <_exclude>false</_exclude>
+                      <_include>false</_include>
+                    </_logging_behavior>
+                    <_timing>
+                      <_timing_weight/>
+                      <_timing_avg/>
+                      <explanations/>
+                    </_timing>
+                    <_shifting>
+                      <_shifting_type>Duration</_shifting_type>
+                    </_shifting>
+                    <_context_data_analysis>
+                      <probes/>
+                      <ips/>
+                    </_context_data_analysis>
+                    <report>
+                      <url/>
+                    </report>
+                    <_notes>
+                      <_notes_general/>
+                    </_notes>
+                  </annotations>
+                  <documentation>
+                    <input/>
+                    <output/>
+                    <implementation>
+                      <description/>
+                    </implementation>
+                    <code>
+                      <description/>
+                    </code>
+                  </documentation>
+                </call>
+              </parallel_branch>
+            </parallel>
+          </loop>
+          <_probability>
+            <_probability_min/>
+            <_probability_max/>
+            <_probability_avg/>
+          </_probability>
+        </alternative>
+        <otherwise/>
+      </choose>
+      <manipulate id="a1" label="Determine Enemy Spawn">
+        <code># --- Helpers ---
+
+def manhattan(a, b)
+  return 9999 unless a.is_a?(Array) &amp;&amp; b.is_a?(Array) &amp;&amp; a.size == 2 &amp;&amp; b.size == 2
+  (a[0].to_i - b[0].to_i).abs + (a[1].to_i - b[1].to_i).abs
+end
+
+def deep_copy(obj)
+  Marshal.load(Marshal.dump(obj))
+end
+
+def next_enemy_number(order, prefix)
+  nums = order.select { |e| e.is_a?(Hash) &amp;&amp; e["type"].to_s == "enemy" &amp;&amp; e["id"].to_s.start_with?(prefix) }
+             .map do |e|
+               m = e["id"].to_s.match(/#{Regexp.escape(prefix)}(\d+)/)
+               m ? m[1].to_i : 0
+             end
+  (nums.max || 0) + 1
+end
+
+# --- Variables ---
+
+grid  = data.game_state
+players = data.initiative_order.select { |e| e.is_a?(Hash) &amp;&amp; e["type"].to_s == "player" }
+enemies = data.initiative_order.select { |e| e.is_a?(Hash) &amp;&amp; e["type"].to_s == "enemy" }
+
+# --- Max Enemy Cap ---
+
+max_enemies = data.configuration["max_enemies"].to_i
+if enemies.size &gt;= max_enemies
+  data.reason = 1
+  return
+end
+
+# --- Is there Fear to spend? ---
+
+fear = data.configuration["fear"].to_i
+if fear &lt; 1
+  data.reason = 2
+  return
+end
+
+# --- Chance to Spawn ---
+
+if rand(0.0..100.0) &gt;= data.configuration["enemy_spawn_chance"].to_f
+  data.reason = 3
+  return
+end
+
+# --- Get Mimic Template ---
+
+mimic_template = data.enemy_template.find { |e| e["id"] == "mimic#" }
+
+# --- Select Random Player and Spawn Enemy around them ---
+
+player = players.sample
+p_pos  = player["position"]
+
+player_terrain = nil
+grid.each do |row|
+  next unless row.is_a?(Array)
+  row.each do |cell|
+    next unless cell.is_a?(Hash)
+    g = cell["global"]
+    next unless g.is_a?(Array) &amp;&amp; g.size == 2
+    if g[0].to_i == p_pos[0].to_i &amp;&amp; g[1].to_i == p_pos[1].to_i
+      player_terrain = cell["terrainID"]
+      break
+    end
+  end
+  break if player_terrain
+end
+
+forbidden = ["barbarianE","clericE","rogueE","wizardE"]
+candidates = []
+
+grid.each do |row|
+  next unless row.is_a?(Array)
+  row.each do |cell|
+    next unless cell.is_a?(Hash)
+    next if cell["terrainID"].nil?
+    next unless cell["terrainID"].to_s == player_terrain.to_s
+
+    next unless cell["occupied"].nil?
+    next if forbidden.include?(cell["effect"].to_s)
+    next unless cell["global"].is_a?(Array) &amp;&amp; cell["global"].size == 2
+
+    gpos = [cell["global"][0].to_i, cell["global"][1].to_i]
+    next unless manhattan(p_pos, gpos) &lt;= 2
+
+    candidates &lt;&lt; cell
+  end
+end
+
+if candidates.empty?
+  data.reason = 4
+  return
+end
+
+spawn_cell = candidates.sample
+spawn_g = spawn_cell["global"]
+spawn_pos = [spawn_g[0].to_i, spawn_g[1].to_i]
+
+# --- Generate Enemy Stat Block ---
+
+next_num = next_enemy_number(data.initiative_order, "mimic")
+enemy_id    = "mimic#{next_num}"
+enemy_title = "Mimic #{next_num}"
+
+init_bonus = data.configuration["enemy_init_bonus"].to_i
+
+new_enemy = deep_copy(mimic_template)
+
+new_enemy["id"] = enemy_id
+new_enemy["number"] = next_num
+new_enemy["title"] = enemy_title
+new_enemy["hp"] = data.configuration["enemy_hp"].to_i
+new_enemy["ac"] = data.configuration["enemy_ac"].to_i
+new_enemy["initiative"] = rand(1..20) + init_bonus
+new_enemy["position"] = spawn_pos
+
+# --- Occupy Cell in the Grid with Enemy ---
+
+spawn_cell["occupied"] = enemy_id
+data.game_state = grid
+data.spawn_enemy = true
+data.new_enemy = new_enemy
+
+# --- Insert Enemy into Initiative Order and Re-Sort
+
+data.initiative_order &lt;&lt; new_enemy
+data.initiative_order.sort_by! { |e| -(e["initiative"].to_i) }
+
+# ---------- Fear cost ----------
+
+data.configuration["fear"] = [fear - 1, 0].max
+
+# --- Adjust Round if Spawned Enemy has Higher Initiative than Current Player ---
+
+if new_enemy["initiative"].to_i &gt;= data.current_player["initiative"].to_i
+  data.round = data.round.to_i + 1
+end</code>
+        <annotations>
+          <_logging_behavior>
+            <_exclude>false</_exclude>
+          </_logging_behavior>
+          <_context_data_analysis>
+            <probes/>
+          </_context_data_analysis>
+        </annotations>
+      </manipulate>
+      <choose mode="exclusive" label="">
+        <alternative condition="data.reason.to_i == 1">
+          <_probability>
+            <_probability_min/>
+            <_probability_max/>
+            <_probability_avg/>
+          </_probability>
+          <manipulate id="a12" label="Rule: No Enemies More Than the Number of Players Can be Spawned">
+            <code>data.spawn_enemy = false</code>
+            <annotations>
+              <_logging_behavior>
+                <_exclude/>
+              </_logging_behavior>
+              <_context_data_analysis>
+                <probes/>
+              </_context_data_analysis>
+            </annotations>
+          </manipulate>
+        </alternative>
+        <alternative condition="data.reason.to_i == 2">
+          <manipulate id="a13" label="Rule: The GM Has NO Fear to Spend to Spawn New Enemies">
+            <code>data.spawn_enemy = false</code>
+            <annotations>
+              <_logging_behavior>
+                <_exclude/>
+              </_logging_behavior>
+              <_context_data_analysis>
+                <probes/>
+              </_context_data_analysis>
+            </annotations>
+          </manipulate>
+          <_probability>
+            <_probability_min/>
+            <_probability_max/>
+            <_probability_avg/>
+          </_probability>
+        </alternative>
+        <alternative condition="data.reason.to_i == 3">
+          <manipulate id="a14" label="Rule: Random Chance Not Higher than Enemy Difficulty">
+            <code>data.spawn_enemy = false</code>
+            <annotations>
+              <_logging_behavior>
+                <_exclude/>
+              </_logging_behavior>
+              <_context_data_analysis>
+                <probes/>
+              </_context_data_analysis>
+            </annotations>
+          </manipulate>
+          <_probability>
+            <_probability_min/>
+            <_probability_max/>
+            <_probability_avg/>
+          </_probability>
+        </alternative>
+        <alternative condition="data.reason.to_i == 4">
+          <_probability>
+            <_probability_min/>
+            <_probability_max/>
+            <_probability_avg/>
+          </_probability>
+          <manipulate id="a15" label="Rule: No Viable Cells to Spawn an Enemy">
+            <code>data.spawn_enemy = false</code>
+            <annotations>
+              <_logging_behavior>
+                <_exclude/>
+              </_logging_behavior>
+              <_context_data_analysis>
+                <probes/>
+              </_context_data_analysis>
+            </annotations>
+          </manipulate>
+        </alternative>
+        <otherwise>
+          <manipulate id="a16" label="Rule: An Enemy Spawns if Prerequisites Are Met">
+            <code>data.title = "A new enemy has spawned!"
+data.message = "Please check the grid UI for more information..."</code>
+            <annotations>
+              <_logging_behavior>
+                <_exclude/>
+              </_logging_behavior>
+              <_context_data_analysis>
+                <probes/>
+              </_context_data_analysis>
+            </annotations>
+          </manipulate>
+        </otherwise>
+      </choose>
+      <choose mode="exclusive" label="">
+        <alternative condition="data.spawn_enemy == true">
+          <parallel eid="e3" wait="-1" cancel="last">
+            <parallel_branch>
+              <call id="a5" endpoint="frames_display">
+                <parameters>
+                  <label>Instruct Player of Enemy Spawn</label>
+                  <color/>
+                  <arguments>
+                    <type>set</type>
+                    <lx>6</lx>
+                    <ly>3</ly>
+                    <x_amount>3</x_amount>
+                    <y_amount>1</y_amount>
+                    <button/>
+                    <style/>
+                    <urls>
+                      <urls_item>
+                        <lang>de-at</lang>
+                        <url>https://lehre.bpm.in.tum.de/~ge87max/instruction/instruction.html</url>
+                      </urls_item>
+                    </urls>
+                    <default>
+                      <title>!data.title</title>
+                      <message>!data.message</message>
+                    </default>
+                  </arguments>
+                </parameters>
+                <code>
+                  <signal/>
+                  <prepare>endpoints.frames_display += attributes.fid</prepare>
+                  <finalize output="result"/>
+                  <update output="result"/>
+                  <rescue output="result"/>
+                </code>
+                <annotations>
+                  <_generic/>
+                  <_logging_behavior>
+                    <_exclude/>
+                    <_include/>
+                  </_logging_behavior>
+                  <_timing>
+                    <_timing_weight/>
+                    <_timing_avg/>
+                    <explanations/>
+                  </_timing>
+                  <_shifting>
+                    <_shifting_type>Duration</_shifting_type>
+                  </_shifting>
+                  <_context_data_analysis>
+                    <probes/>
+                    <ips/>
+                  </_context_data_analysis>
+                  <report>
+                    <url/>
+                  </report>
+                  <_notes>
+                    <_notes_general/>
+                  </_notes>
+                </annotations>
+                <documentation>
+                  <input/>
+                  <output/>
+                  <implementation>
+                    <description/>
+                  </implementation>
+                  <code>
+                    <description/>
+                  </code>
+                </documentation>
+              </call>
+              <call id="a4" endpoint="subprocess">
+                <parameters>
+                  <label>Visualize Grid After Spawn</label>
+                  <color/>
+                  <arguments>
+                    <behavior>wait_running</behavior>
+                    <url>https://cpee.org/hub/server/Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/visualize_grid.xml</url>
+                    <init>
+                      <game_state>!data.game_state</game_state>
+                      <terrain_pieces>!data.terrain_pieces</terrain_pieces>
+                    </init>
+                    <endpoints/>
+                    <attributes/>
+                    <customization/>
+                  </arguments>
+                </parameters>
+                <code>
+                  <signal>false</signal>
+                  <prepare/>
+                  <finalize output="result"/>
+                  <update output="result"/>
+                  <rescue output="result"/>
+                </code>
+                <annotations>
+                  <_generic/>
+                  <_logging_behavior>
+                    <_exclude>false</_exclude>
+                    <_include>false</_include>
+                  </_logging_behavior>
+                  <_timing>
+                    <_timing_weight/>
+                    <_timing_avg/>
+                    <explanations/>
+                  </_timing>
+                  <_shifting>
+                    <_shifting_type>Duration</_shifting_type>
+                  </_shifting>
+                  <_context_data_analysis>
+                    <probes/>
+                    <ips/>
+                  </_context_data_analysis>
+                  <report>
+                    <url/>
+                  </report>
+                  <_notes>
+                    <_notes_general/>
+                  </_notes>
+                </annotations>
+                <documentation>
+                  <input/>
+                  <output/>
+                  <implementation>
+                    <description/>
+                  </implementation>
+                  <code>
+                    <description/>
+                  </code>
+                </documentation>
+              </call>
+              <call id="a9" endpoint="timeout">
+                <parameters>
+                  <label>Wait for Spawn Message</label>
+                  <color/>
+                  <arguments>
+                    <timeout>4</timeout>
+                    <data/>
+                  </arguments>
+                </parameters>
+                <annotations>
+                  <_generic/>
+                  <_logging_behavior>
+                    <_exclude>false</_exclude>
+                    <_include>false</_include>
+                  </_logging_behavior>
+                  <_timing>
+                    <_timing_weight/>
+                    <_timing_avg/>
+                    <explanations/>
+                  </_timing>
+                  <_shifting>
+                    <_shifting_type>Duration</_shifting_type>
+                  </_shifting>
+                  <_context_data_analysis>
+                    <probes/>
+                    <ips/>
+                  </_context_data_analysis>
+                  <report>
+                    <url/>
+                  </report>
+                  <_notes>
+                    <_notes_general/>
+                  </_notes>
+                </annotations>
+                <documentation>
+                  <input/>
+                  <output/>
+                  <implementation>
+                    <description/>
+                  </implementation>
+                </documentation>
+              </call>
+              <call id="a10" endpoint="frames_display">
+                <parameters>
+                  <label>Clear Spawn Message</label>
+                  <color/>
+                  <arguments>
+                    <type>set</type>
+                    <lx>6</lx>
+                    <ly>3</ly>
+                    <x_amount>3</x_amount>
+                    <y_amount>1</y_amount>
+                    <button/>
+                    <style/>
+                    <urls/>
+                    <default/>
+                  </arguments>
+                </parameters>
+                <code>
+                  <signal/>
+                  <prepare>endpoints.frames_display += attributes.fid</prepare>
+                  <finalize output="result"/>
+                  <update output="result"/>
+                  <rescue output="result"/>
+                </code>
+                <annotations>
+                  <_generic/>
+                  <_logging_behavior>
+                    <_exclude/>
+                    <_include/>
+                  </_logging_behavior>
+                  <_timing>
+                    <_timing_weight/>
+                    <_timing_avg/>
+                    <explanations/>
+                  </_timing>
+                  <_shifting>
+                    <_shifting_type>Duration</_shifting_type>
+                  </_shifting>
+                  <_context_data_analysis>
+                    <probes/>
+                    <ips/>
+                  </_context_data_analysis>
+                  <report>
+                    <url/>
+                  </report>
+                  <_notes>
+                    <_notes_general/>
+                  </_notes>
+                </annotations>
+                <documentation>
+                  <input/>
+                  <output/>
+                  <implementation>
+                    <description/>
+                  </implementation>
+                  <code>
+                    <description/>
+                  </code>
+                </documentation>
+              </call>
+            </parallel_branch>
+            <parallel_branch>
+              <call id="a20" endpoint="timeout">
+                <parameters>
+                  <label>Set Enemy Spawn Position</label>
+                  <color/>
+                  <arguments>
+                    <timeout>!data.duration</timeout>
+                    <data>
+                      <value>!data.new_enemy["position"]</value>
+                    </data>
+                  </arguments>
+                </parameters>
+                <code>
+                  <signal>false</signal>
+                  <prepare>data.duration = [1,2,3].sample</prepare>
+                  <finalize output="result"/>
+                  <update output="result"/>
+                  <rescue output="result"/>
+                </code>
+                <annotations>
+                  <_generic/>
+                  <_logging_behavior>
+                    <_exclude>false</_exclude>
+                    <_include>false</_include>
+                  </_logging_behavior>
+                  <_timing>
+                    <_timing_weight/>
+                    <_timing_avg/>
+                    <explanations/>
+                  </_timing>
+                  <_shifting>
+                    <_shifting_type>Duration</_shifting_type>
+                  </_shifting>
+                  <_context_data_analysis>
+                    <probes/>
+                    <ips/>
+                  </_context_data_analysis>
+                  <report>
+                    <url/>
+                  </report>
+                  <_notes>
+                    <_notes_general/>
+                  </_notes>
+                </annotations>
+                <documentation>
+                  <input/>
+                  <output/>
+                  <implementation>
+                    <description/>
+                  </implementation>
+                  <code>
+                    <description/>
+                  </code>
+                </documentation>
+              </call>
+              <call id="a19" endpoint="timeout">
+                <parameters>
+                  <label>Place Enemy on Grid</label>
+                  <color/>
+                  <arguments>
+                    <timeout>!data.duration</timeout>
+                    <data/>
+                  </arguments>
+                </parameters>
+                <code>
+                  <signal>false</signal>
+                  <prepare>data.duration = [3,4,5,6,7].sample</prepare>
+                  <finalize output="result"/>
+                  <update output="result"/>
+                  <rescue output="result"/>
+                </code>
+                <annotations>
+                  <_generic/>
+                  <_logging_behavior>
+                    <_exclude>false</_exclude>
+                    <_include>false</_include>
+                  </_logging_behavior>
+                  <_timing>
+                    <_timing_weight/>
+                    <_timing_avg/>
+                    <explanations/>
+                  </_timing>
+                  <_shifting>
+                    <_shifting_type>Duration</_shifting_type>
+                  </_shifting>
+                  <_context_data_analysis>
+                    <probes/>
+                    <ips/>
+                  </_context_data_analysis>
+                  <report>
+                    <url/>
+                  </report>
+                  <_notes>
+                    <_notes_general/>
+                  </_notes>
+                </annotations>
+                <documentation>
+                  <input/>
+                  <output/>
+                  <implementation>
+                    <description/>
+                  </implementation>
+                  <code>
+                    <description/>
+                  </code>
+                </documentation>
+              </call>
+            </parallel_branch>
+          </parallel>
+          <_probability>
+            <_probability_min/>
+            <_probability_max/>
+            <_probability_avg/>
+          </_probability>
+        </alternative>
+        <otherwise/>
+      </choose>
+    </description>
+  </description>
+  <transformation>
+    <description type="copy"/>
+    <dataelements type="none"/>
+    <endpoints type="none"/>
+  </transformation>
+</testset>

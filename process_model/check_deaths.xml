@@ -1,0 +1,478 @@
+<testset xmlns="http://cpee.org/ns/properties/2.0">
+  <executionhandler>ruby</executionhandler>
+  <dataelements>
+    <slain/>
+    <initiative_order/>
+    <round/>
+    <game_state/>
+    <current_player/>
+    <player_data/>
+    <title/>
+    <message/>
+    <death/>
+    <configuration/>
+  </dataelements>
+  <endpoints>
+    <timeout>https-post://cpee.org/services/timeout.php</timeout>
+    <subprocess>https-post://cpee.org/flow/start/url/</subprocess>
+    <frames_display>https-put://cpee.org/out/frames/</frames_display>
+  </endpoints>
+  <attributes>
+    <info>check_deaths</info>
+    <guarded>none</guarded>
+    <modeltype>CPEE</modeltype>
+    <theme>dataflow</theme>
+    <guarded_id/>
+    <creator>Christine Ashcreek</creator>
+    <author>Christine Ashcreek</author>
+    <model_uuid>364f3641-786c-43dd-ae4b-e245f230e183</model_uuid>
+    <model_version/>
+    <design_dir>Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir</design_dir>
+    <design_stage>development</design_stage>
+    <fid>gridsanddragons</fid>
+  </attributes>
+  <description>
+    <description xmlns="http://cpee.org/ns/description/1.0">
+      <manipulate id="a1" label="Check for Enemy Deaths">
+        <code># --- Helper ---
+
+def clear_occupancy(game, actor_id)
+  game.each do |row|
+    next unless row.is_a?(Array)
+    row.each do |cell|
+      next unless cell.is_a?(Hash)
+      occ = cell["occupied"]
+      cell["occupied"] = nil if occ &amp;&amp; occ.to_s == actor_id.to_s
+    end
+  end
+end
+
+# --- Variables ---
+
+new_order = []
+round_adjust = 0
+data.slain = []
+
+data.initiative_order.each do |ent|
+  next unless ent.is_a?(Hash)
+  if ent["type"].to_s == "enemy" &amp;&amp; ent["hp"].to_i &lt;= 0
+    clear_occupancy(data.game_state, ent["id"].to_s)
+    data.slain &lt;&lt; { "title" =&gt; ent["title"].to_s, "reason" =&gt; "hp" }
+
+    if ent["initiative"].to_i &gt; data.current_player["initiative"].to_i
+      round_adjust = round_adjust - 1
+    end
+
+    next
+  end
+
+  new_order &lt;&lt; ent
+end
+
+data.initiative_order = new_order
+
+# --- Apply Round Adjustment ---
+data.round = [data.round.to_i + round_adjust, 0 ].max</code>
+        <annotations>
+          <_logging_behavior>
+            <_exclude/>
+          </_logging_behavior>
+          <_context_data_analysis>
+            <probes/>
+          </_context_data_analysis>
+        </annotations>
+      </manipulate>
+      <manipulate id="a3" label="Check for Player Deaths">
+        <code># --- Helpers ---
+
+def clear_occupancy(game_state, actor_id)
+  return unless game_state.is_a?(Array) &amp;&amp; actor_id
+
+  game_state.each do |row|
+    next unless row.is_a?(Array)
+    row.each do |cell|
+      next unless cell.is_a?(Hash)
+      occ = cell["occupied"]
+      cell["occupied"] = nil if occ &amp;&amp; occ.to_s == actor_id.to_s
+    end
+  end
+end
+
+def copy_hash!(target, source)
+  target.clear
+  source.each { |k, v| target[k] = v }
+end
+
+# --- Variables ---
+
+new_order = []
+round_adjust = 0
+cur_init = data.current_player["initiative"].to_i
+
+cur_id = data.current_player["id"].to_s
+
+data.initiative_order.each do |ent|
+  next unless ent.is_a?(Hash)
+
+  # keep enemies as-is (enemy removal happens in the enemy script)
+  if ent["type"].to_s != "player"
+    new_order &lt;&lt; ent
+    next
+  end
+
+  died_by_hp = (ent["hp"].to_i &lt;= 0)
+  died_by_insanity = (ent["insanity"].to_i &gt;= ent["max_insanity"].to_i)
+
+  if died_by_hp || died_by_insanity
+    reason = died_by_insanity ? "insanity" : "hp"
+
+    # GM Gains Fear
+    gm_factor = data.configuration["gm_factor"].to_i
+    data.configuration["fear"] = data.configuration["fear"].to_i + (2 * gm_factor)
+
+    # Add "dead" condition
+    conds = ent["conditions"].map(&amp;:to_s)
+    conds &lt;&lt; "dead" unless conds.include?("dead")
+    ent["conditions"] = conds
+
+    # Copy into player_data
+    pd = data.player_data.find { |pl| pl["id"].to_s == ent["id"].to_s }
+    if pd
+      copy_hash!(pd, ent)
+    end
+
+    # Clear grid occupancy
+    clear_occupancy(data.game_state, ent["id"].to_s)
+
+    # Track slain entity
+    data.slain &lt;&lt; { "title" =&gt; ent["title"].to_s, "reason" =&gt; reason }
+
+    # Adjust round if needed
+    if ent["initiative"].to_i &gt; cur_init
+      round_adjust = round_adjust - 1 
+    end
+
+    # If current_player died, remove
+    if cur_id == ent["id"].to_s
+      data.current_player = nil
+    end
+
+    next
+  end
+  new_order &lt;&lt; ent
+end
+
+data.initiative_order = new_order
+data.round = [data.round.to_i + round_adjust, 0].max</code>
+        <annotations>
+          <_logging_behavior>
+            <_exclude/>
+          </_logging_behavior>
+          <_context_data_analysis>
+            <probes/>
+          </_context_data_analysis>
+        </annotations>
+      </manipulate>
+      <loop mode="post_test" condition="data.death">
+        <_probability>
+          <_probability_min/>
+          <_probability_max/>
+          <_probability_avg/>
+        </_probability>
+        <_annotations>
+          <_logging_behavior>
+            <_iteration/>
+          </_logging_behavior>
+        </_annotations>
+        <manipulate id="a2" label="Check If Death Occured">
+          <code>if !data.slain.empty?
+  data.last = data.slain.pop
+  data.death = true
+else
+  data.death = false
+end</code>
+          <annotations>
+            <_logging_behavior>
+              <_exclude/>
+            </_logging_behavior>
+            <_context_data_analysis>
+              <probes/>
+            </_context_data_analysis>
+          </annotations>
+        </manipulate>
+        <choose mode="exclusive" label="">
+          <alternative condition="data.death == true">
+            <choose mode="exclusive" label="">
+              <alternative condition="data.last[&quot;reason&quot;].to_s == &quot;hp&quot;">
+                <_probability>
+                  <_probability_min/>
+                  <_probability_max/>
+                  <_probability_avg/>
+                </_probability>
+                <manipulate id="a9" label="Rule: An Entity Dies if HP is Reduced to 0">
+                  <code>title = data.last["title"].to_s
+data.title = "#{title} was slain as their hp was reduced to 0!"
+data.message = "Please wait..."</code>
+                  <annotations>
+                    <_logging_behavior>
+                      <_exclude/>
+                    </_logging_behavior>
+                    <_context_data_analysis>
+                      <probes/>
+                    </_context_data_analysis>
+                  </annotations>
+                </manipulate>
+              </alternative>
+              <otherwise>
+                <manipulate id="a10" label="Rule: An Entity Dies if Insanity is Increased to 5">
+                  <code>title = data.last["title"].to_s
+data.title = "#{title} was driven to insanity as their insanity increased to 10!"
+data.message = "Please wait..."</code>
+                  <annotations>
+                    <_logging_behavior>
+                      <_exclude/>
+                    </_logging_behavior>
+                    <_context_data_analysis>
+                      <probes/>
+                    </_context_data_analysis>
+                  </annotations>
+                </manipulate>
+              </otherwise>
+            </choose>
+            <call id="a6" endpoint="frames_display">
+              <parameters>
+                <label>Instruct Player of Death</label>
+                <color/>
+                <arguments>
+                  <type>set</type>
+                  <lx>6</lx>
+                  <ly>3</ly>
+                  <x_amount>3</x_amount>
+                  <y_amount>2</y_amount>
+                  <button/>
+                  <style/>
+                  <urls>
+                    <urls_item>
+                      <lang>de-at</lang>
+                      <url>https://lehre.bpm.in.tum.de/~ge87max/instruction/instruction.html</url>
+                    </urls_item>
+                  </urls>
+                  <default>
+                    <title>!data.title</title>
+                    <message>!data.message</message>
+                  </default>
+                </arguments>
+              </parameters>
+              <code>
+                <signal/>
+                <prepare>endpoints.frames_display += attributes.fid</prepare>
+                <finalize output="result"/>
+                <update output="result"/>
+                <rescue output="result"/>
+              </code>
+              <annotations>
+                <_generic/>
+                <_logging_behavior>
+                  <_exclude/>
+                  <_include/>
+                </_logging_behavior>
+                <_timing>
+                  <_timing_weight/>
+                  <_timing_avg/>
+                  <explanations/>
+                </_timing>
+                <_shifting>
+                  <_shifting_type>Duration</_shifting_type>
+                </_shifting>
+                <_context_data_analysis>
+                  <probes/>
+                  <ips/>
+                </_context_data_analysis>
+                <report>
+                  <url/>
+                </report>
+                <_notes>
+                  <_notes_general/>
+                </_notes>
+              </annotations>
+              <documentation>
+                <input/>
+                <output/>
+                <implementation>
+                  <description/>
+                </implementation>
+                <code>
+                  <description/>
+                </code>
+              </documentation>
+            </call>
+            <call id="a7" endpoint="subprocess">
+              <parameters>
+                <label>Visualize New Grid Upon Death</label>
+                <color/>
+                <method>:post</method>
+                <arguments>
+                  <behavior>wait_running</behavior>
+                  <url>https://cpee.org/hub/server/Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/visualize_grid.xml</url>
+                  <init>
+                    <game_state>!data.game_state</game_state>
+                    <terrain_pieces>!data.terrain_pieces</terrain_pieces>
+                  </init>
+                  <endpoints/>
+                  <attributes/>
+                  <customization/>
+                </arguments>
+              </parameters>
+              <annotations>
+                <_generic/>
+                <_logging_behavior>
+                  <_exclude/>
+                  <_include/>
+                </_logging_behavior>
+                <_timing>
+                  <_timing_weight/>
+                  <_timing_avg/>
+                  <explanations/>
+                </_timing>
+                <_shifting>
+                  <_shifting_type>Duration</_shifting_type>
+                </_shifting>
+                <_context_data_analysis>
+                  <probes/>
+                  <ips/>
+                </_context_data_analysis>
+                <report>
+                  <url/>
+                </report>
+                <_notes>
+                  <_notes_general/>
+                </_notes>
+              </annotations>
+              <documentation>
+                <input/>
+                <output/>
+                <implementation>
+                  <description/>
+                </implementation>
+              </documentation>
+            </call>
+            <call id="a5" endpoint="timeout">
+              <parameters>
+                <label>Wait for Death Message Display</label>
+                <color/>
+                <method>:post</method>
+                <arguments>
+                  <timeout>2</timeout>
+                  <data/>
+                </arguments>
+              </parameters>
+              <annotations>
+                <_generic/>
+                <_logging_behavior>
+                  <_exclude/>
+                  <_include/>
+                </_logging_behavior>
+                <_timing>
+                  <_timing_weight/>
+                  <_timing_avg/>
+                  <explanations/>
+                </_timing>
+                <_shifting>
+                  <_shifting_type>Duration</_shifting_type>
+                </_shifting>
+                <_context_data_analysis>
+                  <probes/>
+                  <ips/>
+                </_context_data_analysis>
+                <report>
+                  <url/>
+                </report>
+                <_notes>
+                  <_notes_general/>
+                </_notes>
+              </annotations>
+              <documentation>
+                <input/>
+                <output/>
+                <implementation>
+                  <description/>
+                </implementation>
+              </documentation>
+            </call>
+            <call id="a4" endpoint="frames_display">
+              <parameters>
+                <label>Clear Death Message</label>
+                <color/>
+                <arguments>
+                  <type>set</type>
+                  <lx>6</lx>
+                  <ly>3</ly>
+                  <x_amount>3</x_amount>
+                  <y_amount>2</y_amount>
+                  <button/>
+                  <style/>
+                  <urls/>
+                  <default/>
+                </arguments>
+              </parameters>
+              <code>
+                <signal/>
+                <prepare>endpoints.frames_display += attributes.fid</prepare>
+                <finalize output="result">data.title = nil
+data.message = nil</finalize>
+                <update output="result"/>
+                <rescue output="result"/>
+              </code>
+              <annotations>
+                <_generic/>
+                <_logging_behavior>
+                  <_exclude/>
+                  <_include/>
+                </_logging_behavior>
+                <_timing>
+                  <_timing_weight/>
+                  <_timing_avg/>
+                  <explanations/>
+                </_timing>
+                <_shifting>
+                  <_shifting_type>Duration</_shifting_type>
+                </_shifting>
+                <_context_data_analysis>
+                  <probes/>
+                  <ips/>
+                </_context_data_analysis>
+                <report>
+                  <url/>
+                </report>
+                <_notes>
+                  <_notes_general/>
+                </_notes>
+              </annotations>
+              <documentation>
+                <input/>
+                <output/>
+                <implementation>
+                  <description/>
+                </implementation>
+                <code>
+                  <description/>
+                </code>
+              </documentation>
+            </call>
+            <_probability>
+              <_probability_min/>
+              <_probability_max/>
+              <_probability_avg/>
+            </_probability>
+          </alternative>
+          <otherwise/>
+        </choose>
+      </loop>
+    </description>
+  </description>
+  <transformation>
+    <description type="copy"/>
+    <dataelements type="none"/>
+    <endpoints type="none"/>
+  </transformation>
+</testset>

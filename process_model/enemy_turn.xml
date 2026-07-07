@@ -1,0 +1,1278 @@
+<testset xmlns="http://cpee.org/ns/properties/2.0">
+  <executionhandler>ruby</executionhandler>
+  <dataelements>
+    <enemy_action/>
+    <initiative_order/>
+    <title/>
+    <enemy_target_id/>
+    <message/>
+    <current_player/>
+    <enemy_target/>
+    <round/>
+    <game_state/>
+    <max_roll/>
+    <player_data/>
+    <configuration/>
+    <player_roll/>
+  </dataelements>
+  <endpoints>
+    <timeout>https-post://cpee.org/services/timeout.php</timeout>
+    <subprocess>https-post://cpee.org/flow/start/url/</subprocess>
+    <frames_display>https-put://cpee.org/out/frames/</frames_display>
+    <enemyChoice>https://lehre.bpm.in.tum.de/ports/5104/enemyChoice/</enemyChoice>
+  </endpoints>
+  <attributes>
+    <info>enemy_turn</info>
+    <guarded>none</guarded>
+    <modeltype>CPEE</modeltype>
+    <theme>dataflow</theme>
+    <guarded_id/>
+    <creator>Christine Ashcreek</creator>
+    <author>Christine Ashcreek</author>
+    <model_uuid>2fb82db9-88bb-4318-b4d8-5094e48ebdbe</model_uuid>
+    <model_version/>
+    <design_dir>Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir</design_dir>
+    <design_stage>development</design_stage>
+    <fid>gridsanddragons</fid>
+  </attributes>
+  <description>
+    <description xmlns="http://cpee.org/ns/description/1.0">
+      <parallel wait="-1" cancel="last">
+        <parallel_branch>
+          <call id="a4" endpoint="enemyChoice">
+            <parameters>
+              <label>Determine Enemy Action &amp; Target</label>
+              <color/>
+              <method>:post</method>
+              <arguments>
+                <initiative_order>!data.initiative_order</initiative_order>
+                <current_player>!data.current_player</current_player>
+                <configuration>!data.configuration</configuration>
+                <game_state>!data.game_state</game_state>
+                <terrain_pieces>!data.terrain_pieces</terrain_pieces>
+              </arguments>
+            </parameters>
+            <code>
+              <signal/>
+              <prepare/>
+              <finalize output="result">data.enemy_action = result["enemy_action"]
+data.enemy_target_id = result["enemy_target_id"]
+data.enemy_target = result["enemy_target"]
+data.current_player = result["current_player"]
+data.initiative_order = result["initiative_order"]</finalize>
+              <update output="result"/>
+              <rescue output="result"/>
+            </code>
+            <annotations>
+              <_generic/>
+              <_logging_behavior>
+                <_exclude/>
+                <_include/>
+              </_logging_behavior>
+              <_timing>
+                <_timing_weight/>
+                <_timing_avg/>
+                <explanations/>
+              </_timing>
+              <_shifting>
+                <_shifting_type>Duration</_shifting_type>
+              </_shifting>
+              <_context_data_analysis>
+                <probes/>
+                <ips/>
+              </_context_data_analysis>
+              <report>
+                <url/>
+              </report>
+              <_notes>
+                <_notes_general/>
+              </_notes>
+            </annotations>
+            <documentation>
+              <input/>
+              <output/>
+              <implementation>
+                <description/>
+              </implementation>
+              <code>
+                <description/>
+              </code>
+            </documentation>
+          </call>
+        </parallel_branch>
+        <parallel_branch>
+          <call id="a15" endpoint="frames_display">
+            <parameters>
+              <label>Instruct Player of Enemy Turn</label>
+              <color/>
+              <arguments>
+                <type>set</type>
+                <lx>6</lx>
+                <ly>3</ly>
+                <x_amount>3</x_amount>
+                <y_amount>1</y_amount>
+                <button/>
+                <style/>
+                <urls>
+                  <urls_item>
+                    <lang>de-at</lang>
+                    <url>https://lehre.bpm.in.tum.de/~ge87max/instruction/instruction.html</url>
+                  </urls_item>
+                </urls>
+                <default>
+                  <title>It is #'s turn!</title>
+                  <message>Please wait while the enemy decides...</message>
+                  <player_id>!data.current_player["title"]</player_id>
+                </default>
+              </arguments>
+            </parameters>
+            <code>
+              <signal/>
+              <prepare>endpoints.frames_display += attributes.fid</prepare>
+              <finalize output="result"/>
+              <update output="result"/>
+              <rescue output="result"/>
+            </code>
+            <annotations>
+              <_generic/>
+              <_logging_behavior>
+                <_exclude/>
+                <_include/>
+              </_logging_behavior>
+              <_timing>
+                <_timing_weight/>
+                <_timing_avg/>
+                <explanations/>
+              </_timing>
+              <_shifting>
+                <_shifting_type>Duration</_shifting_type>
+              </_shifting>
+              <_context_data_analysis>
+                <probes/>
+                <ips/>
+              </_context_data_analysis>
+              <report>
+                <url/>
+              </report>
+              <_notes>
+                <_notes_general/>
+              </_notes>
+            </annotations>
+            <documentation>
+              <input/>
+              <output/>
+              <implementation>
+                <description/>
+              </implementation>
+              <code>
+                <description/>
+              </code>
+            </documentation>
+          </call>
+          <call id="a11" endpoint="timeout">
+            <parameters>
+              <label>Wait for Enemy Turn Message</label>
+              <color/>
+              <method>:post</method>
+              <arguments>
+                <timeout>4</timeout>
+                <data/>
+              </arguments>
+            </parameters>
+            <annotations>
+              <_generic/>
+              <_logging_behavior>
+                <_exclude/>
+                <_include/>
+              </_logging_behavior>
+              <_timing>
+                <_timing_weight/>
+                <_timing_avg/>
+                <explanations/>
+              </_timing>
+              <_shifting>
+                <_shifting_type>Duration</_shifting_type>
+              </_shifting>
+              <_context_data_analysis>
+                <probes/>
+                <ips/>
+              </_context_data_analysis>
+              <report>
+                <url/>
+              </report>
+              <_notes>
+                <_notes_general/>
+              </_notes>
+            </annotations>
+            <documentation>
+              <input/>
+              <output/>
+              <implementation>
+                <description/>
+              </implementation>
+            </documentation>
+          </call>
+          <call id="a9" endpoint="frames_display">
+            <parameters>
+              <label>Clear Enemy Turn Message</label>
+              <color/>
+              <arguments>
+                <type>set</type>
+                <lx>6</lx>
+                <ly>3</ly>
+                <x_amount>3</x_amount>
+                <y_amount>1</y_amount>
+                <button/>
+                <style/>
+                <urls/>
+                <default/>
+              </arguments>
+            </parameters>
+            <code>
+              <signal/>
+              <prepare>endpoints.frames_display += attributes.fid</prepare>
+              <finalize output="result"/>
+              <update output="result"/>
+              <rescue output="result"/>
+            </code>
+            <annotations>
+              <_generic/>
+              <_logging_behavior>
+                <_exclude/>
+                <_include/>
+              </_logging_behavior>
+              <_timing>
+                <_timing_weight/>
+                <_timing_avg/>
+                <explanations/>
+              </_timing>
+              <_shifting>
+                <_shifting_type>Duration</_shifting_type>
+              </_shifting>
+              <_context_data_analysis>
+                <probes/>
+                <ips/>
+              </_context_data_analysis>
+              <report>
+                <url/>
+              </report>
+              <_notes>
+                <_notes_general/>
+              </_notes>
+            </annotations>
+            <documentation>
+              <input/>
+              <output/>
+              <implementation>
+                <description/>
+              </implementation>
+              <code>
+                <description/>
+              </code>
+            </documentation>
+          </call>
+        </parallel_branch>
+      </parallel>
+      <choose mode="exclusive" label="">
+        <alternative condition="data.enemy_action.to_i == 1">
+          <_probability>
+            <_probability_min/>
+            <_probability_max/>
+            <_probability_avg/>
+          </_probability>
+          <manipulate id="a6" label="Determine Enemy Attack &amp; Damage Rolls and Finalize Enemy Action">
+            <code># --- Helpers ---
+
+def find_player_in_order(order, pid)
+  order.find { |ent| ent.is_a?(Hash) &amp;&amp; ent["type"].to_s == "player" &amp;&amp; ent["id"].to_s == pid.to_s }
+end
+
+def reckless?(pl)
+  conds = (pl["conditions"] || []).map(&amp;:to_s)
+  conds.include?("reckless")
+end
+
+def shielded?(pl)
+  conds = (pl["conditions"] || []).map(&amp;:to_s)
+  conds.include?("shielded")
+end
+
+def raging?(pl)
+  conds = (pl["conditions"] || []).map(&amp;:to_s)
+  conds.include?("raging")
+end
+
+# --- Variables ---
+
+action_id = data.enemy_action.to_i
+target = find_player_in_order(data.initiative_order, data.enemy_target_id.to_s)
+
+actions = data.current_player["actions"]
+
+action = actions.find { |a| a.is_a?(Hash) &amp;&amp; a["id"].to_i == 1 }
+
+action_name = action["title"].to_s
+dice_count = action["no_of_dice"].to_i
+die_type = action["die"].to_s
+fear_cost = action["fear_cost"].to_i
+
+# --- Determine Attack Roll ---
+
+base_roll =
+  if reckless?(target)
+    r1 = rand(1..20)
+    r2 = rand(1..20)
+    [r1, r2].max
+  else
+    rand(1..20)
+  end
+
+attack_roll = base_roll + data.configuration["enemy_attack_bonus"].to_i
+
+# --- Determine Hit ---
+
+base_ac = target["ac"].to_i
+effective_ac = base_ac + (shielded?(target) ? 5 : 0)
+
+hit = (attack_roll &gt;= effective_ac)
+
+enemy_title = data.current_player["title"].to_s
+target_title = target["title"].to_s
+
+if !hit
+  data.title = "#{enemy_title} misses #{target_title} with #{action_name}!"
+  data.message = "#{attack_roll} to Hit vs #{effective_ac} AC..."
+else
+  die_sides = die_type.sub(/^d/i, "").to_i
+
+  raw_damage = 0
+  if dice_count &gt; 0 &amp;&amp; die_sides &gt; 0
+    dice_count.times { raw_damage += rand(1..die_sides) }
+  end
+
+  actual_damage = raw_damage
+
+  if raging?(target)
+    actual_damage = (actual_damage / 2.0).floor
+  end
+
+  old_hp = (target["hp"] || 0).to_i
+  new_hp = old_hp - actual_damage
+  new_hp = 0 if new_hp &lt; 0
+  target["hp"] = new_hp
+
+  conds = target["conditions"].map(&amp;:to_s)
+  conds &lt;&lt; "damaged" unless conds.include?("damaged")
+  target["conditions"] = conds
+
+  data.title = "#{enemy_title} hits #{target_title} with #{action_name}!"
+  data.message = "#{target_title} takes #{actual_damage} damage."
+end
+
+data.configuration["fear"] = [data.configuration["fear"].to_i - fear_cost, 0].max
+data.current_player["damaged_by"] = []
+
+# --- Sync Target and Enemy into Initiative Order ---
+
+enemy_id  = data.current_player["id"].to_s
+target_id = target["id"].to_s
+
+data.initiative_order.map! do |ent|
+  next ent unless ent.is_a?(Hash)
+  if ent["type"].to_s == "player" &amp;&amp; ent["id"].to_s == target_id
+    target
+  elsif ent["type"].to_s == "enemy" &amp;&amp; ent["id"].to_s == enemy_id
+    data.current_player
+  else
+    ent
+  end
+end
+
+# --- Sync Target into Player Data ---
+
+data.player_data.map! do |pl|
+  if pl.is_a?(Hash) &amp;&amp; pl["id"].to_s == target["id"]
+    target
+  else
+    pl
+  end
+end</code>
+            <annotations>
+              <_logging_behavior>
+                <_exclude/>
+              </_logging_behavior>
+              <_context_data_analysis>
+                <probes/>
+              </_context_data_analysis>
+            </annotations>
+          </manipulate>
+        </alternative>
+        <alternative condition="data.enemy_action.to_i == 2">
+          <_probability>
+            <_probability_min/>
+            <_probability_max/>
+            <_probability_avg/>
+          </_probability>
+          <manipulate id="a10" label="Determine Save Parameters">
+            <code># --- Helpers ---
+
+def find_player_in_order(order, pid)
+  order.find do |ent|
+    ent.is_a?(Hash) &amp;&amp;
+    ent["type"].to_s == "player" &amp;&amp;
+    ent["id"].to_s == pid.to_s
+  end
+end
+
+def ability_from_player(player, ability_id)
+  abilities = player["abilities"] || []
+  abilities.find { |a| a.is_a?(Hash) &amp;&amp; a["id"].to_s == ability_id.to_s }
+end
+
+# --- Variables ---
+
+enemy = data.current_player
+order = data.initiative_order
+
+target_id = data.enemy_target_id.to_s
+target = find_player_in_order(order, target_id)
+
+actions = enemy["actions"]
+action = actions.find { |a| a.is_a?(Hash) &amp;&amp; a["id"].to_i == 2 }
+
+dc_type = action["dc_type"].to_s
+ability = ability_from_player(target, dc_type)
+ability_title = ability["title"].to_s
+saving_bonus  = ability["saving_throw"].to_i
+
+enemy_title  = enemy["title"].to_s
+target_title = target["title"].to_s
+
+data.title = "#{enemy_title} recoils back and opens its mouth wide as green saliva begins to gather in its maw. #{target_title}, please make a #{ability_title} saving throw!"
+data.message = "Roll 1d20 and add your #{ability_title} saving throw bonus..."
+data.max_roll = 20 + saving_bonus</code>
+            <annotations>
+              <_logging_behavior>
+                <_exclude/>
+              </_logging_behavior>
+              <_context_data_analysis>
+                <probes/>
+              </_context_data_analysis>
+            </annotations>
+          </manipulate>
+          <call id="a16" endpoint="subprocess">
+            <parameters>
+              <label>Visualize Target Stats</label>
+              <color/>
+              <method>:post</method>
+              <arguments>
+                <behavior>wait_running</behavior>
+                <url>https://cpee.org/hub/server/Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/visualize_stats.xml</url>
+                <init>
+                  <current_player>!data.enemy_target</current_player>
+                </init>
+                <endpoints/>
+                <attributes/>
+                <customization/>
+              </arguments>
+            </parameters>
+            <annotations>
+              <_generic/>
+              <_logging_behavior>
+                <_exclude/>
+                <_include/>
+              </_logging_behavior>
+              <_timing>
+                <_timing_weight/>
+                <_timing_avg/>
+                <explanations/>
+              </_timing>
+              <_shifting>
+                <_shifting_type>Duration</_shifting_type>
+              </_shifting>
+              <_context_data_analysis>
+                <probes/>
+                <ips/>
+              </_context_data_analysis>
+              <report>
+                <url/>
+              </report>
+              <_notes>
+                <_notes_general/>
+              </_notes>
+            </annotations>
+            <documentation>
+              <input/>
+              <output/>
+              <implementation>
+                <description/>
+              </implementation>
+            </documentation>
+          </call>
+          <call id="a1" endpoint="subprocess">
+            <parameters>
+              <label>Get Player Roll</label>
+              <color/>
+              <method>:post</method>
+              <arguments>
+                <behavior>wait_running</behavior>
+                <url>https://cpee.org/hub/server/Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/get_input.xml</url>
+                <init>
+                  <title>!data.title</title>
+                  <message>!data.message</message>
+                  <min>1</min>
+                  <max>!data.max_roll</max>
+                </init>
+                <endpoints/>
+                <attributes/>
+                <customization/>
+              </arguments>
+            </parameters>
+            <code>
+              <signal/>
+              <prepare/>
+              <finalize output="result">data.player_roll = result["result"]</finalize>
+              <update output="result"/>
+              <rescue output="result"/>
+            </code>
+            <annotations>
+              <_generic/>
+              <_logging_behavior>
+                <_exclude/>
+                <_include/>
+              </_logging_behavior>
+              <_timing>
+                <_timing_weight/>
+                <_timing_avg/>
+                <explanations/>
+              </_timing>
+              <_shifting>
+                <_shifting_type>Duration</_shifting_type>
+              </_shifting>
+              <_context_data_analysis>
+                <probes/>
+                <ips/>
+              </_context_data_analysis>
+              <report>
+                <url/>
+              </report>
+              <_notes>
+                <_notes_general/>
+              </_notes>
+            </annotations>
+            <documentation>
+              <input/>
+              <output/>
+              <implementation>
+                <description/>
+              </implementation>
+              <code>
+                <description/>
+              </code>
+            </documentation>
+          </call>
+          <manipulate id="a7" label="Determine Player Save &amp; Damage and Conditions, and Finalize Enemy Action">
+            <code># --- Helpers ---
+
+def find_player_in_order(order, pid)
+  order.find do |ent|
+    ent.is_a?(Hash) &amp;&amp;
+    ent["type"].to_s == "player" &amp;&amp;
+    ent["id"].to_s == pid.to_s
+  end
+end
+
+def raging?(pl)
+  (pl["conditions"] || []).map(&amp;:to_s).include?("raging")
+end
+
+def roll_damage(dice_count, die_type)
+  dc = dice_count.to_i
+  sides = die_type.to_s.sub(/^d/i, "").to_i
+  return 0 if dc &lt;= 0 || sides &lt;= 0
+
+  total = 0
+
+  dc.times { total += rand(1..sides) }
+  total
+end
+
+# --- Variables ---
+
+action_id = data.enemy_action.to_i
+enemy_id = data.current_player["id"].to_s
+target_id = data.enemy_target_id.to_s
+
+target = find_player_in_order(data.initiative_order, data.enemy_target_id.to_s)
+actions = data.current_player["actions"]
+action  = actions.find { |a| a.is_a?(Hash) &amp;&amp; a["id"].to_i == data.enemy_action.to_i }
+
+enemy_title  = data.current_player["title"].to_s
+target_title = target["title"].to_s
+action_name  = action["title"].to_s
+
+dc = data.configuration["enemy_dc"].to_i
+roll = data.player_roll.to_i
+
+fear_cost = action["fear_cost"].to_i
+data.configuration["fear"] = [data.configuration["fear"].to_i - fear_cost, 0].max
+
+success = (roll &gt;= dc)
+
+# --- Resolve outcome ---
+
+conds = (target["conditions"] || []).map(&amp;:to_s)
+
+if !success
+  gm_factor = data.configuration["gm_factor"].to_i
+  data.configuration["fear"] = data.configuration["fear"].to_i + (2 * gm_factor)
+
+  if action_id == 2
+    raw = roll_damage(action["no_of_dice"], action["die"])
+    dmg = raw
+    dmg = (dmg / 2.0).floor if raging?(target)
+    dmg = 0 if dmg &lt; 0
+
+    target["hp"] = [target["hp"].to_i - dmg, 0].max
+
+    conds &lt;&lt; "damaged" unless conds.include?("damaged")
+    target["conditions"] = conds
+
+    data.title = "#{enemy_title} drenches #{target_title} with #{action_name}!"
+    data.message = "#{target_title} takes #{dmg} damage..."
+  else
+    effect = action["effect"].to_s
+    conds &lt;&lt; "damaged" unless conds.include?("damaged")
+    conds &lt;&lt; effect unless effect.empty? || conds.include?(effect)
+    target["conditions"] = conds
+
+    data.current_player["target"] = target_id
+    data.title = "#{enemy_title} snares #{target_title} with #{action_name}!"
+    data.message = "#{target_title} is now #{effect}..."
+  end
+
+else
+  if action_id == 2
+    raw = roll_damage(action["no_of_dice"], action["die"])
+    dmg = (raw / 2.0).floor
+    dmg = (dmg / 2.0).floor if raging?(target)
+    dmg = 0 if dmg &lt; 0
+
+    target["hp"] = [target["hp"].to_i - dmg, 0].max
+
+    conds &lt;&lt; "damaged" unless conds.include?("damaged")
+
+    target["conditions"] = conds
+
+    data.title = "#{target_title} withstands the worst of #{action_name}!"
+    data.message = "#{target_title} takes #{dmg} damage..."
+  else
+    data.title = "#{target_title} resists #{action_name} and was unaffected!"
+    data.message = "Please wait..."
+  end
+end
+
+data.current_player["damaged_by"] = []
+
+# --- Sync Target and Enemy into Initiative Order ---
+
+data.initiative_order.map! do |ent|
+  next ent unless ent.is_a?(Hash)
+  if ent["type"].to_s == "player" &amp;&amp; ent["id"].to_s == target_id
+    target
+  elsif ent["type"].to_s == "enemy" &amp;&amp; ent["id"].to_s == enemy_id
+    data.current_player
+  else
+    ent
+  end
+end
+
+# --- Sync Target into Player Data ---
+data.player_data.map! do |pl|
+  if pl.is_a?(Hash) &amp;&amp; pl["id"].to_s == target_id
+    target
+  else
+    pl
+  end
+end</code>
+            <annotations>
+              <_logging_behavior>
+                <_exclude/>
+              </_logging_behavior>
+              <_context_data_analysis>
+                <probes/>
+              </_context_data_analysis>
+            </annotations>
+          </manipulate>
+        </alternative>
+        <alternative condition="data.enemy_action.to_i == 3">
+          <_probability>
+            <_probability_min/>
+            <_probability_max/>
+            <_probability_avg/>
+          </_probability>
+          <manipulate id="a14" label="Determine Save Parameters">
+            <code># --- Helpers ---
+
+def find_player_in_order(order, pid)
+  order.find do |ent|
+    ent.is_a?(Hash) &amp;&amp;
+    ent["type"].to_s == "player" &amp;&amp;
+    ent["id"].to_s == pid.to_s
+  end
+end
+
+def ability_from_player(player, ability_id)
+  abilities = player["abilities"] || []
+  abilities.find { |a| a.is_a?(Hash) &amp;&amp; a["id"].to_s == ability_id.to_s }
+end
+
+# --- Variables ---
+
+enemy = data.current_player
+order = data.initiative_order
+
+target_id = data.enemy_target_id.to_s
+target = find_player_in_order(order, target_id)
+
+actions = enemy["actions"]
+action = actions.find { |a| a.is_a?(Hash) &amp;&amp; a["id"].to_i == 3 }
+
+dc_type = action["dc_type"].to_s
+ability = ability_from_player(target, dc_type)
+
+ability_title = ability["title"].to_s
+saving_bonus  = ability["saving_throw"].to_i
+
+enemy_title  = enemy["title"].to_s
+target_title = target["title"].to_s
+
+data.title =  "#{enemy_title} lashes out with a sticky, barbed tongue, snapping toward #{target_title}. #{target_title}, please make a #{ability_title} saving throw!"
+data.message = "Roll 1d20 and add your #{ability_title} saving throw bonus..."
+data.max_roll = 20 + saving_bonus</code>
+            <annotations>
+              <_logging_behavior>
+                <_exclude/>
+              </_logging_behavior>
+              <_context_data_analysis>
+                <probes/>
+              </_context_data_analysis>
+            </annotations>
+          </manipulate>
+          <call id="a17" endpoint="subprocess">
+            <parameters>
+              <label>Visualize Target Stats</label>
+              <color/>
+              <method>:post</method>
+              <arguments>
+                <behavior>wait_running</behavior>
+                <url>https://cpee.org/hub/server/Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/visualize_stats.xml</url>
+                <init>
+                  <current_player>!data.enemy_target</current_player>
+                </init>
+                <endpoints/>
+                <attributes/>
+                <customization/>
+              </arguments>
+            </parameters>
+            <annotations>
+              <_generic/>
+              <_logging_behavior>
+                <_exclude/>
+                <_include/>
+              </_logging_behavior>
+              <_timing>
+                <_timing_weight/>
+                <_timing_avg/>
+                <explanations/>
+              </_timing>
+              <_shifting>
+                <_shifting_type>Duration</_shifting_type>
+              </_shifting>
+              <_context_data_analysis>
+                <probes/>
+                <ips/>
+              </_context_data_analysis>
+              <report>
+                <url/>
+              </report>
+              <_notes>
+                <_notes_general/>
+              </_notes>
+            </annotations>
+            <documentation>
+              <input/>
+              <output/>
+              <implementation>
+                <description/>
+              </implementation>
+              <code>
+                <description/>
+              </code>
+            </documentation>
+          </call>
+          <call id="a21" endpoint="subprocess">
+            <parameters>
+              <label>Get Player Roll</label>
+              <color/>
+              <method>:post</method>
+              <arguments>
+                <behavior>wait_running</behavior>
+                <url>https://cpee.org/hub/server/Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/get_input.xml</url>
+                <init>
+                  <title>!data.title</title>
+                  <message>!data.message</message>
+                  <min>1</min>
+                  <max>!data.max_roll</max>
+                </init>
+                <endpoints/>
+                <attributes/>
+                <customization/>
+              </arguments>
+            </parameters>
+            <code>
+              <signal/>
+              <prepare/>
+              <finalize output="result">data.player_roll = result["result"]</finalize>
+              <update output="result"/>
+              <rescue output="result"/>
+            </code>
+            <annotations>
+              <_generic/>
+              <_logging_behavior>
+                <_exclude/>
+                <_include/>
+              </_logging_behavior>
+              <_timing>
+                <_timing_weight/>
+                <_timing_avg/>
+                <explanations/>
+              </_timing>
+              <_shifting>
+                <_shifting_type>Duration</_shifting_type>
+              </_shifting>
+              <_context_data_analysis>
+                <probes/>
+                <ips/>
+              </_context_data_analysis>
+              <report>
+                <url/>
+              </report>
+              <_notes>
+                <_notes_general/>
+              </_notes>
+            </annotations>
+            <documentation>
+              <input/>
+              <output/>
+              <implementation>
+                <description/>
+              </implementation>
+              <code>
+                <description/>
+              </code>
+            </documentation>
+          </call>
+          <manipulate id="a20" label="Determine Player Save &amp; Damage and Conditions, and Finalize Enemy Action">
+            <code># --- Helpers ---
+
+def find_player_in_order(order, pid)
+  order.find do |ent|
+    ent.is_a?(Hash) &amp;&amp;
+    ent["type"].to_s == "player" &amp;&amp;
+    ent["id"].to_s == pid.to_s
+  end
+end
+
+def raging?(pl)
+  (pl["conditions"] || []).map(&amp;:to_s).include?("raging")
+end
+
+def roll_damage(dice_count, die_type)
+  dc = dice_count.to_i
+  sides = die_type.to_s.sub(/^d/i, "").to_i
+  return 0 if dc &lt;= 0 || sides &lt;= 0
+
+  total = 0
+
+  dc.times { total += rand(1..sides) }
+  total
+end
+
+# --- Variables ---
+
+action_id = data.enemy_action.to_i
+enemy_id = data.current_player["id"].to_s
+target_id = data.enemy_target_id.to_s
+
+target = find_player_in_order(data.initiative_order, data.enemy_target_id.to_s)
+actions = data.current_player["actions"]
+action  = actions.find { |a| a.is_a?(Hash) &amp;&amp; a["id"].to_i == data.enemy_action.to_i }
+
+enemy_title  = data.current_player["title"].to_s
+target_title = target["title"].to_s
+action_name  = action["title"].to_s
+
+dc = data.configuration["enemy_dc"].to_i
+roll = data.player_roll.to_i
+
+fear_cost = action["fear_cost"].to_i
+data.configuration["fear"] = [data.configuration["fear"].to_i - fear_cost, 0].max
+
+success = (roll &gt;= dc)
+
+# --- Resolve outcome ---
+
+conds = (target["conditions"] || []).map(&amp;:to_s)
+
+if !success
+  gm_factor = data.configuration["gm_factor"].to_i
+  data.configuration["fear"] = data.configuration["fear"].to_i + (2 * gm_factor)
+
+  if action_id == 2
+    raw = roll_damage(action["no_of_dice"], action["die"])
+    dmg = raw
+    dmg = (dmg / 2.0).floor if raging?(target)
+    dmg = 0 if dmg &lt; 0
+
+    target["hp"] = [target["hp"].to_i - dmg, 0].max
+
+    conds &lt;&lt; "damaged" unless conds.include?("damaged")
+    target["conditions"] = conds
+
+    data.title = "#{enemy_title} drenches #{target_title} with #{action_name}!"
+    data.message = "#{target_title} takes #{dmg} damage..."
+  else
+    effect = action["effect"].to_s
+    conds &lt;&lt; "damaged" unless conds.include?("damaged")
+    conds &lt;&lt; effect unless effect.empty? || conds.include?(effect)
+    target["conditions"] = conds
+
+    data.current_player["target"] = target_id
+    data.title = "#{enemy_title} snares #{target_title} with #{action_name}!"
+    data.message = "#{target_title} is now #{effect}..."
+  end
+
+else
+  if action_id == 2
+    raw = roll_damage(action["no_of_dice"], action["die"])
+    dmg = (raw / 2.0).floor
+    dmg = (dmg / 2.0).floor if raging?(target)
+    dmg = 0 if dmg &lt; 0
+
+    target["hp"] = [target["hp"].to_i - dmg, 0].max
+
+    conds &lt;&lt; "damaged" unless conds.include?("damaged")
+
+    target["conditions"] = conds
+
+    data.title = "#{target_title} withstands the worst of #{action_name}!"
+    data.message = "#{target_title} takes #{dmg} damage..."
+  else
+    data.title = "#{target_title} resists #{action_name} and was unaffected!"
+    data.message = "Please wait..."
+  end
+end
+
+data.current_player["damaged_by"] = []
+
+# --- Sync Target and Enemy into Initiative Order ---
+
+data.initiative_order.map! do |ent|
+  next ent unless ent.is_a?(Hash)
+  if ent["type"].to_s == "player" &amp;&amp; ent["id"].to_s == target_id
+    target
+  elsif ent["type"].to_s == "enemy" &amp;&amp; ent["id"].to_s == enemy_id
+    data.current_player
+  else
+    ent
+  end
+end
+
+# --- Sync Target into Player Data ---
+data.player_data.map! do |pl|
+  if pl.is_a?(Hash) &amp;&amp; pl["id"].to_s == target_id
+    target
+  else
+    pl
+  end
+end</code>
+            <annotations>
+              <_logging_behavior>
+                <_exclude/>
+              </_logging_behavior>
+              <_context_data_analysis>
+                <probes/>
+              </_context_data_analysis>
+            </annotations>
+          </manipulate>
+        </alternative>
+        <otherwise>
+          <manipulate id="a2" label="Update Enemy End Turn Message">
+            <code>data.title = "It is ending its turn! Please wait for the next turn..."
+data.message = "Please wait..."</code>
+            <annotations>
+              <_logging_behavior>
+                <_exclude/>
+              </_logging_behavior>
+              <_context_data_analysis>
+                <probes/>
+              </_context_data_analysis>
+            </annotations>
+          </manipulate>
+        </otherwise>
+      </choose>
+      <call id="a13" endpoint="frames_display">
+        <parameters>
+          <label>Instruct Player of Enemy Action</label>
+          <color/>
+          <arguments>
+            <type>set</type>
+            <lx>6</lx>
+            <ly>3</ly>
+            <x_amount>3</x_amount>
+            <y_amount>1</y_amount>
+            <button/>
+            <style/>
+            <urls>
+              <urls_item>
+                <lang>de-at</lang>
+                <url>https://lehre.bpm.in.tum.de/~ge87max/instruction/instruction.html</url>
+              </urls_item>
+            </urls>
+            <default>
+              <title>!data.title</title>
+              <message>!data.message</message>
+            </default>
+          </arguments>
+        </parameters>
+        <code>
+          <signal/>
+          <prepare>endpoints.frames_display += attributes.fid</prepare>
+          <finalize output="result"/>
+          <update output="result"/>
+          <rescue output="result"/>
+        </code>
+        <annotations>
+          <_generic/>
+          <_logging_behavior>
+            <_exclude/>
+            <_include/>
+          </_logging_behavior>
+          <_timing>
+            <_timing_weight/>
+            <_timing_avg/>
+            <explanations/>
+          </_timing>
+          <_shifting>
+            <_shifting_type>Duration</_shifting_type>
+          </_shifting>
+          <_context_data_analysis>
+            <probes/>
+            <ips/>
+          </_context_data_analysis>
+          <report>
+            <url/>
+          </report>
+          <_notes>
+            <_notes_general/>
+          </_notes>
+        </annotations>
+        <documentation>
+          <input/>
+          <output/>
+          <implementation>
+            <description/>
+          </implementation>
+          <code>
+            <description/>
+          </code>
+        </documentation>
+      </call>
+      <call id="a12" endpoint="timeout">
+        <parameters>
+          <label>Wait for Enemy Action Message</label>
+          <color/>
+          <method>:post</method>
+          <arguments>
+            <timeout>7</timeout>
+            <data/>
+          </arguments>
+        </parameters>
+        <annotations>
+          <_generic/>
+          <_logging_behavior>
+            <_exclude/>
+            <_include/>
+          </_logging_behavior>
+          <_timing>
+            <_timing_weight/>
+            <_timing_avg/>
+            <explanations/>
+          </_timing>
+          <_shifting>
+            <_shifting_type>Duration</_shifting_type>
+          </_shifting>
+          <_context_data_analysis>
+            <probes/>
+            <ips/>
+          </_context_data_analysis>
+          <report>
+            <url/>
+          </report>
+          <_notes>
+            <_notes_general/>
+          </_notes>
+        </annotations>
+        <documentation>
+          <input/>
+          <output/>
+          <implementation>
+            <description/>
+          </implementation>
+        </documentation>
+      </call>
+      <call id="a8" endpoint="frames_display">
+        <parameters>
+          <label>Clear Enemy Turn Message</label>
+          <color/>
+          <arguments>
+            <type>set</type>
+            <lx>6</lx>
+            <ly>3</ly>
+            <x_amount>3</x_amount>
+            <y_amount>1</y_amount>
+            <button/>
+            <style/>
+            <urls/>
+            <default/>
+          </arguments>
+        </parameters>
+        <code>
+          <signal/>
+          <prepare>endpoints.frames_display += attributes.fid</prepare>
+          <finalize output="result">data.title = nil
+data.message = nil
+data.enemy_action = nil
+data.enemy_target_id = nil
+data.enemy_target = nil
+
+data.max_roll = nil
+data.player_roll = nil</finalize>
+          <update output="result"/>
+          <rescue output="result"/>
+        </code>
+        <annotations>
+          <_generic/>
+          <_logging_behavior>
+            <_exclude/>
+            <_include/>
+          </_logging_behavior>
+          <_timing>
+            <_timing_weight/>
+            <_timing_avg/>
+            <explanations/>
+          </_timing>
+          <_shifting>
+            <_shifting_type>Duration</_shifting_type>
+          </_shifting>
+          <_context_data_analysis>
+            <probes/>
+            <ips/>
+          </_context_data_analysis>
+          <report>
+            <url/>
+          </report>
+          <_notes>
+            <_notes_general/>
+          </_notes>
+        </annotations>
+        <documentation>
+          <input/>
+          <output/>
+          <implementation>
+            <description/>
+          </implementation>
+          <code>
+            <description/>
+          </code>
+        </documentation>
+      </call>
+      <call id="a3" endpoint="subprocess">
+        <parameters>
+          <label>Check for Deaths</label>
+          <color/>
+          <method>:post</method>
+          <arguments>
+            <behavior>wait_running</behavior>
+            <url>https://cpee.org/hub/server/Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/check_deaths.xml</url>
+            <init>
+              <initiative_order>!data.initiative_order</initiative_order>
+              <round>!data.round</round>
+              <game_state>!data.game_state</game_state>
+              <current_player>!data.current_player</current_player>
+              <player_data>!data.player_data</player_data>
+              <configuration>!data.configuration</configuration>
+              <terrain_pieces>!data.terrain_pieces</terrain_pieces>
+            </init>
+            <endpoints/>
+            <attributes/>
+            <customization/>
+          </arguments>
+        </parameters>
+        <code>
+          <signal/>
+          <prepare/>
+          <finalize output="result">data.initiative_order = result["initiative_order"]
+data.current_player = result["current_player"]
+data.round = result["round"]
+data.game_state = result["game_state"]
+data.player_data = result["player_data"]
+data.configuration = result["configuration"]</finalize>
+          <update output="result"/>
+          <rescue output="result"/>
+        </code>
+        <annotations>
+          <_generic/>
+          <_logging_behavior>
+            <_exclude/>
+            <_include/>
+          </_logging_behavior>
+          <_timing>
+            <_timing_weight/>
+            <_timing_avg/>
+            <explanations/>
+          </_timing>
+          <_shifting>
+            <_shifting_type>Duration</_shifting_type>
+          </_shifting>
+          <_context_data_analysis>
+            <probes/>
+            <ips/>
+          </_context_data_analysis>
+          <report>
+            <url/>
+          </report>
+          <_notes>
+            <_notes_general/>
+          </_notes>
+        </annotations>
+        <documentation>
+          <input/>
+          <output/>
+          <implementation>
+            <description/>
+          </implementation>
+          <code>
+            <description/>
+          </code>
+        </documentation>
+      </call>
+    </description>
+  </description>
+  <transformation>
+    <description type="copy"/>
+    <dataelements type="none"/>
+    <endpoints type="none"/>
+  </transformation>
+</testset>

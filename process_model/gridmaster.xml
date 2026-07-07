@@ -1,0 +1,1226 @@
+<testset xmlns="http://cpee.org/ns/properties/2.0">
+  <executionhandler>ruby</executionhandler>
+  <dataelements>
+    <current_player/>
+    <game_state/>
+    <number_of_players/>
+    <title/>
+    <current_terrain/>
+    <initiative_order/>
+    <max_roll/>
+    <message/>
+    <checking_players/>
+    <continue_game/>
+    <player_movement/>
+    <round/>
+    <terrain_pieces/>
+    <traps/>
+    <configuration/>
+    <player_data/>
+    <reason/>
+    <grid_template>[[{"global":[1,1],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[1,2],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[1,3],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[1,4],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[1,5],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[1,6],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[1,7],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[1,8],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[1,9],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[1,10],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[1,11],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[1,12],"terrainID":null,"occupied":false,"effect":null,"exit":false}],[{"global":[2,1],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[2,2],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[2,3],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[2,4],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[2,5],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[2,6],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[2,7],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[2,8],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[2,9],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[2,10],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[2,11],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[2,12],"terrainID":null,"occupied":false,"effect":null,"exit":false}],[{"global":[3,1],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[3,2],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[3,3],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[3,4],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[3,5],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[3,6],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[3,7],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[3,8],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[3,9],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[3,10],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[3,11],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[3,12],"terrainID":null,"occupied":false,"effect":null,"exit":false}],[{"global":[4,1],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[4,2],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[4,3],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[4,4],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[4,5],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[4,6],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[4,7],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[4,8],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[4,9],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[4,10],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[4,11],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[4,12],"terrainID":null,"occupied":false,"effect":null,"exit":false}],[{"global":[5,1],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[5,2],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[5,3],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[5,4],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[5,5],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[5,6],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[5,7],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[5,8],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[5,9],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[5,10],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[5,11],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[5,12],"terrainID":null,"occupied":false,"effect":null,"exit":false}],[{"global":[6,1],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[6,2],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[6,3],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[6,4],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[6,5],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[6,6],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[6,7],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[6,8],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[6,9],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[6,10],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[6,11],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[6,12],"terrainID":null,"occupied":false,"effect":null,"exit":false}],[{"global":[7,1],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[7,2],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[7,3],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[7,4],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[7,5],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[7,6],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[7,7],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[7,8],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[7,9],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[7,10],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[7,11],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[7,12],"terrainID":null,"occupied":false,"effect":null,"exit":false}],[{"global":[8,1],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[8,2],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[8,3],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[8,4],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[8,5],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[8,6],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[8,7],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[8,8],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[8,9],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[8,10],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[8,11],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[8,12],"terrainID":null,"occupied":false,"effect":null,"exit":false}],[{"global":[9,1],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[9,2],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[9,3],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[9,4],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[9,5],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[9,6],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[9,7],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[9,8],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[9,9],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[9,10],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[9,11],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[9,12],"terrainID":null,"occupied":false,"effect":null,"exit":false}],[{"global":[10,1],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[10,2],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[10,3],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[10,4],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[10,5],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[10,6],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[10,7],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[10,8],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[10,9],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[10,10],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[10,11],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[10,12],"terrainID":null,"occupied":false,"effect":null,"exit":false}],[{"global":[11,1],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[11,2],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[11,3],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[11,4],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[11,5],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[11,6],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[11,7],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[11,8],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[11,9],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[11,10],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[11,11],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[11,12],"terrainID":null,"occupied":false,"effect":null,"exit":false}],[{"global":[12,1],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[12,2],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[12,3],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[12,4],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[12,5],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[12,6],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[12,7],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[12,8],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[12,9],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[12,10],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[12,11],"terrainID":null,"occupied":false,"effect":null,"exit":false},{"global":[12,12],"terrainID":null,"occupied":false,"effect":null,"exit":false}]]</grid_template>
+    <terrain_template>[{"id":"A","rotation":0,"home":11,"placement":0,"cells":[[{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false}],[{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false}],[{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":true}],[{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":true},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false}]],"horizontal_walls":[[1,0,0,0,1],[1,1,0,0,1],[1,1,0,0,0],[1,0,0,1,1]],"vertical_walls":[[1,0,0,0,1],[1,1,1,1,0],[1,1,0,1,1],[1,0,1,0,1]]},{"id":"B","rotation":0,"home":12,"placement":0,"cells":[[{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false}],[{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":true}],[{"global":null,"effect":null,"occupied":false,"exit":true},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false}],[{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":true},{"global":null,"effect":null,"occupied":false,"exit":false}]],"horizontal_walls":[[1,0,1,0,1],[1,0,0,0,0],[0,0,1,0,1],[1,0,1,1,1]],"vertical_walls":[[1,0,0,0,1],[1,0,1,0,1],[1,0,0,0,0],[1,0,1,0,1]]},{"id":"C","rotation":0,"home":13,"placement":0,"cells":[[{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false}],[{"global":null,"effect":null,"occupied":false,"exit":true},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false}],[{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":"rogueE","occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false}],[{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":true},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false}]],"horizontal_walls":[[1,0,0,0,1],[0,1,0,0,1],[1,1,1,1,1],[1,0,1,0,1]],"vertical_walls":[[1,0,1,0,1],[1,0,0,0,0],[1,0,1,0,1],[1,0,0,0,1]]},{"id":"D","rotation":0,"home":21,"placement":0,"cells":[[{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":true},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false}],[{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":true}],[{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false}],[{"global":null,"effect":"barbarianE","occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":true},{"global":null,"effect":null,"occupied":false,"exit":false}]],"horizontal_walls":[[1,0,0,0,1],[1,0,1,0,0],[1,1,1,0,1],[1,1,0,1,1]],"vertical_walls":[[1,1,0,0,1],[0,0,1,0,1],[1,0,0,0,0],[1,0,0,0,1]]},{"id":"E","rotation":0,"home":22,"placement":0,"cells":[[{"global":null,"effect":"barbarianS","occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":true},{"global":null,"effect":"clericS","occupied":false,"exit":false}],[{"global":null,"effect":null,"occupied":false,"exit":true},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false}],[{"global":null,"effect":"wizardS","occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":true}],[{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":true},{"global":null,"effect":"rogueS","occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false}]],"horizontal_walls":[[1,0,1,1,1],[0,0,0,0,1],[1,1,0,0,0],[1,0,1,1,1]],"vertical_walls":[[1,0,1,0,1],[1,0,0,0,0],[0,0,0,0,1],[1,0,0,0,1]]},{"id":"F","rotation":0,"home":23,"placement":0,"cells":[[{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":true},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false}],[{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false}],[{"global":null,"effect":null,"occupied":false,"exit":true},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false}],[{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":true},{"global":null,"effect":null,"occupied":false,"exit":false}]],"horizontal_walls":[[1,0,0,0,1],[1,1,0,1,1],[0,0,0,0,1],[1,0,0,1,1]],"vertical_walls":[[1,0,1,1,1],[0,1,0,0,1],[1,0,1,0,0],[1,0,1,0,1]]},{"id":"G","rotation":0,"home":31,"placement":0,"cells":[[{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":true},{"global":null,"effect":null,"occupied":false,"exit":false}],[{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":"clericE","occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false}],[{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":true}],[{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false}]],"horizontal_walls":[[1,0,1,1,1],[1,0,1,0,1],[1,1,0,1,0],[1,0,1,0,1]],"vertical_walls":[[1,0,0,0,1],[1,0,1,0,1],[0,0,0,1,1],[1,0,0,0,1]]},{"id":"H","rotation":0,"home":32,"placement":0,"cells":[[{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":true},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false}],[{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":true}],[{"global":null,"effect":null,"occupied":false,"exit":true},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false}],[{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false}]],"horizontal_walls":[[1,0,0,1,1],[1,1,1,0,0],[0,1,0,0,1],[1,0,1,0,1]],"vertical_walls":[[1,0,1,0,1],[0,0,0,0,1],[1,0,1,1,1],[1,0,0,0,1]]},{"id":"I","rotation":0,"home":33,"placement":0,"cells":[[{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":true},{"global":null,"effect":"wizardE","occupied":false,"exit":false}],[{"global":null,"effect":null,"occupied":false,"exit":true},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false}],[{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false}],[{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false},{"global":null,"effect":null,"occupied":false,"exit":false}]],"horizontal_walls":[[1,0,0,1,1],[0,1,0,1,1],[1,0,1,0,1],[1,0,0,0,1]],"vertical_walls":[[1,0,0,0,1],[1,1,0,1,1],[0,0,1,0,1],[1,0,0,0,1]]}]</terrain_template>
+    <character_template>[{"type":"player","id":"barbarian","title":"Barbarian","position":null,"initiative":null,"init_bonus":2,"ac":15,"hp":55,"max_hp":55,"mana":5,"max_mana":15,"adrenaline":10,"max_adrenaline":15,"insanity":0,"max_insanity":10,"max_movement":3,"current_movement":3,"abilities":[{"id":"str","title":"Strength","value":18,"mod":4,"saving_throw":7},{"id":"dex","title":"Dexterity","value":14,"mod":2,"saving_throw":2},{"id":"con","title":"Constitution","value":16,"mod":3,"saving_throw":6},{"id":"int","title":"Intelligence","value":8,"mod":-1,"saving_throw":-1},{"id":"wis","title":"Wisdom","value":10,"mod":0,"saving_throw":0}],"skills":[{"id":1,"type":0,"title":"Attack","no_of_dice":2,"die":"d6","prerequisite":null,"condition":null,"m_cost":0,"a_cost":1,"range":1},{"id":2,"type":0,"title":"Reckless Attack","no_of_dice":4,"die":"d6","prerequisite":null,"condition":"reckless","m_cost":1,"a_cost":2,"range":1},{"id":3,"type":2,"title":"Rage","no_of_dice":0,"die":null,"prerequisite":null,"condition":"raging","m_cost":2,"a_cost":3,"range":0}],"valid_targets":[],"target":null,"chosen_action":null,"attack_bonus":7,"attack_roll":null,"damage_roll":null,"conditions":[],"equipment":[],"action_available":true,"b_action_available":true,"first_turn":true},{"type":"player","id":"cleric","title":"Cleric","position":null,"initiative":null,"init_bonus":2,"ac":17,"hp":40,"max_hp":40,"mana":10,"max_mana":15,"adrenaline":5,"max_adrenaline":15,"insanity":0,"max_insanity":10,"max_movement":3,"current_movement":3,"abilities":[{"id":"str","title":"Strength","value":16,"mod":3,"saving_throw":2},{"id":"dex","title":"Dexterity","value":8,"mod":-1,"saving_throw":-1},{"id":"con","title":"Constitution","value":14,"mod":2,"saving_throw":2},{"id":"int","title":"Intelligence","value":12,"mod":1,"saving_throw":1},{"id":"wis","title":"Wisdom","value":18,"mod":4,"saving_throw":7}],"skills":[{"id":4,"type":0,"title":"Sacred Smite","no_of_dice":2,"die":"d8","prerequisite":null,"condition":null,"m_cost":1,"a_cost":1,"range":3},{"id":5,"type":1,"title":"Heal","no_of_dice":3,"die":"d8","prerequisite":"damaged","condition":null,"m_cost":2,"a_cost":0,"range":3},{"id":6,"type":2,"title":"Resurrect","no_of_dice":0,"die":null,"prerequisite":"dead","condition":null,"m_cost":5,"a_cost":2,"range":1}],"valid_targets":[],"target":null,"chosen_action":null,"attack_bonus":7,"attack_roll":null,"damage_roll":null,"conditions":[],"equipment":[],"action_available":true,"b_action_available":true,"first_turn":true},{"type":"player","id":"rogue","title":"Rogue","position":null,"initiative":null,"init_bonus":5,"ac":16,"hp":35,"max_hp":35,"mana":5,"max_mana":15,"adrenaline":10,"max_adrenaline":15,"insanity":0,"max_insanity":10,"max_movement":4,"current_movement":4,"abilities":[{"id":"str","title":"Strength","value":10,"mod":0,"saving_throw":0},{"id":"dex","title":"Dexterity","value":18,"mod":4,"saving_throw":7},{"id":"con","title":"Constitution","value":13,"mod":1,"saving_throw":1},{"id":"int","title":"Intelligence","value":14,"mod":2,"saving_throw":5},{"id":"wis","title":"Wisdom","value":12,"mod":1,"saving_throw":1}],"skills":[{"id":7,"type":0,"title":"Attack","no_of_dice":1,"die":"d8","prerequisite":null,"condition":null,"m_cost":0,"a_cost":1,"range":1},{"id":8,"type":0,"title":"Sneak Attack","no_of_dice":5,"die":"d6","prerequisite":"hidden","condition":null,"m_cost":0,"a_cost":3,"range":3},{"id":9,"type":2,"title":"Hide","no_of_dice":0,"die":null,"prerequisite":"moved","condition":"hidden","m_cost":3,"a_cost":1,"range":0}],"valid_targets":[],"target":null,"chosen_action":null,"attack_bonus":7,"attack_roll":null,"damage_roll":null,"conditions":[],"equipment":[],"action_available":true,"b_action_available":true,"first_turn":true},{"type":"player","id":"wizard","title":"Wizard","position":null,"initiative":null,"init_bonus":2,"ac":15,"hp":28,"max_hp":28,"mana":10,"max_mana":15,"adrenaline":5,"max_adrenaline":15,"insanity":0,"max_insanity":10,"max_movement":3,"current_movement":3,"abilities":[{"id":"str","title":"Strength","value":8,"mod":-1,"saving_throw":-1},{"id":"dex","title":"Dexterity","value":14,"mod":2,"saving_throw":2},{"id":"con","title":"Constitution","value":14,"mod":1,"saving_throw":2},{"id":"int","title":"Intelligence","value":20,"mod":5,"saving_throw":8},{"id":"wis","title":"Wisdom","value":14,"mod":2,"saving_throw":5}],"skills":[{"id":10,"type":0,"title":"Arcane Burst","no_of_dice":2,"die":"d10","prerequisite":null,"condition":null,"m_cost":1,"a_cost":1,"range":3},{"id":11,"type":2,"title":"Arcane Shield","no_of_dice":0,"die":null,"prerequisite":null,"condition":"shielded","m_cost":1,"a_cost":1,"range":0},{"id":12,"type":2,"title":"Stabilize","no_of_dice":0,"die":null,"prerequisite":null,"condition":null,"m_cost":2,"a_cost":2,"range":3}],"valid_targets":[],"target":null,"chosen_action":null,"attack_bonus":8,"attack_roll":null,"damage_roll":null,"conditions":[],"equipment":[],"action_available":true,"b_action_available":true,"first_turn":true}]</character_template>
+    <enemy_template>[{"type":"enemy","id":"mimic#","number":null,"title":"Mimic #","hp":null,"ac":null,"activation":0,"initiative":null,"position":null,"damaged_by":[],"target":null,"actions":[{"id":1,"type":0,"title":"Pseudopod Slam","range":1,"fear_cost":0,"no_of_dice":2,"die":"d6","dc_type":null,"effect":null},{"id":2,"type":3,"title":"Acidic Regurgitation","range":2,"fear_cost":2,"no_of_dice":5,"die":"d6","dc_type":"dex","effect":null},{"id":3,"type":3,"title":"Grappling Tongue","range":3,"fear_cost":1,"no_of_dice":null,"die":null,"dc_type":"str","effect":"grappled"}]}]</enemy_template>
+    <config_template>{"gm_factor":null,"fear":null,"max_enemies":null,"enemy_spawn_chance":null,"enemy_hp":null,"enemy_ac":null,"enemy_init_bonus":null,"enemy_attack_bonus":null,"enemy_dc":null,"env_factor":null,"trap_chance":null,"env_dc":null}</config_template>
+    <item_template>[{"type":"potion","id":"healing#","number":null,"title":"Healing Potion","description":"You have found a Healing Potion and added it to your equipment!","message":"You can take this potion to regain 4d6 hit points.","no_of_dice":4,"die":"d6"},{"type":"potion","id":"mana#","number":null,"title":"Mana Potion","description":"You have found a Mana Potion and added it to your equipment!","message":"You can take this potion to regain 1d10 mana points.","no_of_dice":1,"die":"d10"},{"type":"potion","id":"adrenaline#","number":null,"title":"Adrenaline Potion","description":"You have found an Adrenaline Potion and added it to your equipment!","message":"You can take this potion to regain 1d10 adrenaline points.","no_of_dice":1,"die":"d10"},{"type":"potion","id":"stability#","number":null,"title":"Stability Potion","description":"You have found a Stability Potion and added it to your equipment!","message":"You can take this potion to decrease your insanity by 1d4 points.","no_of_dice":1,"die":"d4"}]</item_template>
+    <trap_template>[{"type":"trap","id":0,"title":"Spike Trap","description":"You discover the trigger for a Spike Trap and, in your panic, accidentally activate it!","description2":"Do you try to disable the trap, or do you try to avoid the damage?","deactivate":true,"dodge_ability":"dex","deactivate_ability":"dex","dc":null,"effect_on":"hp","no_of_dice":4,"die":"d6","on_deactivate_title":"You attempt to deactivate the trap!","on_deactivate_message":"Please roll 1d20 plus your Dexterity modifier and enter the total value...","on_successful_deactivate":"You successfully deactivate the Spike Trap at the last moment and avoid all damage!","on_failed_deactivate":"You fail to deactivate the Spike Trap. Spikes burst out from all directions, striking you with full force!","on_avoid_title":"You attempt to dodge out of the danger zone!","on_avoid_message":"Please roll 1d20 plus your Dexterity saving throw and enter the total value...","on_successful_avoid":"Your reflexes are fast enough to escape the danger zone just in time, and you only take half damage from the spikes!","on_failed_avoid":"Your reflexes aren’t fast enough, and spikes erupt from the walls, piercing you!"},{"type":"trap","id":2,"title":"Poison Spray","description":"You step on a hidden pressure plate and hear a sharp hiss as something opens in the ceiling above you!","description2":"Do you try to disable the trap, or do you try to endure the effect?","deactivate":true,"dodge_ability":"con","deactivate_ability":"dex","dc":null,"effect_on":"adrenaline","no_of_dice":1,"die":"d6","on_deactivate_title":"You attempt to deactivate the trap!","on_deactivate_message":"Please roll 1d20 plus your Dexterity modifier and enter the total value...","on_successful_deactivate":"You successfully deactivate the Poison Spray just in time, avoiding any loss of adrenaline!","on_failed_deactivate":"You fail to deactivate the pressure plate as a cloud of greenish-gray poison bursts downward toward you!","on_avoid_title":"You brace yourself and trust your constitution!","on_avoid_message":"Please roll 1d20 plus your Constitution saving throw and enter the total value...","on_successful_avoid":"The poisonous cloud engulfs you, but your body resists most of its effects!","on_failed_avoid":"The poison seeps into your bloodstream, weakening your body and draining your adrenaline!"},{"type":"trap","id":3,"title":"Psychic Scream","description":"A sudden presence presses violently into your mind, filling your thoughts with alien whispers!","description2":null,"deactivate":false,"dodge_ability":"int","deactivate_ability":null,"dc":null,"effect_on":"insanity","no_of_dice":1,"die":"d4","on_deactivate_title":null,"on_deactivate_message":null,"on_successful_deactivate":null,"on_failed_deactivate":null,"on_avoid_title":"You attempt to push back against the invading presence!","on_avoid_message":"Please roll 1d20 plus your Intelligence saving throw and enter the total value...","on_successful_avoid":"You force the presence back, dulling the maddening whispers before they can fully take hold!","on_failed_avoid":"Your mind is overwhelmed by a psychic scream as the whispers tear through your thoughts!"},{"type":"trap","id":4,"title":"Ghostly Hands","description":"Ethereal, ghostly hands suddenly reach out from the walls toward you!","description2":null,"deactivate":false,"dodge_ability":"wis","deactivate_ability":null,"dc":null,"effect_on":"mana","no_of_dice":1,"die":"d6","on_deactivate_title":null,"on_deactivate_message":null,"on_successful_deactivate":null,"on_failed_deactivate":null,"on_avoid_title":"You attempt to fortify your mind against the spectral grasp!","on_avoid_message":"Please roll 1d20 plus your Wisdom saving throw and enter the total value...","on_successful_avoid":"You steel your will and resist the draining touch of the malevolent spirits!","on_failed_avoid":"The ghostly hands clutch at your soul, draining your mana in a chilling surge!"}]</trap_template>
+  </dataelements>
+  <endpoints>
+    <timeout>https-post://cpee.org/services/timeout.php</timeout>
+    <subprocess>https-post://cpee.org/flow/start/url/</subprocess>
+    <welcome>https://lehre.bpm.in.tum.de/ports/5104/welcome</welcome>
+    <promptInput>https://lehre.bpm.in.tum.de/ports/5104/promptInput</promptInput>
+    <instruction>https://lehre.bpm.in.tum.de/ports/5104/instruction</instruction>
+    <waitMovement>https://lehre.bpm.in.tum.de/ports/5104/waitMovement</waitMovement>
+    <visualizeGame>https://lehre.bpm.in.tum.de/ports/5104/visualizeGame</visualizeGame>
+    <gridInstruction>https://lehre.bpm.in.tum.de/ports/5104/gridInstruction</gridInstruction>
+    <promptAction>https://lehre.bpm.in.tum.de/ports/5104/promptAction</promptAction>
+    <gridSelection>https://lehre.bpm.in.tum.de/ports/5104/gridSelection</gridSelection>
+    <tileVariable>https://lab.bpm.in.tum.de/ur5/lawine/registers/input/int/0</tileVariable>
+    <gridVariable>https://lab.bpm.in.tum.de/ur5/lawine/registers/input/int/1</gridVariable>
+    <rotationVariable>https://lab.bpm.in.tum.de/ur5/lawine/registers/input/int/2</rotationVariable>
+    <moveToBase>https://lab.bpm.in.tum.de/ur5/lawine/programs/DND/move_to_base.urp/wait/</moveToBase>
+    <moveOnGrid>https://lab.bpm.in.tum.de/ur5/lawine/programs/DND/move_on_grid.urp/wait/</moveOnGrid>
+    <moveOffGrid>https://lab.bpm.in.tum.de/ur5/lawine/programs/DND/move_off_grid.urp/wait/</moveOffGrid>
+    <rotateTile>https://lab.bpm.in.tum.de/ur5/lawine/programs/DND/rotate_90.urp/wait/</rotateTile>
+    <rotateGridTile>https://lab.bpm.in.tum.de/ur5/lawine/programs/DND/rotate_90_grid.urp/wait/</rotateGridTile>
+    <frames_init>https-post://cpee.org/out/frames/</frames_init>
+    <frames_display>https-put://cpee.org/out/frames/</frames_display>
+  </endpoints>
+  <attributes>
+    <info>gridmaster</info>
+    <guarded>none</guarded>
+    <modeltype>CPEE</modeltype>
+    <theme>dataflow</theme>
+    <guarded_id/>
+    <creator>Christine Ashcreek</creator>
+    <author>Christine Ashcreek</author>
+    <model_uuid>6978ad2e-6204-48ea-9a04-9aff6563dd80</model_uuid>
+    <model_version/>
+    <design_dir>Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/</design_dir>
+    <design_stage>development</design_stage>
+    <fid>gridsanddragons</fid>
+  </attributes>
+  <description>
+    <description xmlns="http://cpee.org/ns/description/1.0">
+      <manipulate id="a26" label="Reset Data Elements">
+        <code>data.game_state = nil
+data.initiative_order = []
+data.terrain_pieces = []
+data.current_terrain = nil
+data.round = 0
+data.number_of_players = 0
+data.checking_players = true
+data.player_data = []
+data.player_movement = nil
+data.current_player = 1
+data.continue_game = true
+data.configuration = nil
+data.title = nil
+data.message = nil
+data.max_roll = nil
+data.traps = nil</code>
+        <annotations>
+          <_logging_behavior>
+            <_exclude/>
+          </_logging_behavior>
+          <_context_data_analysis>
+            <probes/>
+          </_context_data_analysis>
+        </annotations>
+      </manipulate>
+      <manipulate id="a6" label="Set Game Start State">
+        <code># Rotation helpers
+def rotate_matrix(matrix, degrees)
+case degrees
+  when 0
+    matrix
+  when 90
+    matrix.transpose.map(&amp;:reverse)
+  when 180
+    matrix.map(&amp;:reverse).reverse
+  when 270
+    matrix.transpose.reverse
+  end
+end
+
+def rotate_walls(horizontal, vertical, degrees)
+  case degrees
+  when 0
+    [horizontal, vertical]
+  when 90
+    [vertical.map(&amp;:reverse), horizontal.reverse]
+  when 180
+    [horizontal.reverse.map(&amp;:reverse), vertical.reverse.map(&amp;:reverse)]
+  when 270
+    [vertical.reverse, horizontal.map(&amp;:reverse)]
+  end
+end
+
+# Parse terrain_template if needed
+terrains = data.terrain_template
+terrains = JSON.parse(terrains) if terrains.is_a?(String)
+
+# Get terrain piece and deep-copy it
+tile_data = terrains.find { |t| t["id"] == "E" }
+tile = JSON.parse(JSON.generate(tile_data))
+
+# Random rotation and starting placement
+tile["placement"] = 22
+tile["rotation"] = [0,90,180,270].sample
+
+# Rotate cells and walls
+rotated_cells = rotate_matrix(tile["cells"], tile["rotation"])
+rotated_horizontal_walls, rotated_vertical_walls = rotate_walls(tile["horizontal_walls"], tile["vertical_walls"], tile["rotation"])
+
+# Update current_terrain
+data.current_terrain = {
+  "id" =&gt; tile["id"],
+  "home" =&gt; tile["home"],
+  "rotation" =&gt; tile["rotation"],
+  "placement" =&gt; tile["placement"],
+  "horizontal_walls" =&gt; rotated_horizontal_walls,
+  "vertical_walls" =&gt; rotated_vertical_walls
+}
+
+# Add to used terrain list
+data.terrain_pieces ||= []
+data.terrain_pieces &lt;&lt; data.current_terrain
+
+# Apply to grid
+grid = JSON.parse(JSON.generate(data.grid_template))
+start_row = 5
+start_col = 5
+
+(0..3).each do |r|
+  (0..3).each do |c|
+    global_pos = [start_row + r, start_col + c]
+    rotated_cell = rotated_cells[r][c]
+    rotated_cell["global"] = global_pos
+    grid_row = global_pos[0] - 1
+    grid_col = global_pos[1] - 1
+    grid[grid_row][grid_col]["terrainID"] = tile["id"]
+    grid[grid_row][grid_col]["effect"] = rotated_cell["effect"]
+    grid[grid_row][grid_col]["occupied"] = nil
+    grid[grid_row][grid_col]["exit"] = rotated_cell["exit"]
+  end
+end
+
+# Save to game_state
+data.game_state = grid</code>
+      </manipulate>
+      <parallel wait="-1" cancel="last">
+        <parallel_branch>
+          <call id="a23" endpoint="frames_init">
+            <parameters>
+              <label>Initialize Frames</label>
+              <color/>
+              <arguments>
+                <style_url>https://lehre.bpm.in.tum.de/~ge87max/gnd.css</style_url>
+                <document_url/>
+                <x_amount>10</x_amount>
+                <y_amount>6</y_amount>
+                <lang>de-at</lang>
+                <document_name>Grids &amp; Dragons</document_name>
+              </arguments>
+            </parameters>
+            <code>
+              <signal/>
+              <prepare>endpoints.frames_init += attributes.fid</prepare>
+              <finalize output="result"/>
+              <update output="result"/>
+              <rescue output="result"/>
+            </code>
+            <annotations>
+              <_generic/>
+              <_timing>
+                <_timing_weight/>
+                <_timing_avg/>
+                <explanations/>
+              </_timing>
+              <_shifting>
+                <_shifting_type>Duration</_shifting_type>
+              </_shifting>
+              <_context_data_analysis>
+                <probes/>
+                <ips/>
+              </_context_data_analysis>
+              <report>
+                <url/>
+              </report>
+              <_notes>
+                <_notes_general/>
+              </_notes>
+            </annotations>
+            <documentation>
+              <input/>
+              <output/>
+              <implementation>
+                <description/>
+              </implementation>
+              <code>
+                <description/>
+              </code>
+            </documentation>
+          </call>
+        </parallel_branch>
+        <parallel_branch>
+          <call id="a5" endpoint="moveToBase">
+            <parameters>
+              <label>Move Robot to Start Position</label>
+              <color/>
+              <method>:put</method>
+              <arguments/>
+            </parameters>
+            <annotations>
+              <_generic/>
+              <_timing>
+                <_timing_weight/>
+                <_timing_avg/>
+                <explanations/>
+              </_timing>
+              <_shifting>
+                <_shifting_type>Duration</_shifting_type>
+              </_shifting>
+              <_context_data_analysis>
+                <probes/>
+                <ips/>
+              </_context_data_analysis>
+              <report>
+                <url/>
+              </report>
+              <_notes>
+                <_notes_general/>
+              </_notes>
+            </annotations>
+            <documentation>
+              <input/>
+              <output/>
+              <implementation>
+                <description/>
+              </implementation>
+            </documentation>
+          </call>
+        </parallel_branch>
+      </parallel>
+      <call id="a102" endpoint="subprocess">
+        <parameters>
+          <label>Initialize Grid</label>
+          <color/>
+          <method>:post</method>
+          <arguments>
+            <behavior>wait_running</behavior>
+            <url>https://cpee.org/hub/server/Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/place_terrain.xml</url>
+            <init>
+              <title>#, welcome to the Dungeon of Doom!</title>
+              <message>Please wait while the map is set up...</message>
+              <player_id>Players</player_id>
+              <current_terrain>!data.current_terrain</current_terrain>
+              <game_state>!data.game_state</game_state>
+              <terrain_pieces>!data.terrain_pieces</terrain_pieces>
+              <type>1</type>
+            </init>
+            <endpoints/>
+            <attributes/>
+            <customization/>
+          </arguments>
+        </parameters>
+        <annotations>
+          <_generic/>
+          <_logging_behavior>
+            <_exclude/>
+            <_include/>
+          </_logging_behavior>
+          <_timing>
+            <_timing_weight/>
+            <_timing_avg/>
+            <explanations/>
+          </_timing>
+          <_shifting>
+            <_shifting_type>Duration</_shifting_type>
+          </_shifting>
+          <_context_data_analysis>
+            <probes/>
+            <ips/>
+          </_context_data_analysis>
+          <report>
+            <url/>
+          </report>
+          <_notes>
+            <_notes_general/>
+          </_notes>
+        </annotations>
+        <documentation>
+          <input/>
+          <output/>
+          <implementation>
+            <description/>
+          </implementation>
+        </documentation>
+      </call>
+      <call id="a4" endpoint="subprocess">
+        <parameters>
+          <label>Get Game Configuration</label>
+          <color/>
+          <method>:post</method>
+          <arguments>
+            <behavior>wait_running</behavior>
+            <url>https://cpee.org/hub/server/Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/get_configuration.xml</url>
+            <init>
+              <config_template>!data.config_template</config_template>
+              <trap_template>!data.trap_template</trap_template>
+            </init>
+            <endpoints/>
+            <attributes/>
+            <customization/>
+          </arguments>
+        </parameters>
+        <code>
+          <signal/>
+          <prepare/>
+          <finalize output="result">data.number_of_players = result["number_of_players"]
+data.configuration = result["configuration"]
+data.traps = result["traps"]
+data.checking_players = true</finalize>
+          <update output="result"/>
+          <rescue output="result"/>
+        </code>
+        <annotations>
+          <_generic/>
+          <_logging_behavior>
+            <_exclude/>
+            <_include/>
+          </_logging_behavior>
+          <_timing>
+            <_timing_weight/>
+            <_timing_avg/>
+            <explanations/>
+          </_timing>
+          <_shifting>
+            <_shifting_type>Duration</_shifting_type>
+          </_shifting>
+          <_context_data_analysis>
+            <probes/>
+            <ips/>
+          </_context_data_analysis>
+          <report>
+            <url/>
+          </report>
+          <_notes>
+            <_notes_general/>
+          </_notes>
+        </annotations>
+        <documentation>
+          <input/>
+          <output/>
+          <implementation>
+            <description/>
+          </implementation>
+          <code>
+            <description/>
+          </code>
+        </documentation>
+      </call>
+      <loop mode="post_test" condition="data.checking_players">
+        <_probability>
+          <_probability_min>1</_probability_min>
+          <_probability_max>4</_probability_max>
+          <_probability_avg/>
+        </_probability>
+        <call id="a7" endpoint="subprocess">
+          <parameters>
+            <label>Get Player Starting Position</label>
+            <color/>
+            <method>:post</method>
+            <arguments>
+              <behavior>wait_running</behavior>
+              <url>https://cpee.org/hub/server/Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/get_starting.xml</url>
+              <init>
+                <title>Player #, choose your character!</title>
+                <message>Place your mini on your chosen character's start position!</message>
+                <player_id>!data.current_player</player_id>
+                <game_state>!data.game_state</game_state>
+                <character_template>!data.character_template</character_template>
+              </init>
+              <endpoints/>
+              <attributes/>
+              <customization/>
+            </arguments>
+          </parameters>
+          <code>
+            <signal/>
+            <prepare/>
+            <finalize output="result">data.player_movement = result["result"]</finalize>
+            <update output="result"/>
+            <rescue output="result"/>
+          </code>
+          <annotations>
+            <_generic/>
+            <_logging_behavior>
+              <_exclude/>
+              <_include/>
+            </_logging_behavior>
+            <_timing>
+              <_timing_weight/>
+              <_timing_avg/>
+              <explanations/>
+            </_timing>
+            <_shifting>
+              <_shifting_type>Duration</_shifting_type>
+            </_shifting>
+            <_context_data_analysis>
+              <probes/>
+              <ips/>
+            </_context_data_analysis>
+            <report>
+              <url/>
+            </report>
+            <_notes>
+              <_notes_general/>
+            </_notes>
+          </annotations>
+          <documentation>
+            <input/>
+            <output/>
+            <implementation>
+              <description/>
+            </implementation>
+            <code>
+              <description/>
+            </code>
+          </documentation>
+        </call>
+        <manipulate id="a10" label="Assign Position on Grid">
+          <code># --- Helper ---
+def find_cell(game_state, r, c)
+  game_state.flatten.find do |cell|
+    g = cell["global"]
+    g &amp;&amp; g[0].to_i == r.to_i &amp;&amp; g[1].to_i == c.to_i
+  end
+end
+
+# --- Find Cell ---
+r, c = data.player_movement
+cell = find_cell(data.game_state, r, c)
+effect  = cell["effect"]
+
+# --- Find Character Template based on Start Effect ---
+char_id = effect.to_s.sub(/S\z/, "").downcase
+chosen_template = data.character_template.find { |t| t["id"].to_s.downcase == char_id }
+
+# --- Copy Found Template and Push into player_data ---
+chosen = JSON.parse(JSON.generate(chosen_template))
+chosen["position"] = [r, c]
+data.player_data &lt;&lt; chosen
+
+# --- Update Cell in game_state as Occupied ---
+cell["occupied"] = (chosen["id"]).to_s</code>
+          <annotations>
+            <_logging_behavior>
+              <_exclude/>
+            </_logging_behavior>
+            <_context_data_analysis>
+              <probes/>
+            </_context_data_analysis>
+          </annotations>
+        </manipulate>
+        <choose mode="exclusive" label="">
+          <alternative condition="data.player_data.length.to_i  &lt; data.number_of_players.to_i">
+            <manipulate id="a11" label="Advance to Next Player">
+              <code>data.checking_players = true
+data.current_player = data.current_player.to_i + 1
+data.player_movement = nil</code>
+              <annotations>
+                <_logging_behavior>
+                  <_exclude/>
+                </_logging_behavior>
+                <_context_data_analysis>
+                  <probes/>
+                </_context_data_analysis>
+              </annotations>
+            </manipulate>
+            <_probability>
+              <_probability_min/>
+              <_probability_max/>
+              <_probability_avg/>
+            </_probability>
+          </alternative>
+          <otherwise>
+            <manipulate id="a16" label="End Player Selection">
+              <code>data.checking_players = false
+data.current_player = 0
+data.player_movement = nil</code>
+              <annotations>
+                <_logging_behavior>
+                  <_exclude/>
+                </_logging_behavior>
+                <_context_data_analysis>
+                  <probes/>
+                </_context_data_analysis>
+              </annotations>
+            </manipulate>
+          </otherwise>
+        </choose>
+      </loop>
+      <loop mode="post_test" condition="data.checking_players">
+        <call id="a14" endpoint="subprocess">
+          <parameters>
+            <label>Visualize Player Stats</label>
+            <color/>
+            <method>:post</method>
+            <arguments>
+              <behavior>wait_running</behavior>
+              <url>https://cpee.org/hub/server/Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/visualize_stats.xml</url>
+              <init>
+                <current_player>!data.player_data[data.current_player.to_i]</current_player>
+              </init>
+              <endpoints/>
+              <attributes/>
+              <customization/>
+            </arguments>
+          </parameters>
+          <code>
+            <signal/>
+            <prepare/>
+            <finalize output="result">data.max_roll = 20 + data.player_data[data.current_player.to_i]["init_bonus"].to_i</finalize>
+            <update output="result"/>
+            <rescue output="result"/>
+          </code>
+          <annotations>
+            <_generic/>
+            <_logging_behavior>
+              <_exclude/>
+              <_include/>
+            </_logging_behavior>
+            <_timing>
+              <_timing_weight/>
+              <_timing_avg/>
+              <explanations/>
+            </_timing>
+            <_shifting>
+              <_shifting_type>Duration</_shifting_type>
+            </_shifting>
+            <_context_data_analysis>
+              <probes/>
+              <ips/>
+            </_context_data_analysis>
+            <report>
+              <url/>
+            </report>
+            <_notes>
+              <_notes_general/>
+            </_notes>
+          </annotations>
+          <documentation>
+            <input/>
+            <output/>
+            <implementation>
+              <description/>
+            </implementation>
+            <code>
+              <description/>
+            </code>
+          </documentation>
+        </call>
+        <call id="a3" endpoint="subprocess">
+          <parameters>
+            <label>Get Player Initiative</label>
+            <color/>
+            <method>:post</method>
+            <arguments>
+              <behavior>wait_running</behavior>
+              <url>https://cpee.org/hub/server/Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/get_input.xml</url>
+              <init>
+                <title>#, ROLL INITIATIVE!</title>
+                <message>Roll 1d20 and enter the value...</message>
+                <player_id>!data.player_data[data.current_player.to_i]["title"]</player_id>
+                <min>1</min>
+                <max>!data.max_roll</max>
+              </init>
+              <endpoints/>
+              <attributes/>
+              <customization/>
+            </arguments>
+          </parameters>
+          <code>
+            <signal/>
+            <prepare/>
+            <finalize output="result">data.player_data[data.current_player.to_i]["initiative"] = result["result"]
+
+data.current_player = data.current_player + 1
+data.max_roll = nil
+
+if data.current_player.to_i &lt; data.number_of_players.to_i
+  data.checking_players = true
+else
+  data.checking_players = false
+end</finalize>
+            <update output="result"/>
+            <rescue output="result"/>
+          </code>
+          <annotations>
+            <_generic/>
+            <_logging_behavior>
+              <_exclude/>
+              <_include/>
+            </_logging_behavior>
+            <_timing>
+              <_timing_weight/>
+              <_timing_avg/>
+              <explanations/>
+            </_timing>
+            <_shifting>
+              <_shifting_type>Duration</_shifting_type>
+            </_shifting>
+            <_context_data_analysis>
+              <probes/>
+              <ips/>
+            </_context_data_analysis>
+            <report>
+              <url/>
+            </report>
+            <_notes>
+              <_notes_general/>
+            </_notes>
+          </annotations>
+          <documentation>
+            <input/>
+            <output/>
+            <implementation>
+              <description/>
+            </implementation>
+            <code>
+              <description/>
+            </code>
+          </documentation>
+        </call>
+        <_probability>
+          <_probability_min/>
+          <_probability_max/>
+          <_probability_avg/>
+        </_probability>
+      </loop>
+      <manipulate id="a2" label="Order Initiative">
+        <code>begin  data.player_data.sort_by! { |p| -p["initiative"].to_i }
+rescue =&gt; e
+end
+
+data.initiative_order = data.player_data</code>
+      </manipulate>
+      <loop mode="post_test" condition="data.continue_game">
+        <_probability>
+          <_probability_min/>
+          <_probability_max/>
+          <_probability_avg/>
+        </_probability>
+        <_annotations>
+          <_logging_behavior>
+            <_iteration/>
+          </_logging_behavior>
+        </_annotations>
+        <manipulate id="a36" label="Determine Next Turn &amp; Reset Variables">
+          <code># Reset Variables
+data.current_player = nil
+data.current_terrain = nil
+
+# Determine Next Player
+if data.round &gt;= data.initiative_order.length
+  data.round = 0
+  data.current_player = data.initiative_order[data.round]
+  data.round = data.round + 1
+else
+  data.current_player = data.initiative_order[data.round]
+  data.round = data.round + 1
+end</code>
+          <annotations>
+            <_logging_behavior>
+              <_exclude/>
+            </_logging_behavior>
+            <_context_data_analysis>
+              <probes/>
+            </_context_data_analysis>
+          </annotations>
+        </manipulate>
+        <choose mode="exclusive" label="">
+          <alternative condition="data.current_player[&quot;type&quot;] == &quot;player&quot;">
+            <call id="a17" endpoint="subprocess">
+              <parameters>
+                <label>Visualize Grid</label>
+                <color/>
+                <method>:post</method>
+                <arguments>
+                  <behavior>wait_running</behavior>
+                  <url>https://cpee.org/hub/server/Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/visualize_grid.xml</url>
+                  <init>
+                    <game_state>!data.game_state</game_state>
+                    <terrain_pieces>!data.terrain_pieces</terrain_pieces>
+                  </init>
+                  <endpoints/>
+                  <attributes/>
+                  <customization/>
+                </arguments>
+              </parameters>
+              <annotations>
+                <_generic/>
+                <_logging_behavior>
+                  <_exclude/>
+                  <_include/>
+                </_logging_behavior>
+                <_timing>
+                  <_timing_weight/>
+                  <_timing_avg/>
+                  <explanations/>
+                </_timing>
+                <_shifting>
+                  <_shifting_type>Duration</_shifting_type>
+                </_shifting>
+                <_context_data_analysis>
+                  <probes/>
+                  <ips/>
+                </_context_data_analysis>
+                <report>
+                  <url/>
+                </report>
+                <_notes>
+                  <_notes_general/>
+                </_notes>
+              </annotations>
+              <documentation>
+                <input/>
+                <output/>
+                <implementation>
+                  <description/>
+                </implementation>
+              </documentation>
+            </call>
+            <_probability>
+              <_probability_min/>
+              <_probability_max/>
+              <_probability_avg/>
+            </_probability>
+            <call id="a8" endpoint="subprocess">
+              <parameters>
+                <label>Player Turn</label>
+                <color/>
+                <method>:post</method>
+                <arguments>
+                  <behavior>wait_running</behavior>
+                  <url>https://cpee.org/hub/server/Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/player_turn.xml</url>
+                  <init>
+                    <current_player>!data.current_player</current_player>
+                    <game_state>!data.game_state</game_state>
+                    <player_data>!data.player_data</player_data>
+                    <terrain_pieces>!data.terrain_pieces</terrain_pieces>
+                    <initiative_order>!data.initiative_order</initiative_order>
+                    <terrain_template>!data.terrain_template</terrain_template>
+                    <configuration>!data.configuration</configuration>
+                    <round>!data.round</round>
+                    <items>!data.item_template</items>
+                    <traps>!data.traps</traps>
+                  </init>
+                  <endpoints/>
+                  <attributes/>
+                  <customization/>
+                </arguments>
+              </parameters>
+              <code>
+                <signal/>
+                <prepare/>
+                <finalize output="result">data.current_player = result["current_player"]
+data.game_state = result["game_state"]
+data.terrain_pieces = result["terrain_pieces"]
+data.player_data = result["player_data"]
+data.initiative_order = result["initiative_order"]
+data.configuration = result["configuration"]
+data.round = result["round"]</finalize>
+                <update output="result"/>
+                <rescue output="result"/>
+              </code>
+              <annotations>
+                <_generic/>
+                <_logging_behavior>
+                  <_exclude/>
+                  <_include/>
+                </_logging_behavior>
+                <_timing>
+                  <_timing_weight/>
+                  <_timing_avg/>
+                  <explanations/>
+                </_timing>
+                <_shifting>
+                  <_shifting_type>Duration</_shifting_type>
+                </_shifting>
+                <_context_data_analysis>
+                  <probes/>
+                  <ips/>
+                </_context_data_analysis>
+                <report>
+                  <url/>
+                </report>
+                <_notes>
+                  <_notes_general/>
+                </_notes>
+              </annotations>
+              <documentation>
+                <input/>
+                <output/>
+                <implementation>
+                  <description/>
+                </implementation>
+                <code>
+                  <description/>
+                </code>
+              </documentation>
+            </call>
+          </alternative>
+          <otherwise>
+            <call id="a18" endpoint="subprocess">
+              <parameters>
+                <label>Visualize Grid</label>
+                <color/>
+                <method>:post</method>
+                <arguments>
+                  <behavior>wait_running</behavior>
+                  <url>https://cpee.org/hub/server/Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/visualize_grid.xml</url>
+                  <init>
+                    <game_state>!data.game_state</game_state>
+                    <terrain_pieces>!data.terrain_pieces</terrain_pieces>
+                  </init>
+                  <endpoints/>
+                  <attributes/>
+                  <customization/>
+                </arguments>
+              </parameters>
+              <annotations>
+                <_generic/>
+                <_logging_behavior>
+                  <_exclude/>
+                  <_include/>
+                </_logging_behavior>
+                <_timing>
+                  <_timing_weight/>
+                  <_timing_avg/>
+                  <explanations/>
+                </_timing>
+                <_shifting>
+                  <_shifting_type>Duration</_shifting_type>
+                </_shifting>
+                <_context_data_analysis>
+                  <probes/>
+                  <ips/>
+                </_context_data_analysis>
+                <report>
+                  <url/>
+                </report>
+                <_notes>
+                  <_notes_general/>
+                </_notes>
+              </annotations>
+              <documentation>
+                <input/>
+                <output/>
+                <implementation>
+                  <description/>
+                </implementation>
+              </documentation>
+            </call>
+            <call id="a1" endpoint="subprocess">
+              <parameters>
+                <label>Enemy Turn</label>
+                <color/>
+                <method>:post</method>
+                <arguments>
+                  <behavior>wait_running</behavior>
+                  <url>https://cpee.org/hub/server/Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/enemy_turn.xml</url>
+                  <init>
+                    <current_player>!data.current_player</current_player>
+                    <initiative_order>!data.initiative_order</initiative_order>
+                    <configuration>!data.configuration</configuration>
+                    <player_data>!data.player_data</player_data>
+                    <round>!data.round</round>
+                    <game_state>!data.game_state</game_state>
+                    <terrain_pieces>!data.terrain_pieces</terrain_pieces>
+                  </init>
+                  <endpoints/>
+                  <attributes/>
+                  <customization/>
+                </arguments>
+              </parameters>
+              <code>
+                <signal/>
+                <prepare/>
+                <finalize output="result">data.current_player = result["current_player"]
+data.initiative_order = result["initiative_order"]
+data.configuration = result["configuration"]
+data.player_data = result["player_data"]
+data.round = result["round"]
+data.game_state = result["game_state"]</finalize>
+                <update output="result"/>
+                <rescue output="result"/>
+              </code>
+              <annotations>
+                <_generic/>
+                <_logging_behavior>
+                  <_exclude/>
+                  <_include/>
+                </_logging_behavior>
+                <_timing>
+                  <_timing_weight/>
+                  <_timing_avg/>
+                  <explanations/>
+                </_timing>
+                <_shifting>
+                  <_shifting_type>Duration</_shifting_type>
+                </_shifting>
+                <_context_data_analysis>
+                  <probes/>
+                  <ips/>
+                </_context_data_analysis>
+                <report>
+                  <url/>
+                </report>
+                <_notes>
+                  <_notes_general/>
+                </_notes>
+              </annotations>
+              <documentation>
+                <input/>
+                <output/>
+                <implementation>
+                  <description/>
+                </implementation>
+                <code>
+                  <description/>
+                </code>
+              </documentation>
+            </call>
+          </otherwise>
+        </choose>
+        <call id="a13" endpoint="subprocess">
+          <parameters>
+            <label>Determine Enemy Generation</label>
+            <color/>
+            <method>:post</method>
+            <arguments>
+              <behavior>wait_running</behavior>
+              <url>https://cpee.org/hub/server/Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/enemy_generation.xml</url>
+              <init>
+                <game_state>!data.game_state</game_state>
+                <initiative_order>!data.initiative_order</initiative_order>
+                <round>!data.round</round>
+                <configuration>!data.configuration</configuration>
+                <enemy_template>!data.enemy_template</enemy_template>
+                <current_player>!data.current_player</current_player>
+                <terrain_pieces>!data.terrain_pieces</terrain_pieces>
+              </init>
+              <endpoints/>
+              <attributes/>
+              <customization/>
+            </arguments>
+          </parameters>
+          <code>
+            <signal/>
+            <prepare/>
+            <finalize output="result">data.game_state = result["game_state"]
+data.initiative_order = result["initiative_order"]
+data.round = result["round"]
+data.configuration = result["configuration"]</finalize>
+            <update output="result"/>
+            <rescue output="result"/>
+          </code>
+          <annotations>
+            <_generic/>
+            <_logging_behavior>
+              <_exclude/>
+              <_include/>
+            </_logging_behavior>
+            <_timing>
+              <_timing_weight/>
+              <_timing_avg/>
+              <explanations/>
+            </_timing>
+            <_shifting>
+              <_shifting_type>Duration</_shifting_type>
+            </_shifting>
+            <_context_data_analysis>
+              <probes/>
+              <ips/>
+            </_context_data_analysis>
+            <report>
+              <url/>
+            </report>
+            <_notes>
+              <_notes_general/>
+            </_notes>
+          </annotations>
+          <documentation>
+            <input/>
+            <output/>
+            <implementation>
+              <description/>
+            </implementation>
+            <code>
+              <description/>
+            </code>
+          </documentation>
+        </call>
+        <manipulate id="a24" label="Determine Game End Conditions">
+          <code># Get all alive players in initiative_order
+players = data.initiative_order.select { |ent| ent["type"] == "player" }
+
+if players.empty?
+  data.continue_game = false
+  data.reason = 1
+  return
+else
+  all_at_end = players.all? do |pl|  
+    conds = pl["conditions"].map(&amp;:to_s)
+    conds.include?("reached_end")
+  end
+
+  if all_at_end
+    data.continue_game = false
+    data.reason = 2
+    return
+  end
+end</code>
+          <annotations>
+            <_logging_behavior>
+              <_exclude/>
+            </_logging_behavior>
+            <_context_data_analysis>
+              <probes/>
+            </_context_data_analysis>
+          </annotations>
+        </manipulate>
+      </loop>
+      <choose mode="exclusive" label="">
+        <alternative condition="data.reason.to_i == 1">
+          <_probability>
+            <_probability_min/>
+            <_probability_max/>
+            <_probability_avg/>
+          </_probability>
+          <manipulate id="a19" label="Rule: Game Ends If All Players Are Slain">
+            <code>data.title = "All players were slain and have been claimed by the Dungeon of Doom!"
+data.message = "Better luck next time..."</code>
+            <annotations>
+              <_logging_behavior>
+                <_exclude/>
+              </_logging_behavior>
+              <_context_data_analysis>
+                <probes/>
+              </_context_data_analysis>
+            </annotations>
+          </manipulate>
+        </alternative>
+        <otherwise>
+          <manipulate id="a20" label="Rule: Game Ends If All Living Players Reach Their Exits">
+            <code>data.title = "All players reached the exit and escaped the Dungeon of Doom!"
+data.message = "Congratulations to the survivors..."</code>
+            <annotations>
+              <_logging_behavior>
+                <_exclude/>
+              </_logging_behavior>
+              <_context_data_analysis>
+                <probes/>
+              </_context_data_analysis>
+            </annotations>
+          </manipulate>
+        </otherwise>
+      </choose>
+      <call id="a15" endpoint="frames_display">
+        <parameters>
+          <label>Clear Instruction Box</label>
+          <color/>
+          <arguments>
+            <type>set</type>
+            <lx>0</lx>
+            <ly>0</ly>
+            <x_amount>10</x_amount>
+            <y_amount>6</y_amount>
+            <button/>
+            <style/>
+            <urls/>
+            <default/>
+          </arguments>
+        </parameters>
+        <code>
+          <signal/>
+          <prepare>endpoints.frames_display += attributes.fid</prepare>
+          <finalize output="result"/>
+          <update output="result"/>
+          <rescue output="result"/>
+        </code>
+        <annotations>
+          <_generic/>
+          <_logging_behavior>
+            <_exclude/>
+            <_include/>
+          </_logging_behavior>
+          <_timing>
+            <_timing_weight/>
+            <_timing_avg/>
+            <explanations/>
+          </_timing>
+          <_shifting>
+            <_shifting_type>Duration</_shifting_type>
+          </_shifting>
+          <_context_data_analysis>
+            <probes/>
+            <ips/>
+          </_context_data_analysis>
+          <report>
+            <url/>
+          </report>
+          <_notes>
+            <_notes_general/>
+          </_notes>
+        </annotations>
+        <documentation>
+          <input/>
+          <output/>
+          <implementation>
+            <description/>
+          </implementation>
+          <code>
+            <description/>
+          </code>
+        </documentation>
+      </call>
+      <call id="a12" endpoint="frames_display">
+        <parameters>
+          <label>Display Instruction</label>
+          <color/>
+          <arguments>
+            <type>set</type>
+            <lx>2</lx>
+            <ly>2</ly>
+            <x_amount>6</x_amount>
+            <y_amount>1</y_amount>
+            <button/>
+            <style/>
+            <urls>
+              <urls_item>
+                <lang>de-at</lang>
+                <url>https://lehre.bpm.in.tum.de/~ge87max/instruction/instruction.html</url>
+              </urls_item>
+            </urls>
+            <default>
+              <title>!data.title</title>
+              <message>!data.message</message>
+            </default>
+          </arguments>
+        </parameters>
+        <code>
+          <signal/>
+          <prepare>endpoints.frames_display += attributes.fid</prepare>
+          <finalize output="result"/>
+          <update output="result"/>
+          <rescue output="result"/>
+        </code>
+        <annotations>
+          <_generic/>
+          <_logging_behavior>
+            <_exclude/>
+            <_include/>
+          </_logging_behavior>
+          <_timing>
+            <_timing_weight/>
+            <_timing_avg/>
+            <explanations/>
+          </_timing>
+          <_shifting>
+            <_shifting_type>Duration</_shifting_type>
+          </_shifting>
+          <_context_data_analysis>
+            <probes/>
+            <ips/>
+          </_context_data_analysis>
+          <report>
+            <url/>
+          </report>
+          <_notes>
+            <_notes_general/>
+          </_notes>
+        </annotations>
+        <documentation>
+          <input/>
+          <output/>
+          <implementation>
+            <description/>
+          </implementation>
+          <code>
+            <description/>
+          </code>
+        </documentation>
+      </call>
+    </description>
+  </description>
+  <transformation>
+    <description type="copy"/>
+    <dataelements type="none"/>
+    <endpoints type="none"/>
+  </transformation>
+</testset>

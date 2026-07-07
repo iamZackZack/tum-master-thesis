@@ -1,0 +1,167 @@
+<testset xmlns="http://cpee.org/ns/properties/2.0">
+  <executionhandler>ruby</executionhandler>
+  <dataelements/>
+  <endpoints>
+    <timeout>https-post://cpee.org/services/timeout.php</timeout>
+    <subprocess>https-post://cpee.org/flow/start/url/</subprocess>
+  </endpoints>
+  <attributes>
+    <info>validate_search</info>
+    <guarded>none</guarded>
+    <modeltype>CPEE</modeltype>
+    <theme>dataflow</theme>
+    <creator>Christine Ashcreek</creator>
+    <guarded_id/>
+    <author>Christine Ashcreek</author>
+    <model_uuid>dbfb4a19-3a98-46b0-8693-00bd899e183b</model_uuid>
+    <model_version/>
+    <design_dir>Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/actions.dir</design_dir>
+    <design_stage>development</design_stage>
+  </attributes>
+  <description>
+    <description xmlns="http://cpee.org/ns/description/1.0">
+      <manipulate id="a6" label="Validate Action Availability">
+        <code>if data.current_player["id"].to_s == "cleric" || data.current_player["id"].to_s == "wizard"
+  unless data.current_player["b_action_available"]
+    data.reason = 0
+    return
+  else
+    data.reason = 9
+    return
+  end
+else
+  unless data.current_player["action_available"]
+    data.reason = 0
+    return
+  else
+    data.reason = 9
+    return
+  end
+end</code>
+        <annotations>
+          <_logging_behavior>
+            <_exclude/>
+          </_logging_behavior>
+          <_context_data_analysis>
+            <probes/>
+          </_context_data_analysis>
+        </annotations>
+      </manipulate>
+      <choose mode="exclusive" label="">
+        <alternative eid="e1" condition="data.reason.to_i == 0">
+          <_probability>
+            <_probability_min/>
+            <_probability_max/>
+            <_probability_avg/>
+          </_probability>
+          <manipulate id="a2" label="Search Unavailable: Action Unavailable">
+            <code>if data.current_player["id"].to_s == "cleric" || data.current_player["id"].to_s == "wizard"
+  data.title = "#, you have already used your bonus action!"
+  data.message = "Please wait..."
+  data.search = false
+else
+  data.title = "#, you have already used your action!"
+  data.message = "Please wait..."
+  data.search = false
+end</code>
+            <annotations>
+              <_logging_behavior>
+                <_exclude/>
+              </_logging_behavior>
+              <_context_data_analysis>
+                <probes/>
+              </_context_data_analysis>
+            </annotations>
+          </manipulate>
+        </alternative>
+        <otherwise>
+          <manipulate id="a1" label="Validate Prerequisites">
+            <code>conds = data.current_player["conditions"].map(&amp;:to_s)
+
+if conds.include?("grappled")
+  data.reason = 1
+  return
+elsif conds.include?("raging")
+  data.reason = 2
+  return
+else
+  data.reason = 9
+
+  return
+end</code>
+            <annotations>
+              <_logging_behavior>
+                <_exclude/>
+              </_logging_behavior>
+              <_context_data_analysis>
+                <probes/>
+              </_context_data_analysis>
+            </annotations>
+          </manipulate>
+          <choose mode="exclusive" label="">
+            <alternative condition="data.reason.to_i == 1">
+              <manipulate id="a3" label="Search Unavailable: Player Can't Search While Grappled">
+                <code>data.title = "#, you are grappled and you can not search!"
+data.message = "Please wait to select another action..."
+data.search = false</code>
+                <annotations>
+                  <_logging_behavior>
+                    <_exclude/>
+                  </_logging_behavior>
+                  <_context_data_analysis>
+                    <probes/>
+                  </_context_data_analysis>
+                </annotations>
+              </manipulate>
+              <_probability>
+                <_probability_min/>
+                <_probability_max/>
+                <_probability_avg/>
+              </_probability>
+            </alternative>
+            <alternative condition="data.reason.to_i == 2">
+              <_probability>
+                <_probability_min/>
+                <_probability_max/>
+                <_probability_avg/>
+              </_probability>
+              <manipulate id="a4" label="Search Unavailable: Player Can't Search While Raging">
+                <code>data.title = "#, you are raging and you can not search!"
+data.message = "Please wait to select another action..."
+data.search = false</code>
+                <annotations>
+                  <_logging_behavior>
+                    <_exclude/>
+                  </_logging_behavior>
+                  <_context_data_analysis>
+                    <probes/>
+                  </_context_data_analysis>
+                </annotations>
+              </manipulate>
+            </alternative>
+            <otherwise>
+              <manipulate id="a5" label="Search Available">
+                <code>data.title = "#, you search around for something useful!"
+data.message = "Roll 1d20 plus your Wisdom or Intelligence modifier and enter the total value..."
+data.search = true</code>
+                <annotations>
+                  <_logging_behavior>
+                    <_exclude/>
+                  </_logging_behavior>
+                  <_context_data_analysis>
+                    <probes/>
+                  </_context_data_analysis>
+                </annotations>
+              </manipulate>
+            </otherwise>
+          </choose>
+        </otherwise>
+      </choose>
+    </description>
+  </description>
+  <transformation>
+    <description type="copy"/>
+    <dataelements type="none"/>
+    <endpoints type="none"/>
+  </transformation>
+</testset>

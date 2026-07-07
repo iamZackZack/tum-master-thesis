@@ -1,0 +1,435 @@
+<testset xmlns="http://cpee.org/ns/properties/2.0">
+  <executionhandler>ruby</executionhandler>
+  <dataelements/>
+  <endpoints>
+    <timeout>https-post://cpee.org/services/timeout.php</timeout>
+    <subprocess>https-post://cpee.org/flow/start/url/</subprocess>
+  </endpoints>
+  <attributes>
+    <info>validate_special</info>
+    <guarded>none</guarded>
+    <modeltype>CPEE</modeltype>
+    <theme>dataflow</theme>
+    <creator>Christine Ashcreek</creator>
+    <guarded_id/>
+    <author>Christine Ashcreek</author>
+    <model_uuid>af3b65e2-3564-454b-99ef-eecfba5684ba</model_uuid>
+    <model_version/>
+    <design_dir>Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/actions.dir</design_dir>
+    <design_stage>development</design_stage>
+  </attributes>
+  <description>
+    <description xmlns="http://cpee.org/ns/description/1.0">
+      <choose mode="exclusive" label="">
+        <alternative condition="(data.current_player[&quot;chosen_action&quot;].to_i  == 3) || (data.current_player[&quot;chosen_action&quot;].to_i  == 9) || (data.current_player[&quot;chosen_action&quot;].to_i  == 11)">
+          <manipulate id="a16" label="Validate Bonus Action Availability">
+            <code>if data.current_player["b_action_available"] != true
+  data.reason = 0
+  return
+else
+  data.reason = 9
+  return
+end</code>
+            <annotations>
+              <_logging_behavior>
+                <_exclude/>
+              </_logging_behavior>
+              <_context_data_analysis>
+                <probes/>
+              </_context_data_analysis>
+            </annotations>
+          </manipulate>
+          <choose mode="exclusive" label="">
+            <alternative eid="e1" condition="data.reason.to_i == 0">
+              <_probability>
+                <_probability_min/>
+                <_probability_max/>
+                <_probability_avg/>
+              </_probability>
+            </alternative>
+            <otherwise>
+              <manipulate id="a2" label="Validate Resources">
+                <code>action_id = data.current_player["chosen_action"].to_i
+skills = data.current_player["skills"] 
+skill = skills.find { |s| (s["id"]).to_i == action_id }
+m_cost = skill["m_cost"].to_i
+a_cost = skill["a_cost"].to_i
+mana = data.current_player["mana"].to_i
+adr = data.current_player["adrenaline"].to_i 
+
+if mana &lt; m_cost &amp;&amp; adr &lt; a_cost
+  data.reason = 1
+  return
+elsif mana &lt; m_cost
+  data.reason = 2
+  return
+elsif adr &lt; a_cost
+  data.reason = 3
+  return
+else
+  data.reason = 9
+  return
+end</code>
+                <annotations>
+                  <_logging_behavior>
+                    <_exclude/>
+                  </_logging_behavior>
+                  <_context_data_analysis>
+                    <probes/>
+                  </_context_data_analysis>
+                </annotations>
+              </manipulate>
+              <choose mode="exclusive" label="">
+                <alternative condition="data.reason.to_i == 1">
+                  <manipulate id="a3" label="Special Action Unavailable: Not Enough Mana and Adrenaline">
+                    <code>data.title = "#, you do not have enough mana and adrenaline!"
+data.message = "Please wait to select another action..."
+data.special = false</code>
+                    <annotations>
+                      <_logging_behavior>
+                        <_exclude/>
+                      </_logging_behavior>
+                      <_context_data_analysis>
+                        <probes/>
+                      </_context_data_analysis>
+                    </annotations>
+                  </manipulate>
+                  <_probability>
+                    <_probability_min/>
+                    <_probability_max/>
+                    <_probability_avg/>
+                  </_probability>
+                </alternative>
+                <alternative condition="data.reason.to_i == 2">
+                  <manipulate id="a4" label="Special Action Unavailable: Not Enough Mana">
+                    <code>data.title = "#, you do not have enough mana!"
+data.message = "Please wait to select another action..."
+data.special = false</code>
+                    <annotations>
+                      <_logging_behavior>
+                        <_exclude/>
+                      </_logging_behavior>
+                      <_context_data_analysis>
+                        <probes/>
+                      </_context_data_analysis>
+                    </annotations>
+                  </manipulate>
+                  <_probability>
+                    <_probability_min/>
+                    <_probability_max/>
+                    <_probability_avg/>
+                  </_probability>
+                </alternative>
+                <alternative condition="data.reason.to_i == 3">
+                  <manipulate id="a5" label="Special Action Unavailable: Not Enough Adrenaline">
+                    <code>data.title = "#, you do not have enough adrenaline!"
+data.message = "Please wait to select another action..."
+data.special = false</code>
+                    <annotations>
+                      <_logging_behavior>
+                        <_exclude/>
+                      </_logging_behavior>
+                      <_context_data_analysis>
+                        <probes/>
+                      </_context_data_analysis>
+                    </annotations>
+                  </manipulate>
+                  <_probability>
+                    <_probability_min/>
+                    <_probability_max/>
+                    <_probability_avg/>
+                  </_probability>
+                </alternative>
+                <otherwise>
+                  <manipulate id="a6" label="Validate Prerequisites">
+                    <code>action_id = data.current_player["chosen_action"].to_i
+conds = data.current_player["conditions"].map(&amp;:to_s)
+skills = data.current_player["skills"] 
+skill = skills.find { |s| (s["id"]).to_i == action_id }
+
+data.reason = 9
+
+case action_id
+when 3
+  if conds.include?("raging")
+    data.reason = 4
+    return
+  end
+when 9
+  prereq = skill["prerequisite"].to_s
+  if !prereq.empty? &amp;&amp; !conds.include?(prereq)
+    data.reason = 5
+    return
+  end
+
+  if conds.include?("hidden")
+    data.reason = 6
+    return
+  end
+when 11
+  if conds.include?("shielded")
+    data.reason = 7
+    return 
+  end
+end</code>
+                    <annotations>
+                      <_logging_behavior>
+                        <_exclude/>
+                      </_logging_behavior>
+                      <_context_data_analysis>
+                        <probes/>
+                      </_context_data_analysis>
+                    </annotations>
+                  </manipulate>
+                  <choose mode="exclusive" label="">
+                    <alternative condition="data.reason.to_i == 4">
+                      <_probability>
+                        <_probability_min/>
+                        <_probability_max/>
+                        <_probability_avg/>
+                      </_probability>
+                      <manipulate id="a7" label="Special Action Unavailable: Player Already Raging">
+                        <code>data.title = "#, you are already raging!"
+data.message = "Please wait to select another action..."
+data.special = false</code>
+                        <annotations>
+                          <_logging_behavior>
+                            <_exclude/>
+                          </_logging_behavior>
+                          <_context_data_analysis>
+                            <probes/>
+                          </_context_data_analysis>
+                        </annotations>
+                      </manipulate>
+                    </alternative>
+                    <alternative condition="data.reason.to_i == 5">
+                      <manipulate id="a8" label="Special Action Unavailable: Player Has to Move to Hide">
+                        <code>data.title = "#, you cannot hide here!"
+data.message = "You need to move to be able to hide. Please wait to select another action..."
+data.special = false</code>
+                        <annotations>
+                          <_logging_behavior>
+                            <_exclude/>
+                          </_logging_behavior>
+                          <_context_data_analysis>
+                            <probes/>
+                          </_context_data_analysis>
+                        </annotations>
+                      </manipulate>
+                      <_probability>
+                        <_probability_min/>
+                        <_probability_max/>
+                        <_probability_avg/>
+                      </_probability>
+                    </alternative>
+                    <alternative condition="data.reason.to_i == 6">
+                      <manipulate id="a9" label="Special Action Unavailable: Player Already Hidden">
+                        <code>data.title = "#, you are already hidden!"
+data.message = "Please wait to select another action..."
+data.special = false</code>
+                        <annotations>
+                          <_logging_behavior>
+                            <_exclude/>
+                          </_logging_behavior>
+                          <_context_data_analysis>
+                            <probes/>
+                          </_context_data_analysis>
+                        </annotations>
+                      </manipulate>
+                      <_probability>
+                        <_probability_min/>
+                        <_probability_max/>
+                        <_probability_avg/>
+                      </_probability>
+                    </alternative>
+                    <alternative condition="data.reason.to_i == 7">
+                      <manipulate id="a10" label="Special Action Unavailable: Player Already Shielded">
+                        <code>data.title = "#, you are already shielded!"
+data.message = "Please wait to select another action..."
+data.special = false</code>
+                        <annotations>
+                          <_logging_behavior>
+                            <_exclude/>
+                          </_logging_behavior>
+                          <_context_data_analysis>
+                            <probes/>
+                          </_context_data_analysis>
+                        </annotations>
+                      </manipulate>
+                      <_probability>
+                        <_probability_min/>
+                        <_probability_max/>
+                        <_probability_avg/>
+                      </_probability>
+                    </alternative>
+                    <otherwise>
+                      <manipulate id="a11" label="Special Action Available: Conditions Met">
+                        <code>action_id = data.current_player["chosen_action"].to_i
+skills = data.current_player["skills"] || []
+skill  = skills.find { |s| (s["id"] || 0).to_i == action_id }
+
+case action_id
+when 3
+  data.title = "#, you are now raging!"
+  data.message = "You take half damage from attacks and other effects!"
+when 9
+  data.title = "#, you are now hidden!"
+  data.message = "Enemies will not be able to target you with attacks and you may use Sneak Attack as long as you are hidden!"
+when 11
+  data.title = "#, you now have an arcane shield!"
+  data.message = "Your armor class has increased by 5 until the start of your next turn!"
+end
+
+data.special = true</code>
+                        <annotations>
+                          <_logging_behavior>
+                            <_exclude/>
+                          </_logging_behavior>
+                          <_context_data_analysis>
+                            <probes/>
+                          </_context_data_analysis>
+                        </annotations>
+                      </manipulate>
+                    </otherwise>
+                  </choose>
+                </otherwise>
+              </choose>
+            </otherwise>
+          </choose>
+          <_probability>
+            <_probability_min/>
+            <_probability_max/>
+            <_probability_avg/>
+          </_probability>
+        </alternative>
+        <alternative condition="data.current_player[&quot;chosen_action&quot;].to_i  == 14">
+          <manipulate id="a15" label="Validate Action Availability">
+            <code>if data.current_player["id"].to_s == "rogue"
+  unless data.current_player["b_action_available"]
+    data.reason = 0
+    return
+  else
+    data.reason = 9
+    return
+  end
+else 
+  unless data.current_player["action_available"]
+    data.reason = 0
+    return
+  else
+    data.reason = 9
+    return
+  end
+end</code>
+            <annotations>
+              <_logging_behavior>
+                <_exclude/>
+              </_logging_behavior>
+              <_context_data_analysis>
+                <probes/>
+              </_context_data_analysis>
+            </annotations>
+          </manipulate>
+          <choose mode="exclusive" label="">
+            <alternative eid="e2" condition="data.reason.to_i == 0">
+              <_probability>
+                <_probability_min/>
+                <_probability_max/>
+                <_probability_avg/>
+              </_probability>
+              <manipulate id="a1" label="Special Action Unavailable: Action Unavailable">
+                <code>if data.current_player["id"].to_s == "rogue"
+  data.title = "#, you have already used your bonus action!"
+  data.message = "Please wait..."
+  data.special = false
+else
+  data.title = "#, you have already used your action!"
+  data.message = "Please wait..."
+  data.special = false
+end</code>
+                <annotations>
+                  <_logging_behavior>
+                    <_exclude/>
+                  </_logging_behavior>
+                  <_context_data_analysis>
+                    <probes/>
+                  </_context_data_analysis>
+                </annotations>
+              </manipulate>
+            </alternative>
+            <otherwise>
+              <manipulate id="a12" label="Validate Conditions">
+                <code>action_id = data.current_player["chosen_action"].to_i
+conds = data.current_player["conditions"].map(&amp;:to_s)
+
+if conds.include?("grappled")
+  data.reason = 8
+  return
+else
+  data.reason = 9
+  return
+end</code>
+                <annotations>
+                  <_logging_behavior>
+                    <_exclude/>
+                  </_logging_behavior>
+                  <_context_data_analysis>
+                    <probes/>
+                  </_context_data_analysis>
+                </annotations>
+              </manipulate>
+              <choose mode="exclusive" label="">
+                <alternative condition="data.reason.to_i == 8">
+                  <manipulate id="a13" label="Special Action Unavailable: Can't Dash when Grappled">
+                    <code>data.title = "#, you are grappled so you cannot dash!"
+data.message = "Please wait to select another action..."
+data.special = false</code>
+                    <annotations>
+                      <_logging_behavior>
+                        <_exclude/>
+                      </_logging_behavior>
+                      <_context_data_analysis>
+                        <probes/>
+                      </_context_data_analysis>
+                    </annotations>
+                  </manipulate>
+                  <_probability>
+                    <_probability_min/>
+                    <_probability_max/>
+                    <_probability_avg/>
+                  </_probability>
+                </alternative>
+                <otherwise>
+                  <manipulate id="a14" label="Special Action Available: Conditions Met">
+                    <code>data.title = "#, you dashed!"
+data.message = "Your movement increased for this turn."
+data.special = true</code>
+                    <annotations>
+                      <_logging_behavior>
+                        <_exclude/>
+                      </_logging_behavior>
+                      <_context_data_analysis>
+                        <probes/>
+                      </_context_data_analysis>
+                    </annotations>
+                  </manipulate>
+                </otherwise>
+              </choose>
+            </otherwise>
+          </choose>
+          <_probability>
+            <_probability_min/>
+            <_probability_max/>
+            <_probability_avg/>
+          </_probability>
+        </alternative>
+        <otherwise/>
+      </choose>
+    </description>
+  </description>
+  <transformation>
+    <description type="copy"/>
+    <dataelements type="none"/>
+    <endpoints type="none"/>
+  </transformation>
+</testset>

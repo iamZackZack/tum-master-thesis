@@ -1,0 +1,290 @@
+<testset xmlns="http://cpee.org/ns/properties/2.0">
+  <executionhandler>ruby</executionhandler>
+  <dataelements>
+    <configuration/>
+    <enemy_difficulty/>
+    <environment_difficulty/>
+    <number_of_players/>
+    <config_template/>
+    <trap_template/>
+    <traps/>
+  </dataelements>
+  <endpoints>
+    <timeout>https-post://cpee.org/services/timeout.php</timeout>
+    <subprocess>https-post://cpee.org/flow/start/url/</subprocess>
+  </endpoints>
+  <attributes>
+    <info>get_configuration</info>
+    <guarded>none</guarded>
+    <modeltype>CPEE</modeltype>
+    <theme>dataflow</theme>
+    <guarded_id/>
+    <creator>Christine Ashcreek</creator>
+    <author>Christine Ashcreek</author>
+    <model_uuid>f6b62e26-76e7-4e4c-960d-4330c5d6c3b9</model_uuid>
+    <model_version/>
+    <design_dir>Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir</design_dir>
+    <design_stage>development</design_stage>
+  </attributes>
+  <description>
+    <description xmlns="http://cpee.org/ns/description/1.0">
+      <call id="a2" endpoint="subprocess">
+        <parameters>
+          <label>Get Player Number</label>
+          <color/>
+          <method>:post</method>
+          <arguments>
+            <behavior>wait_running</behavior>
+            <url>https://cpee.org/hub/server/Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/get_selection.xml</url>
+            <init>
+              <title>Number of Players</title>
+              <message>Please select the number of players foolish enough to enter the Dungeon!</message>
+              <options>[1,2,3,4]</options>
+              <type>1</type>
+            </init>
+            <endpoints/>
+            <attributes/>
+            <customization/>
+          </arguments>
+        </parameters>
+        <code>
+          <signal/>
+          <prepare/>
+          <finalize output="result">data.number_of_players = result["selection"]</finalize>
+          <update output="result"/>
+          <rescue output="result"/>
+        </code>
+        <annotations>
+          <_generic/>
+          <_logging_behavior>
+            <_exclude/>
+            <_include/>
+          </_logging_behavior>
+          <_timing>
+            <_timing_weight/>
+            <_timing_avg/>
+            <explanations/>
+          </_timing>
+          <_shifting>
+            <_shifting_type>Duration</_shifting_type>
+          </_shifting>
+          <_context_data_analysis>
+            <probes/>
+            <ips/>
+          </_context_data_analysis>
+          <report>
+            <url/>
+          </report>
+          <_notes>
+            <_notes_general/>
+          </_notes>
+        </annotations>
+        <documentation>
+          <input/>
+          <output/>
+          <implementation>
+            <description/>
+          </implementation>
+          <code>
+            <description/>
+          </code>
+        </documentation>
+      </call>
+      <call id="a5" endpoint="subprocess">
+        <parameters>
+          <label>Get Enemy Difficulty Choice</label>
+          <color/>
+          <method>:post</method>
+          <arguments>
+            <behavior>wait_running</behavior>
+            <url>https://cpee.org/hub/server/Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/get_selection.xml</url>
+            <init>
+              <title>Please select a difficulty for the enemies!</title>
+              <message>The lower the difficulty, the less resources the GM will regenerate.</message>
+              <options>["Easy", "Normal", "Hard", "Deadly"]</options>
+              <type>1</type>
+            </init>
+            <endpoints/>
+            <attributes/>
+            <customization/>
+          </arguments>
+        </parameters>
+        <code>
+          <signal/>
+          <prepare/>
+          <finalize output="result">data.enemy_difficulty = result["selection"]</finalize>
+          <update output="result"/>
+          <rescue output="result"/>
+        </code>
+        <annotations>
+          <_generic/>
+          <_logging_behavior>
+            <_exclude/>
+            <_include/>
+          </_logging_behavior>
+          <_timing>
+            <_timing_weight/>
+            <_timing_avg/>
+            <explanations/>
+          </_timing>
+          <_shifting>
+            <_shifting_type>Duration</_shifting_type>
+          </_shifting>
+          <_context_data_analysis>
+            <probes/>
+            <ips/>
+          </_context_data_analysis>
+          <report>
+            <url/>
+          </report>
+          <_notes>
+            <_notes_general/>
+          </_notes>
+        </annotations>
+        <documentation>
+          <input/>
+          <output/>
+          <implementation>
+            <description/>
+          </implementation>
+          <code>
+            <description/>
+          </code>
+        </documentation>
+      </call>
+      <call id="a7" endpoint="subprocess">
+        <parameters>
+          <label>Get Environment Difficulty Choice</label>
+          <color/>
+          <method>:post</method>
+          <arguments>
+            <behavior>wait_running</behavior>
+            <url>https://cpee.org/hub/server/Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/get_selection.xml</url>
+            <init>
+              <title>Please select a difficulty for the environment!</title>
+              <message>The lower the difficulty, the less deteriorating the environment will be.</message>
+              <options>["Easy", "Normal", "Hard", "Deadly"]</options>
+              <type>1</type>
+            </init>
+            <endpoints/>
+            <attributes/>
+            <customization/>
+          </arguments>
+        </parameters>
+        <code>
+          <signal/>
+          <prepare/>
+          <finalize output="result">data.environment_difficulty = result["selection"]</finalize>
+          <update output="result"/>
+          <rescue output="result"/>
+        </code>
+        <annotations>
+          <_generic/>
+          <_logging_behavior>
+            <_exclude/>
+            <_include/>
+          </_logging_behavior>
+          <_timing>
+            <_timing_weight/>
+            <_timing_avg/>
+            <explanations/>
+          </_timing>
+          <_shifting>
+            <_shifting_type>Duration</_shifting_type>
+          </_shifting>
+          <_context_data_analysis>
+            <probes/>
+            <ips/>
+          </_context_data_analysis>
+          <report>
+            <url/>
+          </report>
+          <_notes>
+            <_notes_general/>
+          </_notes>
+        </annotations>
+        <documentation>
+          <input/>
+          <output/>
+          <implementation>
+            <description/>
+          </implementation>
+          <code>
+            <description/>
+          </code>
+        </documentation>
+      </call>
+      <manipulate id="a1" label="Create Configuration">
+        <code># --- Helpers ---
+def map_gm_factor(diff)
+  case diff
+  when "Easy" then 0.5
+  when "Normal" then 1.0
+  when "Hard" then 2.0
+  when "Deadly" then 3.0
+  end
+end
+
+def map_env_factor(diff)
+  case diff
+  when "Easy" then 0.5
+  when "Normal" then 1.0
+  when "Hard" then 1.5
+  when "Deadly" then 2.0
+  end
+end
+
+# --- Set Up Configuration ---
+data.configuration = data.config_template
+
+gm_factor = map_gm_factor(data.enemy_difficulty)
+env_factor = map_env_factor(data.environment_difficulty)
+
+data.configuration["gm_factor"] = gm_factor
+data.configuration["enemy_dc"] = 10 + (4 * gm_factor)
+data.configuration["max_enemies"] = data.number_of_players.to_i
+data.configuration["fear"] = gm_factor * data.number_of_players.to_i
+data.configuration["enemy_spawn_chance"] = 32 * gm_factor
+
+data.configuration["enemy_hp"] = (20 * gm_factor).ceil
+data.configuration["enemy_ac"] = (15 + (3 * gm_factor).ceil)
+data.configuration["enemy_init_bonus"] = (3 * gm_factor).ceil
+data.configuration["enemy_attack_bonus"] = (4 * gm_factor).ceil
+
+data.configuration["env_factor"] = env_factor
+data.configuration["env_dc"] = 10 + (4 * env_factor)
+data.configuration["trap_chance"] = 30 * env_factor</code>
+        <annotations>
+          <_logging_behavior>
+            <_exclude/>
+          </_logging_behavior>
+          <_context_data_analysis>
+            <probes/>
+          </_context_data_analysis>
+        </annotations>
+      </manipulate>
+      <manipulate id="a3" label="Create Traps">
+        <code>data.traps = data.trap_template
+env_dc = data.configuration["env_dc"].to_i
+
+data.traps.each do |trap|
+  next unless trap.is_a?(Hash)
+  trap["dc"] = env_dc if trap["dc"].nil?
+end</code>
+        <annotations>
+          <_logging_behavior>
+            <_exclude/>
+          </_logging_behavior>
+          <_context_data_analysis>
+            <probes/>
+          </_context_data_analysis>
+        </annotations>
+      </manipulate>
+    </description>
+  </description>
+  <transformation>
+    <description type="copy"/>
+    <dataelements type="none"/>
+    <endpoints type="none"/>
+  </transformation>
+</testset>

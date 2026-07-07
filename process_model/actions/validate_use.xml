@@ -1,0 +1,204 @@
+<testset xmlns="http://cpee.org/ns/properties/2.0">
+  <executionhandler>ruby</executionhandler>
+  <dataelements/>
+  <endpoints>
+    <timeout>https-post://cpee.org/services/timeout.php</timeout>
+    <subprocess>https-post://cpee.org/flow/start/url/</subprocess>
+  </endpoints>
+  <attributes>
+    <info>validate_use</info>
+    <guarded>none</guarded>
+    <modeltype>CPEE</modeltype>
+    <theme>dataflow</theme>
+    <creator>Christine Ashcreek</creator>
+    <guarded_id/>
+    <author>Christine Ashcreek</author>
+    <model_uuid>8c005558-5823-42f1-adae-d3829c6313b6</model_uuid>
+    <model_version/>
+    <design_dir>Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/actions.dir</design_dir>
+    <design_stage>development</design_stage>
+  </attributes>
+  <description>
+    <description xmlns="http://cpee.org/ns/description/1.0">
+      <manipulate id="a7" label="Validate Bonus Action Availability">
+        <code>if data.current_player["b_action_available"] != true
+  data.reason = 0
+  return
+else
+  data.reason = 9
+  return
+end</code>
+        <annotations>
+          <_logging_behavior>
+            <_exclude/>
+          </_logging_behavior>
+          <_context_data_analysis>
+            <probes/>
+          </_context_data_analysis>
+        </annotations>
+      </manipulate>
+      <choose mode="exclusive" label="">
+        <alternative eid="e1" condition="data.reason.to_i == 0">
+          <_probability>
+            <_probability_min/>
+            <_probability_max/>
+            <_probability_avg/>
+          </_probability>
+          <manipulate id="a2" label="Use Unavailable: Bonus Action Unavailable">
+            <code>data.title = "#, you have already used your bonus action!"
+data.message = "Please wait..."
+
+data.usable_items = []
+data.use = false</code>
+            <annotations>
+              <_logging_behavior>
+                <_exclude/>
+              </_logging_behavior>
+              <_context_data_analysis>
+                <probes/>
+              </_context_data_analysis>
+            </annotations>
+          </manipulate>
+        </alternative>
+        <otherwise>
+          <manipulate id="a1" label="Validate Equipment Availability">
+            <code>equipment = data.current_player["equipment"]
+
+unless !equipment.empty?
+  data.reason = 1
+  return
+else
+  data.reason = 9
+  return
+end</code>
+            <annotations>
+              <_logging_behavior>
+                <_exclude/>
+              </_logging_behavior>
+              <_context_data_analysis>
+                <probes/>
+              </_context_data_analysis>
+            </annotations>
+          </manipulate>
+          <choose mode="exclusive" label="">
+            <alternative eid="e2" condition="data.reason.to_i == 1">
+              <_probability>
+                <_probability_min/>
+                <_probability_max/>
+                <_probability_avg/>
+              </_probability>
+              <manipulate id="a3" label="Use Unavailable: Equipment Empty">
+                <code>data.title = "#, you have no items to use!"
+data.message = "Please wait to select another action..."
+
+data.usable_items = []
+data.use = false</code>
+                <annotations>
+                  <_logging_behavior>
+                    <_exclude/>
+                  </_logging_behavior>
+                  <_context_data_analysis>
+                    <probes/>
+                  </_context_data_analysis>
+                </annotations>
+              </manipulate>
+            </alternative>
+            <otherwise>
+              <manipulate id="a4" label="Validate Equipment Applicability">
+                <code># --- Helper ---
+def has_potion?(equipment, prefix)
+  equipment.any? { |x| x.to_s.start_with?(prefix.to_s) }
+end
+
+# --- Check Equipment Availablity ---
+
+equipment = data.current_player["equipment"]
+
+# --- Determine Needs ---
+
+need_heal = (data.current_player["hp"].to_i &lt; data.current_player["max_hp"].to_i)
+need_mana = (data.current_player["mana"].to_i &lt; data.current_player["max_mana"].to_i)
+need_adr = (data.current_player["adrenaline"].to_i &lt; data.current_player["max_adrenaline"].to_i)
+need_stability = (data.current_player["insanity"].to_i &gt; 0)
+
+# --- Check Potion Availability for Need ---
+
+can_heal = need_heal &amp;&amp; has_potion?(equipment, "healing")
+can_mana = need_mana &amp;&amp; has_potion?(equipment, "mana")
+can_adr = need_adr &amp;&amp; has_potion?(equipment, "adrenaline")
+can_stability = need_stability &amp;&amp; has_potion?(equipment, "stability")
+
+# --- Build Usable Item List ---
+usable = []
+usable &lt;&lt; "Healing Potion"    if can_heal
+usable &lt;&lt; "Mana Potion"       if can_mana
+usable &lt;&lt; "Adrenaline Potion" if can_adr
+usable &lt;&lt; "Stability Potion"  if can_stability
+
+if usable.empty?
+  data.reason = 2
+  return
+else
+  data.reason = 9
+  data.usable_items = usable
+  return
+end</code>
+                <annotations>
+                  <_logging_behavior>
+                    <_exclude/>
+                  </_logging_behavior>
+                  <_context_data_analysis>
+                    <probes/>
+                  </_context_data_analysis>
+                </annotations>
+              </manipulate>
+              <choose mode="exclusive" label="">
+                <alternative condition="data.reason.to_i == 2">
+                  <manipulate id="a5" label="Use Unavailable: No Applicable Items">
+                    <code>data.title = "#, you cannot use an item right now!"
+data.message = "None of your items apply right now. Please wait to select another action..."
+data.usable_items = []
+data.use = false</code>
+                    <annotations>
+                      <_logging_behavior>
+                        <_exclude/>
+                      </_logging_behavior>
+                      <_context_data_analysis>
+                        <probes/>
+                      </_context_data_analysis>
+                    </annotations>
+                  </manipulate>
+                  <_probability>
+                    <_probability_min/>
+                    <_probability_max/>
+                    <_probability_avg/>
+                  </_probability>
+                </alternative>
+                <otherwise>
+                  <manipulate id="a6" label="Use Available">
+                    <code>data.title = "#, you may use an item!"
+data.use = true
+data.message = "Please select an item from your equipment..."</code>
+                    <annotations>
+                      <_logging_behavior>
+                        <_exclude/>
+                      </_logging_behavior>
+                      <_context_data_analysis>
+                        <probes/>
+                      </_context_data_analysis>
+                    </annotations>
+                  </manipulate>
+                </otherwise>
+              </choose>
+            </otherwise>
+          </choose>
+        </otherwise>
+      </choose>
+    </description>
+  </description>
+  <transformation>
+    <description type="copy"/>
+    <dataelements type="none"/>
+    <endpoints type="none"/>
+  </transformation>
+</testset>

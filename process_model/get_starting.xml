@@ -1,0 +1,354 @@
+<testset xmlns="http://cpee.org/ns/properties/2.0">
+  <executionhandler>ruby</executionhandler>
+  <dataelements>
+    <result/>
+    <title/>
+    <checking/>
+    <message/>
+    <player_id/>
+    <game_state/>
+    <character_template/>
+    <reason/>
+  </dataelements>
+  <endpoints>
+    <frames_display>https-put://cpee.org/out/frames/</frames_display>
+    <waitMovement>https://lehre.bpm.in.tum.de/ports/5104/waitMovement</waitMovement>
+  </endpoints>
+  <attributes>
+    <info>get_starting</info>
+    <guarded>none</guarded>
+    <modeltype>CPEE</modeltype>
+    <theme>dataflow</theme>
+    <guarded_id/>
+    <creator>Christine Ashcreek</creator>
+    <author>Christine Ashcreek</author>
+    <model_uuid>aecee0d3-32de-4f9b-8e5f-82f176724098</model_uuid>
+    <model_version/>
+    <design_dir>Teaching.dir/Prak.dir/TUM-Prak-24-WS.dir/Zeka_Dizdar.dir/</design_dir>
+    <design_stage>development</design_stage>
+    <fid>gridsanddragons</fid>
+  </attributes>
+  <description>
+    <description xmlns="http://cpee.org/ns/description/1.0">
+      <loop mode="post_test" condition="data.checking">
+        <call id="a6" endpoint="frames_display">
+          <parameters>
+            <label>Instruct Player to Select a Position</label>
+            <color/>
+            <arguments>
+              <type>set</type>
+              <lx>6</lx>
+              <ly>1</ly>
+              <x_amount>3</x_amount>
+              <y_amount>1</y_amount>
+              <button/>
+              <style/>
+              <urls>
+                <urls_item>
+                  <lang>de-at</lang>
+                  <url>https://lehre.bpm.in.tum.de/~ge87max/instruction/instruction.html</url>
+                </urls_item>
+              </urls>
+              <default>
+                <title>!data.title</title>
+                <message>!data.message</message>
+                <player_id>!data.player_id</player_id>
+              </default>
+            </arguments>
+          </parameters>
+          <code>
+            <signal/>
+            <prepare>endpoints.frames_display += attributes.fid</prepare>
+            <finalize output="result"/>
+            <update output="result"/>
+            <rescue output="result"/>
+          </code>
+          <annotations>
+            <_generic/>
+            <_logging_behavior>
+              <_exclude/>
+              <_include/>
+            </_logging_behavior>
+            <_timing>
+              <_timing_weight/>
+              <_timing_avg/>
+              <explanations/>
+            </_timing>
+            <_shifting>
+              <_shifting_type>Duration</_shifting_type>
+            </_shifting>
+            <_context_data_analysis>
+              <probes/>
+              <ips/>
+            </_context_data_analysis>
+            <report>
+              <url/>
+            </report>
+            <_notes>
+              <_notes_general/>
+            </_notes>
+          </annotations>
+          <documentation>
+            <input/>
+            <output/>
+            <implementation>
+              <description/>
+            </implementation>
+            <code>
+              <description/>
+            </code>
+          </documentation>
+        </call>
+        <call id="a1" endpoint="waitMovement">
+          <parameters>
+            <label>Wait for Position</label>
+            <color/>
+            <method>:post</method>
+            <arguments/>
+          </parameters>
+          <code>
+            <signal/>
+            <prepare/>
+            <finalize output="result">data.result = result["position"]
+data.checking = true</finalize>
+            <update output="result"/>
+            <rescue output="result"/>
+          </code>
+          <annotations>
+            <_generic/>
+            <_timing>
+              <_timing_weight/>
+              <_timing_avg/>
+              <explanations/>
+            </_timing>
+            <_shifting>
+              <_shifting_type>Duration</_shifting_type>
+            </_shifting>
+            <_context_data_analysis>
+              <probes/>
+              <ips/>
+            </_context_data_analysis>
+            <report>
+              <url/>
+            </report>
+            <_notes>
+              <_notes_general/>
+            </_notes>
+          </annotations>
+          <documentation>
+            <input/>
+            <output/>
+            <implementation>
+              <description/>
+            </implementation>
+            <code>
+              <description/>
+            </code>
+          </documentation>
+        </call>
+        <manipulate id="a4" label="Validate Position">
+          <code># --- Helper ---
+def find_cell(game_state, r, c)
+  game_state.flatten.find do |cell|
+    g = cell["global"]
+    g &amp;&amp; g[0].to_i == r.to_i &amp;&amp; g[1].to_i == c.to_i
+  end
+end
+
+# --- Find Cell and Cell Items ---
+r, c = data.result
+cell = find_cell(data.game_state, r, c)
+
+terrain  = cell["terrainID"]
+effect = cell["effect"]
+occupied = cell["occupied"]
+
+if terrain.nil?
+  data.reason = 1
+  return
+elsif effect.nil? 
+  data.reason = 2
+  return
+elsif !occupied.nil?
+  data.reason = 3
+  return
+else 
+  # Is it a Starting Cell?
+  char_id = effect.to_s.sub(/S\z/, "").downcase
+  chosen_template = data.character_template.find do |t|
+    (t["id"] || "").to_s.downcase == char_id
+  end
+  unless chosen_template
+    data.reason = 4
+    return
+  end
+end</code>
+          <annotations>
+            <_logging_behavior>
+              <_exclude/>
+            </_logging_behavior>
+            <_context_data_analysis>
+              <probes/>
+            </_context_data_analysis>
+          </annotations>
+        </manipulate>
+        <choose mode="exclusive" label="">
+          <alternative condition="data.reason.to_i == 1">
+            <manipulate id="a2" label="Reason: Terrain Not Revealed">
+              <code>data.message = "Please select a cell that has been revealed..."</code>
+              <annotations>
+                <_logging_behavior>
+                  <_exclude/>
+                </_logging_behavior>
+                <_context_data_analysis>
+                  <probes/>
+                </_context_data_analysis>
+              </annotations>
+            </manipulate>
+            <_probability>
+              <_probability_min/>
+              <_probability_max/>
+              <_probability_avg/>
+            </_probability>
+          </alternative>
+          <alternative condition="data.reason.to_i == 2 ">
+            <_probability>
+              <_probability_min/>
+              <_probability_max/>
+              <_probability_avg/>
+            </_probability>
+            <manipulate id="a3" label="Reason: Not Starting Position">
+              <code>data.message = "Please select a cell with a starting effect..."</code>
+              <annotations>
+                <_logging_behavior>
+                  <_exclude/>
+                </_logging_behavior>
+                <_context_data_analysis>
+                  <probes/>
+                </_context_data_analysis>
+              </annotations>
+            </manipulate>
+          </alternative>
+          <alternative condition="data.reason.to_i == 3">
+            <manipulate id="a7" label="Reason: Occupied Cell">
+              <code>data.message = "Please select a cell not occupied by another..."</code>
+              <annotations>
+                <_logging_behavior>
+                  <_exclude/>
+                </_logging_behavior>
+                <_context_data_analysis>
+                  <probes/>
+                </_context_data_analysis>
+              </annotations>
+            </manipulate>
+            <_probability>
+              <_probability_min/>
+              <_probability_max/>
+              <_probability_avg/>
+            </_probability>
+          </alternative>
+          <alternative condition="data.reason.to_i == 4">
+            <_probability>
+              <_probability_min/>
+              <_probability_max/>
+              <_probability_avg/>
+            </_probability>
+            <manipulate id="a8" label="Reason: Invalid Character Selection">
+              <code>data.message = "Please select a cell for a valid character..."</code>
+              <annotations>
+                <_logging_behavior>
+                  <_exclude/>
+                </_logging_behavior>
+                <_context_data_analysis>
+                  <probes/>
+                </_context_data_analysis>
+              </annotations>
+            </manipulate>
+          </alternative>
+          <otherwise>
+            <manipulate id="a9" label="Reason: Valid Position">
+              <code>data.checking = false</code>
+              <annotations>
+                <_logging_behavior>
+                  <_exclude/>
+                </_logging_behavior>
+                <_context_data_analysis>
+                  <probes/>
+                </_context_data_analysis>
+              </annotations>
+            </manipulate>
+          </otherwise>
+        </choose>
+        <call id="a10" endpoint="frames_display">
+          <parameters>
+            <label>Clear Instruction Box</label>
+            <color/>
+            <arguments>
+              <type>set</type>
+              <lx>6</lx>
+              <ly>1</ly>
+              <x_amount>3</x_amount>
+              <y_amount>1</y_amount>
+              <button/>
+              <style/>
+              <urls/>
+              <default/>
+            </arguments>
+          </parameters>
+          <code>
+            <signal/>
+            <prepare>endpoints.frames_display += attributes.fid</prepare>
+            <finalize output="result"/>
+            <update output="result"/>
+            <rescue output="result"/>
+          </code>
+          <annotations>
+            <_generic/>
+            <_logging_behavior>
+              <_exclude/>
+              <_include/>
+            </_logging_behavior>
+            <_timing>
+              <_timing_weight/>
+              <_timing_avg/>
+              <explanations/>
+            </_timing>
+            <_shifting>
+              <_shifting_type>Duration</_shifting_type>
+            </_shifting>
+            <_context_data_analysis>
+              <probes/>
+              <ips/>
+            </_context_data_analysis>
+            <report>
+              <url/>
+            </report>
+            <_notes>
+              <_notes_general/>
+            </_notes>
+          </annotations>
+          <documentation>
+            <input/>
+            <output/>
+            <implementation>
+              <description/>
+            </implementation>
+            <code>
+              <description/>
+            </code>
+          </documentation>
+        </call>
+        <_probability>
+          <_probability_min/>
+          <_probability_max/>
+          <_probability_avg/>
+        </_probability>
+      </loop>
+    </description>
+  </description>
+  <transformation>
+    <description type="copy"/>
+    <dataelements type="none"/>
+    <endpoints type="none"/>
+  </transformation>
+</testset>
