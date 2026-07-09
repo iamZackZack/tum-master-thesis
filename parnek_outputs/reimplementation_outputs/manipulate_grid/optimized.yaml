@@ -1,0 +1,208 @@
+activities:
+- Clear Expansion Message
+- Clear Rotation Message
+- Clear Welcome Message
+- Determine Grid Expansion or Terrain Rotation
+- Display Expansion Message
+- Display Rotation Message
+- Display Welcome Message
+- Find Suitable Terrain
+- Place Tile on Grid
+- Rotate Tile
+- Rotate Tile on Grid
+- Set Grid Variable
+- Set Rotation Variable
+- Set Tile Variable
+- Transpose Terrain 90 Degrees
+- Visualize Grid
+- Wait for Expansion Message Display
+- Wait for Rotation Message Display
+- Wait for Welcome Message Display
+conditions:
+- - Clear Rotation Message
+  - Rotate Tile on Grid
+- - Clear Welcome Message
+  - Visualize Grid
+- - Determine Grid Expansion or Terrain Rotation
+  - Find Suitable Terrain
+- - Determine Grid Expansion or Terrain Rotation
+  - Transpose Terrain 90 Degrees
+- - Display Expansion Message
+  - Wait for Expansion Message Display
+- - Display Rotation Message
+  - Wait for Rotation Message Display
+- - Display Welcome Message
+  - Wait for Welcome Message Display
+- - Find Suitable Terrain
+  - Display Expansion Message
+- - Set Grid Variable
+  - Place Tile on Grid
+- - Set Grid Variable
+  - Wait for Rotation Message Display
+- - Set Rotation Variable
+  - Rotate Tile
+- - Set Tile Variable
+  - Place Tile on Grid
+- - Set Tile Variable
+  - Set Rotation Variable
+- - Set Tile Variable
+  - Wait for Expansion Message Display
+- - Set Tile Variable
+  - Wait for Welcome Message Display
+- - Transpose Terrain 90 Degrees
+  - Display Rotation Message
+- - Wait for Expansion Message Display
+  - Clear Expansion Message
+- - Wait for Rotation Message Display
+  - Clear Rotation Message
+- - Wait for Welcome Message Display
+  - Clear Welcome Message
+responses:
+- - Clear Expansion Message
+  - Place Tile on Grid
+- - Clear Rotation Message
+  - Rotate Tile on Grid
+- - Clear Welcome Message
+  - Place Tile on Grid
+- - Clear Welcome Message
+  - Visualize Grid
+- - Display Expansion Message
+  - Set Tile Variable
+- - Display Expansion Message
+  - Wait for Expansion Message Display
+- - Display Rotation Message
+  - Set Grid Variable
+- - Display Rotation Message
+  - Wait for Rotation Message Display
+- - Display Welcome Message
+  - Set Tile Variable
+- - Display Welcome Message
+  - Wait for Welcome Message Display
+- - Find Suitable Terrain
+  - Display Expansion Message
+- - Rotate Tile
+  - Place Tile on Grid
+- - Rotate Tile
+  - Set Grid Variable
+- - Set Rotation Variable
+  - Rotate Tile
+- - Set Tile Variable
+  - Place Tile on Grid
+- - Set Tile Variable
+  - Set Grid Variable
+- - Transpose Terrain 90 Degrees
+  - Display Rotation Message
+- - Wait for Expansion Message Display
+  - Clear Expansion Message
+- - Wait for Rotation Message Display
+  - Clear Rotation Message
+- - Wait for Welcome Message Display
+  - Clear Welcome Message
+includes:
+- - Clear Rotation Message
+  - Rotate Tile on Grid
+- - Determine Grid Expansion or Terrain Rotation
+  - Find Suitable Terrain
+- - Determine Grid Expansion or Terrain Rotation
+  - Transpose Terrain 90 Degrees
+- - Find Suitable Terrain
+  - Display Expansion Message
+- - Set Grid Variable
+  - Wait for Rotation Message Display
+- - Transpose Terrain 90 Degrees
+  - Display Rotation Message
+- - Wait for Rotation Message Display
+  - Clear Rotation Message
+excludes:
+- - Clear Expansion Message
+  - Clear Expansion Message
+- - Clear Rotation Message
+  - Clear Rotation Message
+- - Clear Welcome Message
+  - Clear Welcome Message
+- - Determine Grid Expansion or Terrain Rotation
+  - Clear Welcome Message
+- - Determine Grid Expansion or Terrain Rotation
+  - Determine Grid Expansion or Terrain Rotation
+- - Determine Grid Expansion or Terrain Rotation
+  - Display Welcome Message
+- - Determine Grid Expansion or Terrain Rotation
+  - Visualize Grid
+- - Determine Grid Expansion or Terrain Rotation
+  - Wait for Welcome Message Display
+- - Display Expansion Message
+  - Display Expansion Message
+- - Display Rotation Message
+  - Display Rotation Message
+- - Display Welcome Message
+  - Clear Expansion Message
+- - Display Welcome Message
+  - Clear Rotation Message
+- - Display Welcome Message
+  - Determine Grid Expansion or Terrain Rotation
+- - Display Welcome Message
+  - Display Expansion Message
+- - Display Welcome Message
+  - Display Rotation Message
+- - Display Welcome Message
+  - Display Welcome Message
+- - Display Welcome Message
+  - Find Suitable Terrain
+- - Display Welcome Message
+  - Rotate Tile on Grid
+- - Display Welcome Message
+  - Transpose Terrain 90 Degrees
+- - Display Welcome Message
+  - Wait for Expansion Message Display
+- - Display Welcome Message
+  - Wait for Rotation Message Display
+- - Find Suitable Terrain
+  - Clear Rotation Message
+- - Find Suitable Terrain
+  - Display Rotation Message
+- - Find Suitable Terrain
+  - Find Suitable Terrain
+- - Find Suitable Terrain
+  - Rotate Tile on Grid
+- - Find Suitable Terrain
+  - Transpose Terrain 90 Degrees
+- - Find Suitable Terrain
+  - Wait for Rotation Message Display
+- - Place Tile on Grid
+  - Place Tile on Grid
+- - Rotate Tile
+  - Rotate Tile
+- - Rotate Tile on Grid
+  - Rotate Tile on Grid
+- - Set Grid Variable
+  - Set Grid Variable
+- - Set Rotation Variable
+  - Set Rotation Variable
+- - Set Tile Variable
+  - Set Tile Variable
+- - Transpose Terrain 90 Degrees
+  - Clear Expansion Message
+- - Transpose Terrain 90 Degrees
+  - Display Expansion Message
+- - Transpose Terrain 90 Degrees
+  - Find Suitable Terrain
+- - Transpose Terrain 90 Degrees
+  - Place Tile on Grid
+- - Transpose Terrain 90 Degrees
+  - Rotate Tile
+- - Transpose Terrain 90 Degrees
+  - Set Rotation Variable
+- - Transpose Terrain 90 Degrees
+  - Set Tile Variable
+- - Transpose Terrain 90 Degrees
+  - Transpose Terrain 90 Degrees
+- - Transpose Terrain 90 Degrees
+  - Wait for Expansion Message Display
+- - Visualize Grid
+  - Visualize Grid
+- - Wait for Expansion Message Display
+  - Wait for Expansion Message Display
+- - Wait for Rotation Message Display
+  - Wait for Rotation Message Display
+- - Wait for Welcome Message Display
+  - Wait for Welcome Message Display

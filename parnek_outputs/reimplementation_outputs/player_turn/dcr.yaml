@@ -1,0 +1,212 @@
+activities:
+- Check for Deaths
+- Finalize Player Conditions & Resources
+- Get Player Action Choice
+- Initialize Player Conditions
+- Perform Player Attack
+- Perform Player End Turn
+- Perform Player Heal & Stabilize
+- Perform Player Item Use
+- Perform Player Movement
+- Perform Player Resurrection
+- Perform Player Search
+- Perform Player Special Actions
+- Visualize Stats
+conditions:
+- - Check for Deaths
+  - Finalize Player Conditions & Resources
+- - Check for Deaths
+  - Perform Player Resurrection
+- - Get Player Action Choice
+  - Check for Deaths
+- - Get Player Action Choice
+  - Finalize Player Conditions & Resources
+- - Get Player Action Choice
+  - Perform Player Attack
+- - Get Player Action Choice
+  - Perform Player End Turn
+- - Get Player Action Choice
+  - Perform Player Heal & Stabilize
+- - Get Player Action Choice
+  - Perform Player Item Use
+- - Get Player Action Choice
+  - Perform Player Movement
+- - Get Player Action Choice
+  - Perform Player Resurrection
+- - Get Player Action Choice
+  - Perform Player Search
+- - Get Player Action Choice
+  - Perform Player Special Actions
+- - Initialize Player Conditions
+  - Check for Deaths
+- - Initialize Player Conditions
+  - Finalize Player Conditions & Resources
+- - Initialize Player Conditions
+  - Get Player Action Choice
+- - Initialize Player Conditions
+  - Perform Player Attack
+- - Initialize Player Conditions
+  - Perform Player End Turn
+- - Initialize Player Conditions
+  - Perform Player Heal & Stabilize
+- - Initialize Player Conditions
+  - Perform Player Item Use
+- - Initialize Player Conditions
+  - Perform Player Movement
+- - Initialize Player Conditions
+  - Perform Player Resurrection
+- - Initialize Player Conditions
+  - Perform Player Search
+- - Initialize Player Conditions
+  - Perform Player Special Actions
+- - Initialize Player Conditions
+  - Visualize Stats
+- - Perform Player End Turn
+  - Finalize Player Conditions & Resources
+- - Perform Player Movement
+  - Perform Player Resurrection
+- - Visualize Stats
+  - Check for Deaths
+- - Visualize Stats
+  - Finalize Player Conditions & Resources
+- - Visualize Stats
+  - Get Player Action Choice
+- - Visualize Stats
+  - Perform Player Attack
+- - Visualize Stats
+  - Perform Player End Turn
+- - Visualize Stats
+  - Perform Player Heal & Stabilize
+- - Visualize Stats
+  - Perform Player Item Use
+- - Visualize Stats
+  - Perform Player Movement
+- - Visualize Stats
+  - Perform Player Resurrection
+- - Visualize Stats
+  - Perform Player Search
+- - Visualize Stats
+  - Perform Player Special Actions
+responses:
+- - Get Player Action Choice
+  - Check for Deaths
+- - Get Player Action Choice
+  - Perform Player End Turn
+- - Initialize Player Conditions
+  - Check for Deaths
+- - Initialize Player Conditions
+  - Get Player Action Choice
+- - Initialize Player Conditions
+  - Perform Player End Turn
+- - Initialize Player Conditions
+  - Visualize Stats
+- - Perform Player Attack
+  - Check for Deaths
+- - Perform Player Attack
+  - Get Player Action Choice
+- - Perform Player Attack
+  - Perform Player End Turn
+- - Perform Player End Turn
+  - Check for Deaths
+- - Perform Player Heal & Stabilize
+  - Check for Deaths
+- - Perform Player Heal & Stabilize
+  - Finalize Player Conditions & Resources
+- - Perform Player Heal & Stabilize
+  - Get Player Action Choice
+- - Perform Player Heal & Stabilize
+  - Perform Player End Turn
+- - Perform Player Item Use
+  - Check for Deaths
+- - Perform Player Item Use
+  - Finalize Player Conditions & Resources
+- - Perform Player Item Use
+  - Get Player Action Choice
+- - Perform Player Item Use
+  - Perform Player End Turn
+- - Perform Player Movement
+  - Check for Deaths
+- - Perform Player Movement
+  - Finalize Player Conditions & Resources
+- - Perform Player Movement
+  - Get Player Action Choice
+- - Perform Player Movement
+  - Perform Player End Turn
+- - Perform Player Resurrection
+  - Check for Deaths
+- - Perform Player Resurrection
+  - Finalize Player Conditions & Resources
+- - Perform Player Resurrection
+  - Get Player Action Choice
+- - Perform Player Resurrection
+  - Perform Player End Turn
+- - Perform Player Resurrection
+  - Perform Player Movement
+- - Perform Player Resurrection
+  - Perform Player Search
+- - Perform Player Resurrection
+  - Perform Player Special Actions
+- - Perform Player Search
+  - Check for Deaths
+- - Perform Player Search
+  - Finalize Player Conditions & Resources
+- - Perform Player Search
+  - Get Player Action Choice
+- - Perform Player Search
+  - Perform Player End Turn
+- - Perform Player Special Actions
+  - Check for Deaths
+- - Perform Player Special Actions
+  - Get Player Action Choice
+- - Perform Player Special Actions
+  - Perform Player End Turn
+- - Visualize Stats
+  - Check for Deaths
+- - Visualize Stats
+  - Get Player Action Choice
+- - Visualize Stats
+  - Perform Player End Turn
+includes:
+- - Check for Deaths
+  - Finalize Player Conditions & Resources
+- - Get Player Action Choice
+  - Perform Player Attack
+- - Get Player Action Choice
+  - Perform Player End Turn
+- - Get Player Action Choice
+  - Perform Player Heal & Stabilize
+- - Get Player Action Choice
+  - Perform Player Item Use
+- - Get Player Action Choice
+  - Perform Player Movement
+- - Get Player Action Choice
+  - Perform Player Resurrection
+- - Get Player Action Choice
+  - Perform Player Search
+- - Get Player Action Choice
+  - Perform Player Special Actions
+- - Initialize Player Conditions
+  - Visualize Stats
+excludes:
+- - Finalize Player Conditions & Resources
+  - Finalize Player Conditions & Resources
+- - Initialize Player Conditions
+  - Initialize Player Conditions
+- - Perform Player Attack
+  - Perform Player Attack
+- - Perform Player End Turn
+  - Perform Player End Turn
+- - Perform Player Heal & Stabilize
+  - Perform Player Heal & Stabilize
+- - Perform Player Item Use
+  - Perform Player Item Use
+- - Perform Player Movement
+  - Perform Player Movement
+- - Perform Player Resurrection
+  - Perform Player Resurrection
+- - Perform Player Search
+  - Perform Player Search
+- - Perform Player Special Actions
+  - Perform Player Special Actions
+- - Visualize Stats
+  - Visualize Stats
