@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<dcrgraph dataTypesStatus="hide" filterLevel="-1" formGroupStyle="Normal" formLayoutStyle="Horizontal" graphBG="#EBEBEB" title="DCR" zoomLevel="0">
+    <specification>
+        <resources>
+            <events>
+                <event id="Reason: Input Value Between Range">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Reason: Input Value Not a Valid Integer">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Display Input Box">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Reason: Input Value Too Small">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Clear Message Display Box">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Reason: Input Value Too Large">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Clear Input Display Box">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+            </events>
+            <labels>
+                <label id="Reason: Input Value Between Range"/>
+                <label id="Reason: Input Value Not a Valid Integer"/>
+                <label id="Display Input Box"/>
+                <label id="Reason: Input Value Too Small"/>
+                <label id="Clear Message Display Box"/>
+                <label id="Reason: Input Value Too Large"/>
+                <label id="Clear Input Display Box"/>
+            </labels>
+            <labelMappings>
+                <labelMapping eventId="Reason: Input Value Between Range" labelId="Reason: Input Value Between Range"/>
+                <labelMapping eventId="Reason: Input Value Not a Valid Integer" labelId="Reason: Input Value Not a Valid Integer"/>
+                <labelMapping eventId="Display Input Box" labelId="Display Input Box"/>
+                <labelMapping eventId="Reason: Input Value Too Small" labelId="Reason: Input Value Too Small"/>
+                <labelMapping eventId="Clear Message Display Box" labelId="Clear Message Display Box"/>
+                <labelMapping eventId="Reason: Input Value Too Large" labelId="Reason: Input Value Too Large"/>
+                <labelMapping eventId="Clear Input Display Box" labelId="Clear Input Display Box"/>
+            </labelMappings>
+        </resources>
+        <constraints>
+            <conditions>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Display Input Box" targetId="Reason: Input Value Between Range"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Display Input Box" targetId="Reason: Input Value Not a Valid Integer"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Display Input Box" targetId="Reason: Input Value Too Small"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Display Input Box" targetId="Reason: Input Value Too Large"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Display Input Box" targetId="Clear Input Display Box"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Clear Message Display Box" targetId="Display Input Box"/>
+            </conditions>
+            <responses>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Reason: Input Value Not a Valid Integer" targetId="Clear Message Display Box"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Display Input Box" targetId="Reason: Input Value Between Range"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Display Input Box" targetId="Clear Input Display Box"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Reason: Input Value Too Small" targetId="Clear Message Display Box"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Clear Message Display Box" targetId="Display Input Box"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Reason: Input Value Too Large" targetId="Clear Message Display Box"/>
+            </responses>
+            <includes>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Display Input Box" targetId="Reason: Input Value Not a Valid Integer"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Display Input Box" targetId="Reason: Input Value Too Small"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Display Input Box" targetId="Reason: Input Value Too Large"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Clear Message Display Box" targetId="Display Input Box"/>
+            </includes>
+            <excludes>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Reason: Input Value Between Range" targetId="Reason: Input Value Between Range"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Reason: Input Value Between Range" targetId="Clear Message Display Box"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Reason: Input Value Not a Valid Integer" targetId="Reason: Input Value Not a Valid Integer"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Display Input Box" targetId="Display Input Box"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Reason: Input Value Too Small" targetId="Reason: Input Value Too Small"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Reason: Input Value Too Large" targetId="Reason: Input Value Too Large"/>
+            </excludes>
+        </constraints>
+    </specification>
+    <runtime>
+        <marking>
+            <globalStore></globalStore>
+            <executed/>
+            <included>
+                <event id="Reason: Input Value Between Range"/>
+                <event id="Reason: Input Value Not a Valid Integer"/>
+                <event id="Display Input Box"/>
+                <event id="Reason: Input Value Too Small"/>
+                <event id="Clear Message Display Box"/>
+                <event id="Reason: Input Value Too Large"/>
+                <event id="Clear Input Display Box"/>
+            </included>
+            <pendingResponses/>
+        </marking>
+    </runtime>
+</dcrgraph>

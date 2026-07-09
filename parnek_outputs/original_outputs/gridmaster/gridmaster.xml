@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<dcrgraph dataTypesStatus="hide" filterLevel="-1" formGroupStyle="Normal" formLayoutStyle="Horizontal" graphBG="#EBEBEB" title="DCR" zoomLevel="0">
+    <specification>
+        <resources>
+            <events>
+                <event id="Reset Data Elements">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Clear Instruction Box">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Enemy Turn">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="End Player Selection">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Player Turn">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Visualize Grid">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Display Instruction">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Determine Next Turn &amp; Reset Variables">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Set Game Start State">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Determine Enemy Generation">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Determine Game End Conditions">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Place Initial Terrain">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Get Game Configuration">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Advance to Next Player">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Get Player Initiative">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Initialize Frames">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Assign Position on Grid">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Visualize Player Stats">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Rule: Game Ends If All Living Players Reach Their Exits">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Move Robot to Start Position">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Get Player Starting Position">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Order Initiative">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+            </events>
+            <labels>
+                <label id="Reset Data Elements"/>
+                <label id="Clear Instruction Box"/>
+                <label id="Enemy Turn"/>
+                <label id="End Player Selection"/>
+                <label id="Player Turn"/>
+                <label id="Visualize Grid"/>
+                <label id="Display Instruction"/>
+                <label id="Determine Next Turn &amp; Reset Variables"/>
+                <label id="Set Game Start State"/>
+                <label id="Determine Enemy Generation"/>
+                <label id="Determine Game End Conditions"/>
+                <label id="Place Initial Terrain"/>
+                <label id="Get Game Configuration"/>
+                <label id="Advance to Next Player"/>
+                <label id="Get Player Initiative"/>
+                <label id="Initialize Frames"/>
+                <label id="Assign Position on Grid"/>
+                <label id="Visualize Player Stats"/>
+                <label id="Rule: Game Ends If All Living Players Reach Their Exits"/>
+                <label id="Move Robot to Start Position"/>
+                <label id="Get Player Starting Position"/>
+                <label id="Order Initiative"/>
+            </labels>
+            <labelMappings>
+                <labelMapping eventId="Reset Data Elements" labelId="Reset Data Elements"/>
+                <labelMapping eventId="Clear Instruction Box" labelId="Clear Instruction Box"/>
+                <labelMapping eventId="Enemy Turn" labelId="Enemy Turn"/>
+                <labelMapping eventId="End Player Selection" labelId="End Player Selection"/>
+                <labelMapping eventId="Player Turn" labelId="Player Turn"/>
+                <labelMapping eventId="Visualize Grid" labelId="Visualize Grid"/>
+                <labelMapping eventId="Display Instruction" labelId="Display Instruction"/>
+                <labelMapping eventId="Determine Next Turn &amp; Reset Variables" labelId="Determine Next Turn &amp; Reset Variables"/>
+                <labelMapping eventId="Set Game Start State" labelId="Set Game Start State"/>
+                <labelMapping eventId="Determine Enemy Generation" labelId="Determine Enemy Generation"/>
+                <labelMapping eventId="Determine Game End Conditions" labelId="Determine Game End Conditions"/>
+                <labelMapping eventId="Place Initial Terrain" labelId="Place Initial Terrain"/>
+                <labelMapping eventId="Get Game Configuration" labelId="Get Game Configuration"/>
+                <labelMapping eventId="Advance to Next Player" labelId="Advance to Next Player"/>
+                <labelMapping eventId="Get Player Initiative" labelId="Get Player Initiative"/>
+                <labelMapping eventId="Initialize Frames" labelId="Initialize Frames"/>
+                <labelMapping eventId="Assign Position on Grid" labelId="Assign Position on Grid"/>
+                <labelMapping eventId="Visualize Player Stats" labelId="Visualize Player Stats"/>
+                <labelMapping eventId="Rule: Game Ends If All Living Players Reach Their Exits" labelId="Rule: Game Ends If All Living Players Reach Their Exits"/>
+                <labelMapping eventId="Move Robot to Start Position" labelId="Move Robot to Start Position"/>
+                <labelMapping eventId="Get Player Starting Position" labelId="Get Player Starting Position"/>
+                <labelMapping eventId="Order Initiative" labelId="Order Initiative"/>
+            </labelMappings>
+        </resources>
+        <constraints>
+            <conditions>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Reset Data Elements" targetId="Set Game Start State"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Clear Instruction Box" targetId="Display Instruction"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="End Player Selection" targetId="Visualize Player Stats"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Enemy Turn" targetId="Rule: Game Ends If All Living Players Reach Their Exits"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Player Turn" targetId="Determine Enemy Generation"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Visualize Grid" targetId="Player Turn"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Determine Next Turn &amp; Reset Variables" targetId="Visualize Grid"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Set Game Start State" targetId="Initialize Frames"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Determine Enemy Generation" targetId="Determine Game End Conditions"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Determine Game End Conditions" targetId="Enemy Turn"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Place Initial Terrain" targetId="Get Game Configuration"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Advance to Next Player" targetId="End Player Selection"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Get Game Configuration" targetId="Get Player Starting Position"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Assign Position on Grid" targetId="Advance to Next Player"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Initialize Frames" targetId="Move Robot to Start Position"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Get Player Initiative" targetId="Order Initiative"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Visualize Player Stats" targetId="Get Player Initiative"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Rule: Game Ends If All Living Players Reach Their Exits" targetId="Clear Instruction Box"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Move Robot to Start Position" targetId="Place Initial Terrain"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Get Player Starting Position" targetId="Assign Position on Grid"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Order Initiative" targetId="Determine Next Turn &amp; Reset Variables"/>
+            </conditions>
+            <responses>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Reset Data Elements" targetId="Set Game Start State"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Clear Instruction Box" targetId="Display Instruction"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Enemy Turn" targetId="Determine Enemy Generation"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="End Player Selection" targetId="Visualize Player Stats"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Player Turn" targetId="Determine Enemy Generation"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Visualize Grid" targetId="Determine Enemy Generation"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Determine Next Turn &amp; Reset Variables" targetId="Visualize Grid"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Set Game Start State" targetId="Initialize Frames"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Determine Enemy Generation" targetId="Determine Game End Conditions"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Determine Game End Conditions" targetId="Rule: Game Ends If All Living Players Reach Their Exits"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Place Initial Terrain" targetId="Get Game Configuration"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Advance to Next Player" targetId="Get Player Starting Position"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Get Game Configuration" targetId="Advance to Next Player"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Get Player Initiative" targetId="Order Initiative"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Assign Position on Grid" targetId="End Player Selection"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Initialize Frames" targetId="Move Robot to Start Position"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Visualize Player Stats" targetId="Get Player Initiative"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Rule: Game Ends If All Living Players Reach Their Exits" targetId="Clear Instruction Box"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Move Robot to Start Position" targetId="Place Initial Terrain"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Get Player Starting Position" targetId="Assign Position on Grid"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Order Initiative" targetId="Enemy Turn"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Order Initiative" targetId="Player Turn"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Order Initiative" targetId="Determine Next Turn &amp; Reset Variables"/>
+            </responses>
+            <includes>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Reset Data Elements" targetId="Set Game Start State"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Clear Instruction Box" targetId="Display Instruction"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Visualize Grid" targetId="Enemy Turn"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Visualize Grid" targetId="Player Turn"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Set Game Start State" targetId="Initialize Frames"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Determine Game End Conditions" targetId="Rule: Game Ends If All Living Players Reach Their Exits"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Place Initial Terrain" targetId="Get Game Configuration"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Assign Position on Grid" targetId="End Player Selection"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Assign Position on Grid" targetId="Advance to Next Player"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Initialize Frames" targetId="Move Robot to Start Position"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Get Player Initiative" targetId="Order Initiative"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Visualize Player Stats" targetId="Get Player Initiative"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Rule: Game Ends If All Living Players Reach Their Exits" targetId="Clear Instruction Box"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Move Robot to Start Position" targetId="Place Initial Terrain"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Get Player Starting Position" targetId="Assign Position on Grid"/>
+            </includes>
+            <excludes>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Reset Data Elements" targetId="Reset Data Elements"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Clear Instruction Box" targetId="Clear Instruction Box"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="End Player Selection" targetId="End Player Selection"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="End Player Selection" targetId="Get Player Starting Position"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Enemy Turn" targetId="Enemy Turn"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Player Turn" targetId="Player Turn"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Display Instruction" targetId="Display Instruction"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Set Game Start State" targetId="Set Game Start State"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Place Initial Terrain" targetId="Place Initial Terrain"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Get Game Configuration" targetId="Get Game Configuration"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Advance to Next Player" targetId="Advance to Next Player"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Initialize Frames" targetId="Initialize Frames"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Get Player Initiative" targetId="Get Player Initiative"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Assign Position on Grid" targetId="Assign Position on Grid"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Rule: Game Ends If All Living Players Reach Their Exits" targetId="Rule: Game Ends If All Living Players Reach Their Exits"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Rule: Game Ends If All Living Players Reach Their Exits" targetId="Visualize Grid"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Rule: Game Ends If All Living Players Reach Their Exits" targetId="Determine Next Turn &amp; Reset Variables"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Rule: Game Ends If All Living Players Reach Their Exits" targetId="Determine Enemy Generation"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Rule: Game Ends If All Living Players Reach Their Exits" targetId="Determine Game End Conditions"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Move Robot to Start Position" targetId="Move Robot to Start Position"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Order Initiative" targetId="Visualize Player Stats"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Order Initiative" targetId="Order Initiative"/>
+            </excludes>
+        </constraints>
+    </specification>
+    <runtime>
+        <marking>
+            <globalStore></globalStore>
+            <executed/>
+            <included>
+                <event id="Reset Data Elements"/>
+                <event id="Clear Instruction Box"/>
+                <event id="Enemy Turn"/>
+                <event id="End Player Selection"/>
+                <event id="Player Turn"/>
+                <event id="Visualize Grid"/>
+                <event id="Display Instruction"/>
+                <event id="Determine Next Turn &amp; Reset Variables"/>
+                <event id="Set Game Start State"/>
+                <event id="Determine Enemy Generation"/>
+                <event id="Determine Game End Conditions"/>
+                <event id="Place Initial Terrain"/>
+                <event id="Get Game Configuration"/>
+                <event id="Advance to Next Player"/>
+                <event id="Get Player Initiative"/>
+                <event id="Initialize Frames"/>
+                <event id="Assign Position on Grid"/>
+                <event id="Visualize Player Stats"/>
+                <event id="Rule: Game Ends If All Living Players Reach Their Exits"/>
+                <event id="Move Robot to Start Position"/>
+                <event id="Get Player Starting Position"/>
+                <event id="Order Initiative"/>
+            </included>
+            <pendingResponses/>
+        </marking>
+    </runtime>
+</dcrgraph>
