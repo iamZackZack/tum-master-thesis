@@ -1,0 +1,383 @@
+activities:
+- Display Action Result Message
+- Get Player Attack Roll
+- Get Player Attack Target
+- Get Player Damage Roll
+- Handle Damage
+- Reset Message Display
+- 'Rule: Action & Resources Used for Attack'
+- 'Rule: Attack Roll < Enemy Armor Class -> Miss'
+- 'Rule: Attack Roll >= Enemy Armor Class -> Hit'
+- 'Rule: If Hidden Player Attacks, They Are No Longer Hidden'
+- 'Rule: Player Can Overchannel by Adding More Mana if Available'
+- 'Rule: Regular Attack Rolls w/o Advantage'
+- 'Rule: Sneak/Reckless Attack Rolls with Advantage'
+- Sync Player Data
+- Validate Attack Action
+- Visualize Intermediate Player Stats
+- Visualize Player Stats After Overchannel
+- Wait for Message Display
+conditions:
+- - Display Action Result Message
+  - Reset Message Display
+- - Display Action Result Message
+  - Sync Player Data
+- - Display Action Result Message
+  - Wait for Message Display
+- - Get Player Attack Roll
+  - Get Player Damage Roll
+- - Get Player Attack Roll
+  - Handle Damage
+- - Get Player Attack Roll
+  - 'Rule: Attack Roll < Enemy Armor Class -> Miss'
+- - Get Player Attack Roll
+  - 'Rule: Attack Roll >= Enemy Armor Class -> Hit'
+- - Get Player Attack Roll
+  - 'Rule: If Hidden Player Attacks, They Are No Longer Hidden'
+- - Get Player Attack Roll
+  - 'Rule: Player Can Overchannel by Adding More Mana if Available'
+- - Get Player Attack Roll
+  - Visualize Player Stats After Overchannel
+- - Get Player Attack Target
+  - Get Player Attack Roll
+- - Get Player Attack Target
+  - Get Player Damage Roll
+- - Get Player Attack Target
+  - Handle Damage
+- - Get Player Attack Target
+  - 'Rule: Attack Roll < Enemy Armor Class -> Miss'
+- - Get Player Attack Target
+  - 'Rule: Attack Roll >= Enemy Armor Class -> Hit'
+- - Get Player Attack Target
+  - 'Rule: If Hidden Player Attacks, They Are No Longer Hidden'
+- - Get Player Attack Target
+  - 'Rule: Player Can Overchannel by Adding More Mana if Available'
+- - Get Player Attack Target
+  - 'Rule: Regular Attack Rolls w/o Advantage'
+- - Get Player Attack Target
+  - 'Rule: Sneak/Reckless Attack Rolls with Advantage'
+- - Get Player Attack Target
+  - Visualize Player Stats After Overchannel
+- - Get Player Damage Roll
+  - Handle Damage
+- - Reset Message Display
+  - Sync Player Data
+- - 'Rule: Action & Resources Used for Attack'
+  - Get Player Attack Roll
+- - 'Rule: Action & Resources Used for Attack'
+  - Get Player Attack Target
+- - 'Rule: Action & Resources Used for Attack'
+  - Get Player Damage Roll
+- - 'Rule: Action & Resources Used for Attack'
+  - Handle Damage
+- - 'Rule: Action & Resources Used for Attack'
+  - 'Rule: Attack Roll < Enemy Armor Class -> Miss'
+- - 'Rule: Action & Resources Used for Attack'
+  - 'Rule: Attack Roll >= Enemy Armor Class -> Hit'
+- - 'Rule: Action & Resources Used for Attack'
+  - 'Rule: If Hidden Player Attacks, They Are No Longer Hidden'
+- - 'Rule: Action & Resources Used for Attack'
+  - 'Rule: Player Can Overchannel by Adding More Mana if Available'
+- - 'Rule: Action & Resources Used for Attack'
+  - 'Rule: Regular Attack Rolls w/o Advantage'
+- - 'Rule: Action & Resources Used for Attack'
+  - 'Rule: Sneak/Reckless Attack Rolls with Advantage'
+- - 'Rule: Action & Resources Used for Attack'
+  - Visualize Intermediate Player Stats
+- - 'Rule: Action & Resources Used for Attack'
+  - Visualize Player Stats After Overchannel
+- - 'Rule: Attack Roll >= Enemy Armor Class -> Hit'
+  - Get Player Damage Roll
+- - 'Rule: Attack Roll >= Enemy Armor Class -> Hit'
+  - Handle Damage
+- - 'Rule: Attack Roll >= Enemy Armor Class -> Hit'
+  - 'Rule: Player Can Overchannel by Adding More Mana if Available'
+- - 'Rule: Attack Roll >= Enemy Armor Class -> Hit'
+  - Visualize Player Stats After Overchannel
+- - 'Rule: Player Can Overchannel by Adding More Mana if Available'
+  - Visualize Player Stats After Overchannel
+- - 'Rule: Regular Attack Rolls w/o Advantage'
+  - 'Rule: Player Can Overchannel by Adding More Mana if Available'
+- - 'Rule: Regular Attack Rolls w/o Advantage'
+  - Visualize Player Stats After Overchannel
+- - Validate Attack Action
+  - Display Action Result Message
+- - Validate Attack Action
+  - Get Player Attack Roll
+- - Validate Attack Action
+  - Get Player Attack Target
+- - Validate Attack Action
+  - Get Player Damage Roll
+- - Validate Attack Action
+  - Handle Damage
+- - Validate Attack Action
+  - Reset Message Display
+- - Validate Attack Action
+  - 'Rule: Action & Resources Used for Attack'
+- - Validate Attack Action
+  - 'Rule: Attack Roll < Enemy Armor Class -> Miss'
+- - Validate Attack Action
+  - 'Rule: Attack Roll >= Enemy Armor Class -> Hit'
+- - Validate Attack Action
+  - 'Rule: If Hidden Player Attacks, They Are No Longer Hidden'
+- - Validate Attack Action
+  - 'Rule: Player Can Overchannel by Adding More Mana if Available'
+- - Validate Attack Action
+  - 'Rule: Regular Attack Rolls w/o Advantage'
+- - Validate Attack Action
+  - 'Rule: Sneak/Reckless Attack Rolls with Advantage'
+- - Validate Attack Action
+  - Sync Player Data
+- - Validate Attack Action
+  - Visualize Intermediate Player Stats
+- - Validate Attack Action
+  - Visualize Player Stats After Overchannel
+- - Validate Attack Action
+  - Wait for Message Display
+- - Visualize Intermediate Player Stats
+  - Get Player Attack Roll
+- - Visualize Intermediate Player Stats
+  - Get Player Attack Target
+- - Visualize Intermediate Player Stats
+  - Get Player Damage Roll
+- - Visualize Intermediate Player Stats
+  - Handle Damage
+- - Visualize Intermediate Player Stats
+  - 'Rule: Attack Roll < Enemy Armor Class -> Miss'
+- - Visualize Intermediate Player Stats
+  - 'Rule: Attack Roll >= Enemy Armor Class -> Hit'
+- - Visualize Intermediate Player Stats
+  - 'Rule: If Hidden Player Attacks, They Are No Longer Hidden'
+- - Visualize Intermediate Player Stats
+  - 'Rule: Player Can Overchannel by Adding More Mana if Available'
+- - Visualize Intermediate Player Stats
+  - 'Rule: Regular Attack Rolls w/o Advantage'
+- - Visualize Intermediate Player Stats
+  - 'Rule: Sneak/Reckless Attack Rolls with Advantage'
+- - Visualize Intermediate Player Stats
+  - Visualize Player Stats After Overchannel
+- - Wait for Message Display
+  - Reset Message Display
+- - Wait for Message Display
+  - Sync Player Data
+responses:
+- - Display Action Result Message
+  - Reset Message Display
+- - Display Action Result Message
+  - Sync Player Data
+- - Display Action Result Message
+  - Wait for Message Display
+- - Get Player Attack Roll
+  - Display Action Result Message
+- - Get Player Attack Roll
+  - Reset Message Display
+- - Get Player Attack Roll
+  - Sync Player Data
+- - Get Player Attack Roll
+  - Wait for Message Display
+- - Get Player Attack Target
+  - Display Action Result Message
+- - Get Player Attack Target
+  - Get Player Attack Roll
+- - Get Player Attack Target
+  - Reset Message Display
+- - Get Player Attack Target
+  - Sync Player Data
+- - Get Player Attack Target
+  - Wait for Message Display
+- - Get Player Damage Roll
+  - Display Action Result Message
+- - Get Player Damage Roll
+  - Handle Damage
+- - Get Player Damage Roll
+  - Reset Message Display
+- - Get Player Damage Roll
+  - Sync Player Data
+- - Get Player Damage Roll
+  - Wait for Message Display
+- - Handle Damage
+  - Display Action Result Message
+- - Handle Damage
+  - Reset Message Display
+- - Handle Damage
+  - Sync Player Data
+- - Handle Damage
+  - Wait for Message Display
+- - Reset Message Display
+  - Sync Player Data
+- - 'Rule: Action & Resources Used for Attack'
+  - Display Action Result Message
+- - 'Rule: Action & Resources Used for Attack'
+  - Get Player Attack Roll
+- - 'Rule: Action & Resources Used for Attack'
+  - Get Player Attack Target
+- - 'Rule: Action & Resources Used for Attack'
+  - Reset Message Display
+- - 'Rule: Action & Resources Used for Attack'
+  - Sync Player Data
+- - 'Rule: Action & Resources Used for Attack'
+  - Visualize Intermediate Player Stats
+- - 'Rule: Action & Resources Used for Attack'
+  - Wait for Message Display
+- - 'Rule: Attack Roll < Enemy Armor Class -> Miss'
+  - Display Action Result Message
+- - 'Rule: Attack Roll < Enemy Armor Class -> Miss'
+  - Reset Message Display
+- - 'Rule: Attack Roll < Enemy Armor Class -> Miss'
+  - Sync Player Data
+- - 'Rule: Attack Roll < Enemy Armor Class -> Miss'
+  - Wait for Message Display
+- - 'Rule: Attack Roll >= Enemy Armor Class -> Hit'
+  - Display Action Result Message
+- - 'Rule: Attack Roll >= Enemy Armor Class -> Hit'
+  - Get Player Damage Roll
+- - 'Rule: Attack Roll >= Enemy Armor Class -> Hit'
+  - Handle Damage
+- - 'Rule: Attack Roll >= Enemy Armor Class -> Hit'
+  - Reset Message Display
+- - 'Rule: Attack Roll >= Enemy Armor Class -> Hit'
+  - Sync Player Data
+- - 'Rule: Attack Roll >= Enemy Armor Class -> Hit'
+  - Wait for Message Display
+- - 'Rule: If Hidden Player Attacks, They Are No Longer Hidden'
+  - Display Action Result Message
+- - 'Rule: If Hidden Player Attacks, They Are No Longer Hidden'
+  - Reset Message Display
+- - 'Rule: If Hidden Player Attacks, They Are No Longer Hidden'
+  - Sync Player Data
+- - 'Rule: If Hidden Player Attacks, They Are No Longer Hidden'
+  - Wait for Message Display
+- - 'Rule: Player Can Overchannel by Adding More Mana if Available'
+  - Display Action Result Message
+- - 'Rule: Player Can Overchannel by Adding More Mana if Available'
+  - Get Player Damage Roll
+- - 'Rule: Player Can Overchannel by Adding More Mana if Available'
+  - Handle Damage
+- - 'Rule: Player Can Overchannel by Adding More Mana if Available'
+  - Reset Message Display
+- - 'Rule: Player Can Overchannel by Adding More Mana if Available'
+  - Sync Player Data
+- - 'Rule: Player Can Overchannel by Adding More Mana if Available'
+  - Visualize Player Stats After Overchannel
+- - 'Rule: Player Can Overchannel by Adding More Mana if Available'
+  - Wait for Message Display
+- - 'Rule: Regular Attack Rolls w/o Advantage'
+  - Display Action Result Message
+- - 'Rule: Regular Attack Rolls w/o Advantage'
+  - Get Player Attack Roll
+- - 'Rule: Regular Attack Rolls w/o Advantage'
+  - Reset Message Display
+- - 'Rule: Regular Attack Rolls w/o Advantage'
+  - Sync Player Data
+- - 'Rule: Regular Attack Rolls w/o Advantage'
+  - Wait for Message Display
+- - 'Rule: Sneak/Reckless Attack Rolls with Advantage'
+  - Display Action Result Message
+- - 'Rule: Sneak/Reckless Attack Rolls with Advantage'
+  - Get Player Attack Roll
+- - 'Rule: Sneak/Reckless Attack Rolls with Advantage'
+  - Reset Message Display
+- - 'Rule: Sneak/Reckless Attack Rolls with Advantage'
+  - Sync Player Data
+- - 'Rule: Sneak/Reckless Attack Rolls with Advantage'
+  - Wait for Message Display
+- - Validate Attack Action
+  - Display Action Result Message
+- - Validate Attack Action
+  - Reset Message Display
+- - Validate Attack Action
+  - Sync Player Data
+- - Validate Attack Action
+  - Wait for Message Display
+- - Visualize Intermediate Player Stats
+  - Display Action Result Message
+- - Visualize Intermediate Player Stats
+  - Get Player Attack Roll
+- - Visualize Intermediate Player Stats
+  - Get Player Attack Target
+- - Visualize Intermediate Player Stats
+  - Reset Message Display
+- - Visualize Intermediate Player Stats
+  - Sync Player Data
+- - Visualize Intermediate Player Stats
+  - Wait for Message Display
+- - Visualize Player Stats After Overchannel
+  - Display Action Result Message
+- - Visualize Player Stats After Overchannel
+  - Get Player Damage Roll
+- - Visualize Player Stats After Overchannel
+  - Handle Damage
+- - Visualize Player Stats After Overchannel
+  - Reset Message Display
+- - Visualize Player Stats After Overchannel
+  - Sync Player Data
+- - Visualize Player Stats After Overchannel
+  - Wait for Message Display
+- - Wait for Message Display
+  - Reset Message Display
+- - Wait for Message Display
+  - Sync Player Data
+includes:
+- - Display Action Result Message
+  - Wait for Message Display
+- - Get Player Attack Roll
+  - 'Rule: Attack Roll < Enemy Armor Class -> Miss'
+- - Get Player Attack Roll
+  - 'Rule: Attack Roll >= Enemy Armor Class -> Hit'
+- - Get Player Attack Target
+  - 'Rule: Regular Attack Rolls w/o Advantage'
+- - Get Player Attack Target
+  - 'Rule: Sneak/Reckless Attack Rolls with Advantage'
+- - Get Player Damage Roll
+  - Handle Damage
+- - Reset Message Display
+  - Sync Player Data
+- - 'Rule: Action & Resources Used for Attack'
+  - Visualize Intermediate Player Stats
+- - 'Rule: Attack Roll >= Enemy Armor Class -> Hit'
+  - 'Rule: Player Can Overchannel by Adding More Mana if Available'
+- - 'Rule: Player Can Overchannel by Adding More Mana if Available'
+  - Visualize Player Stats After Overchannel
+- - Validate Attack Action
+  - 'Rule: Action & Resources Used for Attack'
+- - Visualize Intermediate Player Stats
+  - Get Player Attack Target
+- - Wait for Message Display
+  - Reset Message Display
+excludes:
+- - Display Action Result Message
+  - Display Action Result Message
+- - Get Player Attack Roll
+  - Get Player Attack Roll
+- - Get Player Attack Target
+  - Get Player Attack Target
+- - Get Player Damage Roll
+  - Get Player Damage Roll
+- - Handle Damage
+  - Handle Damage
+- - Reset Message Display
+  - Reset Message Display
+- - 'Rule: Action & Resources Used for Attack'
+  - 'Rule: Action & Resources Used for Attack'
+- - 'Rule: Attack Roll < Enemy Armor Class -> Miss'
+  - 'Rule: Attack Roll < Enemy Armor Class -> Miss'
+- - 'Rule: Attack Roll >= Enemy Armor Class -> Hit'
+  - 'Rule: Attack Roll >= Enemy Armor Class -> Hit'
+- - 'Rule: If Hidden Player Attacks, They Are No Longer Hidden'
+  - 'Rule: If Hidden Player Attacks, They Are No Longer Hidden'
+- - 'Rule: Player Can Overchannel by Adding More Mana if Available'
+  - 'Rule: Player Can Overchannel by Adding More Mana if Available'
+- - 'Rule: Regular Attack Rolls w/o Advantage'
+  - 'Rule: Regular Attack Rolls w/o Advantage'
+- - 'Rule: Sneak/Reckless Attack Rolls with Advantage'
+  - 'Rule: Sneak/Reckless Attack Rolls with Advantage'
+- - Sync Player Data
+  - Sync Player Data
+- - Validate Attack Action
+  - Validate Attack Action
+- - Visualize Intermediate Player Stats
+  - Visualize Intermediate Player Stats
+- - Visualize Player Stats After Overchannel
+  - Visualize Player Stats After Overchannel
+- - Wait for Message Display
+  - Wait for Message Display

@@ -1,0 +1,335 @@
+activities:
+- 'Approve: Valid Cell Choice'
+- Clear Movement Message
+- Display Movement Message
+- Display Unavailable Movement Message
+- Manipulate Grid?
+- 'Reject: Blocked Path'
+- 'Reject: Cell Occupied'
+- 'Reject: Not Enough Movement'
+- 'Reject: Terrain Not Revealed'
+- Update Player Position and Conditions
+- Validate Move
+- Validate Position
+- Visualize Grid
+- Visualize Stats
+- Wait for Message Display
+- Wait for Position
+conditions:
+- - 'Approve: Valid Cell Choice'
+  - Manipulate Grid?
+- - 'Approve: Valid Cell Choice'
+  - Visualize Grid
+- - 'Approve: Valid Cell Choice'
+  - Visualize Stats
+- - Display Movement Message
+  - 'Approve: Valid Cell Choice'
+- - Display Movement Message
+  - Manipulate Grid?
+- - Display Movement Message
+  - 'Reject: Blocked Path'
+- - Display Movement Message
+  - 'Reject: Cell Occupied'
+- - Display Movement Message
+  - 'Reject: Not Enough Movement'
+- - Display Movement Message
+  - 'Reject: Terrain Not Revealed'
+- - Display Movement Message
+  - Update Player Position and Conditions
+- - Display Movement Message
+  - Validate Position
+- - Display Movement Message
+  - Visualize Grid
+- - Display Movement Message
+  - Visualize Stats
+- - Display Movement Message
+  - Wait for Position
+- - Display Unavailable Movement Message
+  - Wait for Message Display
+- - Manipulate Grid?
+  - Visualize Grid
+- - Manipulate Grid?
+  - Visualize Stats
+- - 'Reject: Cell Occupied'
+  - 'Reject: Blocked Path'
+- - Update Player Position and Conditions
+  - Manipulate Grid?
+- - Update Player Position and Conditions
+  - Visualize Grid
+- - Update Player Position and Conditions
+  - Visualize Stats
+- - Validate Move
+  - 'Approve: Valid Cell Choice'
+- - Validate Move
+  - Clear Movement Message
+- - Validate Move
+  - Display Movement Message
+- - Validate Move
+  - Display Unavailable Movement Message
+- - Validate Move
+  - Manipulate Grid?
+- - Validate Move
+  - 'Reject: Blocked Path'
+- - Validate Move
+  - 'Reject: Cell Occupied'
+- - Validate Move
+  - 'Reject: Not Enough Movement'
+- - Validate Move
+  - 'Reject: Terrain Not Revealed'
+- - Validate Move
+  - Update Player Position and Conditions
+- - Validate Move
+  - Validate Position
+- - Validate Move
+  - Visualize Grid
+- - Validate Move
+  - Visualize Stats
+- - Validate Move
+  - Wait for Message Display
+- - Validate Move
+  - Wait for Position
+- - Validate Position
+  - 'Approve: Valid Cell Choice'
+- - Validate Position
+  - Manipulate Grid?
+- - Validate Position
+  - 'Reject: Blocked Path'
+- - Validate Position
+  - 'Reject: Cell Occupied'
+- - Validate Position
+  - 'Reject: Not Enough Movement'
+- - Validate Position
+  - 'Reject: Terrain Not Revealed'
+- - Validate Position
+  - Update Player Position and Conditions
+- - Validate Position
+  - Visualize Grid
+- - Validate Position
+  - Visualize Stats
+- - Visualize Grid
+  - Visualize Stats
+- - Wait for Position
+  - 'Approve: Valid Cell Choice'
+- - Wait for Position
+  - Manipulate Grid?
+- - Wait for Position
+  - 'Reject: Blocked Path'
+- - Wait for Position
+  - 'Reject: Cell Occupied'
+- - Wait for Position
+  - 'Reject: Not Enough Movement'
+- - Wait for Position
+  - 'Reject: Terrain Not Revealed'
+- - Wait for Position
+  - Update Player Position and Conditions
+- - Wait for Position
+  - Validate Position
+- - Wait for Position
+  - Visualize Grid
+- - Wait for Position
+  - Visualize Stats
+responses:
+- - 'Approve: Valid Cell Choice'
+  - Clear Movement Message
+- - 'Approve: Valid Cell Choice'
+  - Manipulate Grid?
+- - 'Approve: Valid Cell Choice'
+  - Visualize Grid
+- - 'Approve: Valid Cell Choice'
+  - Visualize Stats
+- - Display Movement Message
+  - 'Approve: Valid Cell Choice'
+- - Display Movement Message
+  - Clear Movement Message
+- - Display Movement Message
+  - Manipulate Grid?
+- - Display Movement Message
+  - Update Player Position and Conditions
+- - Display Movement Message
+  - Validate Position
+- - Display Movement Message
+  - Visualize Grid
+- - Display Movement Message
+  - Visualize Stats
+- - Display Movement Message
+  - Wait for Position
+- - Display Unavailable Movement Message
+  - Clear Movement Message
+- - Display Unavailable Movement Message
+  - Wait for Message Display
+- - Manipulate Grid?
+  - Clear Movement Message
+- - Manipulate Grid?
+  - Visualize Grid
+- - Manipulate Grid?
+  - Visualize Stats
+- - 'Reject: Blocked Path'
+  - 'Approve: Valid Cell Choice'
+- - 'Reject: Blocked Path'
+  - Clear Movement Message
+- - 'Reject: Blocked Path'
+  - Display Movement Message
+- - 'Reject: Blocked Path'
+  - Manipulate Grid?
+- - 'Reject: Blocked Path'
+  - 'Reject: Not Enough Movement'
+- - 'Reject: Blocked Path'
+  - Update Player Position and Conditions
+- - 'Reject: Blocked Path'
+  - Validate Position
+- - 'Reject: Blocked Path'
+  - Visualize Grid
+- - 'Reject: Blocked Path'
+  - Visualize Stats
+- - 'Reject: Blocked Path'
+  - Wait for Position
+- - 'Reject: Cell Occupied'
+  - 'Approve: Valid Cell Choice'
+- - 'Reject: Cell Occupied'
+  - Clear Movement Message
+- - 'Reject: Cell Occupied'
+  - Display Movement Message
+- - 'Reject: Cell Occupied'
+  - Manipulate Grid?
+- - 'Reject: Cell Occupied'
+  - Update Player Position and Conditions
+- - 'Reject: Cell Occupied'
+  - Validate Position
+- - 'Reject: Cell Occupied'
+  - Visualize Grid
+- - 'Reject: Cell Occupied'
+  - Visualize Stats
+- - 'Reject: Cell Occupied'
+  - Wait for Position
+- - 'Reject: Not Enough Movement'
+  - 'Approve: Valid Cell Choice'
+- - 'Reject: Not Enough Movement'
+  - Clear Movement Message
+- - 'Reject: Not Enough Movement'
+  - Display Movement Message
+- - 'Reject: Not Enough Movement'
+  - Manipulate Grid?
+- - 'Reject: Not Enough Movement'
+  - Update Player Position and Conditions
+- - 'Reject: Not Enough Movement'
+  - Validate Position
+- - 'Reject: Not Enough Movement'
+  - Visualize Grid
+- - 'Reject: Not Enough Movement'
+  - Visualize Stats
+- - 'Reject: Not Enough Movement'
+  - Wait for Position
+- - 'Reject: Terrain Not Revealed'
+  - 'Approve: Valid Cell Choice'
+- - 'Reject: Terrain Not Revealed'
+  - Clear Movement Message
+- - 'Reject: Terrain Not Revealed'
+  - Display Movement Message
+- - 'Reject: Terrain Not Revealed'
+  - Manipulate Grid?
+- - 'Reject: Terrain Not Revealed'
+  - Update Player Position and Conditions
+- - 'Reject: Terrain Not Revealed'
+  - Validate Position
+- - 'Reject: Terrain Not Revealed'
+  - Visualize Grid
+- - 'Reject: Terrain Not Revealed'
+  - Visualize Stats
+- - 'Reject: Terrain Not Revealed'
+  - Wait for Position
+- - Update Player Position and Conditions
+  - Clear Movement Message
+- - Update Player Position and Conditions
+  - Manipulate Grid?
+- - Update Player Position and Conditions
+  - Visualize Grid
+- - Update Player Position and Conditions
+  - Visualize Stats
+- - Validate Move
+  - Clear Movement Message
+- - Validate Position
+  - 'Approve: Valid Cell Choice'
+- - Validate Position
+  - Clear Movement Message
+- - Validate Position
+  - Manipulate Grid?
+- - Validate Position
+  - Update Player Position and Conditions
+- - Validate Position
+  - Visualize Grid
+- - Validate Position
+  - Visualize Stats
+- - Visualize Grid
+  - Clear Movement Message
+- - Visualize Grid
+  - Visualize Stats
+- - Visualize Stats
+  - Clear Movement Message
+- - Wait for Message Display
+  - Clear Movement Message
+- - Wait for Position
+  - 'Approve: Valid Cell Choice'
+- - Wait for Position
+  - Clear Movement Message
+- - Wait for Position
+  - Manipulate Grid?
+- - Wait for Position
+  - Update Player Position and Conditions
+- - Wait for Position
+  - Validate Position
+- - Wait for Position
+  - Visualize Grid
+- - Wait for Position
+  - Visualize Stats
+includes:
+- - Display Movement Message
+  - Wait for Position
+- - Display Unavailable Movement Message
+  - Wait for Message Display
+- - Manipulate Grid?
+  - Visualize Grid
+- - Validate Move
+  - Display Unavailable Movement Message
+- - Validate Position
+  - 'Reject: Blocked Path'
+- - Validate Position
+  - 'Reject: Cell Occupied'
+- - Validate Position
+  - 'Reject: Not Enough Movement'
+- - Validate Position
+  - 'Reject: Terrain Not Revealed'
+- - Visualize Grid
+  - Visualize Stats
+- - Wait for Position
+  - Validate Position
+excludes:
+- - 'Approve: Valid Cell Choice'
+  - 'Approve: Valid Cell Choice'
+- - Clear Movement Message
+  - Clear Movement Message
+- - Display Unavailable Movement Message
+  - Display Unavailable Movement Message
+- - Manipulate Grid?
+  - Manipulate Grid?
+- - 'Reject: Blocked Path'
+  - 'Reject: Blocked Path'
+- - 'Reject: Cell Occupied'
+  - 'Reject: Cell Occupied'
+- - 'Reject: Not Enough Movement'
+  - 'Reject: Not Enough Movement'
+- - 'Reject: Terrain Not Revealed'
+  - 'Reject: Terrain Not Revealed'
+- - Update Player Position and Conditions
+  - Update Player Position and Conditions
+- - Validate Move
+  - Validate Move
+- - Validate Position
+  - Validate Position
+- - Visualize Grid
+  - Visualize Grid
+- - Visualize Stats
+  - Visualize Stats
+- - Wait for Message Display
+  - Wait for Message Display
+- - Wait for Position
+  - Wait for Position
