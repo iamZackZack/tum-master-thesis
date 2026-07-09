@@ -1,0 +1,56 @@
+activities:
+- Clear Input Display Box
+- Clear Message Display Box
+- Display Input Box
+- 'Reason: Input Value Between Range'
+- 'Reason: Input Value Not a Valid Integer'
+- 'Reason: Input Value Too Large'
+- 'Reason: Input Value Too Small'
+conditions:
+- - Clear Message Display Box
+  - Display Input Box
+- - Display Input Box
+  - Clear Input Display Box
+- - Display Input Box
+  - 'Reason: Input Value Between Range'
+- - Display Input Box
+  - 'Reason: Input Value Not a Valid Integer'
+- - Display Input Box
+  - 'Reason: Input Value Too Large'
+- - Display Input Box
+  - 'Reason: Input Value Too Small'
+responses:
+- - Clear Message Display Box
+  - Display Input Box
+- - Display Input Box
+  - Clear Input Display Box
+- - Display Input Box
+  - 'Reason: Input Value Between Range'
+- - 'Reason: Input Value Not a Valid Integer'
+  - Clear Message Display Box
+- - 'Reason: Input Value Too Large'
+  - Clear Message Display Box
+- - 'Reason: Input Value Too Small'
+  - Clear Message Display Box
+includes:
+- - Clear Message Display Box
+  - Display Input Box
+- - Display Input Box
+  - 'Reason: Input Value Not a Valid Integer'
+- - Display Input Box
+  - 'Reason: Input Value Too Large'
+- - Display Input Box
+  - 'Reason: Input Value Too Small'
+excludes:
+- - Display Input Box
+  - Display Input Box
+- - 'Reason: Input Value Between Range'
+  - Clear Message Display Box
+- - 'Reason: Input Value Between Range'
+  - 'Reason: Input Value Between Range'
+- - 'Reason: Input Value Not a Valid Integer'
+  - 'Reason: Input Value Not a Valid Integer'
+- - 'Reason: Input Value Too Large'
+  - 'Reason: Input Value Too Large'
+- - 'Reason: Input Value Too Small'
+  - 'Reason: Input Value Too Small'

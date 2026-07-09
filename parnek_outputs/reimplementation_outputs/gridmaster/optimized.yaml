@@ -1,0 +1,189 @@
+activities:
+- Advance to Next Player
+- Assign Position on Grid
+- Clear Instruction Box
+- Determine Enemy Generation
+- Determine Game End Conditions
+- Determine Next Turn & Reset Variables
+- Display Instruction
+- End Player Selection
+- Enemy Turn
+- Get Game Configuration
+- Get Player Initiative
+- Get Player Starting Position
+- Initialize Frames
+- Move Robot to Start Position
+- Order Initiative
+- Place Initial Terrain
+- Player Turn
+- Reset Data Elements
+- 'Rule: Game Ends If All Living Players Reach Their Exits'
+- Set Game Start State
+- Visualize Grid
+- Visualize Player Stats
+conditions:
+- - Advance to Next Player
+  - End Player Selection
+- - Assign Position on Grid
+  - Advance to Next Player
+- - Clear Instruction Box
+  - Display Instruction
+- - Determine Enemy Generation
+  - Determine Game End Conditions
+- - Determine Game End Conditions
+  - Enemy Turn
+- - Determine Next Turn & Reset Variables
+  - Visualize Grid
+- - End Player Selection
+  - Visualize Player Stats
+- - Enemy Turn
+  - 'Rule: Game Ends If All Living Players Reach Their Exits'
+- - Get Game Configuration
+  - Get Player Starting Position
+- - Get Player Initiative
+  - Order Initiative
+- - Get Player Starting Position
+  - Assign Position on Grid
+- - Initialize Frames
+  - Move Robot to Start Position
+- - Move Robot to Start Position
+  - Place Initial Terrain
+- - Order Initiative
+  - Determine Next Turn & Reset Variables
+- - Place Initial Terrain
+  - Get Game Configuration
+- - Player Turn
+  - Determine Enemy Generation
+- - Reset Data Elements
+  - Set Game Start State
+- - 'Rule: Game Ends If All Living Players Reach Their Exits'
+  - Clear Instruction Box
+- - Set Game Start State
+  - Initialize Frames
+- - Visualize Grid
+  - Player Turn
+- - Visualize Player Stats
+  - Get Player Initiative
+responses:
+- - Advance to Next Player
+  - Get Player Starting Position
+- - Assign Position on Grid
+  - End Player Selection
+- - Clear Instruction Box
+  - Display Instruction
+- - Determine Enemy Generation
+  - Determine Game End Conditions
+- - Determine Game End Conditions
+  - 'Rule: Game Ends If All Living Players Reach Their Exits'
+- - Determine Next Turn & Reset Variables
+  - Visualize Grid
+- - End Player Selection
+  - Visualize Player Stats
+- - Enemy Turn
+  - Determine Enemy Generation
+- - Get Game Configuration
+  - Advance to Next Player
+- - Get Player Initiative
+  - Order Initiative
+- - Get Player Starting Position
+  - Assign Position on Grid
+- - Initialize Frames
+  - Move Robot to Start Position
+- - Move Robot to Start Position
+  - Place Initial Terrain
+- - Order Initiative
+  - Determine Next Turn & Reset Variables
+- - Order Initiative
+  - Enemy Turn
+- - Order Initiative
+  - Player Turn
+- - Place Initial Terrain
+  - Get Game Configuration
+- - Player Turn
+  - Determine Enemy Generation
+- - Reset Data Elements
+  - Set Game Start State
+- - 'Rule: Game Ends If All Living Players Reach Their Exits'
+  - Clear Instruction Box
+- - Set Game Start State
+  - Initialize Frames
+- - Visualize Grid
+  - Determine Enemy Generation
+- - Visualize Player Stats
+  - Get Player Initiative
+includes:
+- - Assign Position on Grid
+  - Advance to Next Player
+- - Assign Position on Grid
+  - End Player Selection
+- - Clear Instruction Box
+  - Display Instruction
+- - Determine Game End Conditions
+  - 'Rule: Game Ends If All Living Players Reach Their Exits'
+- - Get Player Initiative
+  - Order Initiative
+- - Get Player Starting Position
+  - Assign Position on Grid
+- - Initialize Frames
+  - Move Robot to Start Position
+- - Move Robot to Start Position
+  - Place Initial Terrain
+- - Place Initial Terrain
+  - Get Game Configuration
+- - Reset Data Elements
+  - Set Game Start State
+- - 'Rule: Game Ends If All Living Players Reach Their Exits'
+  - Clear Instruction Box
+- - Set Game Start State
+  - Initialize Frames
+- - Visualize Grid
+  - Enemy Turn
+- - Visualize Grid
+  - Player Turn
+- - Visualize Player Stats
+  - Get Player Initiative
+excludes:
+- - Advance to Next Player
+  - Advance to Next Player
+- - Assign Position on Grid
+  - Assign Position on Grid
+- - Clear Instruction Box
+  - Clear Instruction Box
+- - Display Instruction
+  - Display Instruction
+- - End Player Selection
+  - End Player Selection
+- - End Player Selection
+  - Get Player Starting Position
+- - Enemy Turn
+  - Enemy Turn
+- - Get Game Configuration
+  - Get Game Configuration
+- - Get Player Initiative
+  - Get Player Initiative
+- - Initialize Frames
+  - Initialize Frames
+- - Move Robot to Start Position
+  - Move Robot to Start Position
+- - Order Initiative
+  - Order Initiative
+- - Order Initiative
+  - Visualize Player Stats
+- - Place Initial Terrain
+  - Place Initial Terrain
+- - Player Turn
+  - Player Turn
+- - Reset Data Elements
+  - Reset Data Elements
+- - 'Rule: Game Ends If All Living Players Reach Their Exits'
+  - Determine Enemy Generation
+- - 'Rule: Game Ends If All Living Players Reach Their Exits'
+  - Determine Game End Conditions
+- - 'Rule: Game Ends If All Living Players Reach Their Exits'
+  - Determine Next Turn & Reset Variables
+- - 'Rule: Game Ends If All Living Players Reach Their Exits'
+  - 'Rule: Game Ends If All Living Players Reach Their Exits'
+- - 'Rule: Game Ends If All Living Players Reach Their Exits'
+  - Visualize Grid
+- - Set Game Start State
+  - Set Game Start State
