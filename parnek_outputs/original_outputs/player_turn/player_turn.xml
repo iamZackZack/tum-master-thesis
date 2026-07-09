@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<dcrgraph dataTypesStatus="hide" filterLevel="-1" formGroupStyle="Normal" formLayoutStyle="Horizontal" graphBG="#EBEBEB" title="DCR" zoomLevel="0">
+    <specification>
+        <resources>
+            <events>
+                <event id="Visualize Stats">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Perform Player Movement">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Perform Player Resurrection">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Perform Player Heal &amp; Stabilize">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Perform Player End Turn">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Get Player Action Choice">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Perform Player Attack">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Perform Player Item Use">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Initialize Player Conditions">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Perform Player Special Actions">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Check for Deaths">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Finalize Player Conditions &amp; Resources">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Perform Player Search">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+            </events>
+            <labels>
+                <label id="Visualize Stats"/>
+                <label id="Perform Player Movement"/>
+                <label id="Perform Player Resurrection"/>
+                <label id="Perform Player Heal &amp; Stabilize"/>
+                <label id="Perform Player End Turn"/>
+                <label id="Get Player Action Choice"/>
+                <label id="Perform Player Attack"/>
+                <label id="Perform Player Item Use"/>
+                <label id="Initialize Player Conditions"/>
+                <label id="Perform Player Special Actions"/>
+                <label id="Check for Deaths"/>
+                <label id="Finalize Player Conditions &amp; Resources"/>
+                <label id="Perform Player Search"/>
+            </labels>
+            <labelMappings>
+                <labelMapping eventId="Visualize Stats" labelId="Visualize Stats"/>
+                <labelMapping eventId="Perform Player Movement" labelId="Perform Player Movement"/>
+                <labelMapping eventId="Perform Player Resurrection" labelId="Perform Player Resurrection"/>
+                <labelMapping eventId="Perform Player Heal &amp; Stabilize" labelId="Perform Player Heal &amp; Stabilize"/>
+                <labelMapping eventId="Perform Player End Turn" labelId="Perform Player End Turn"/>
+                <labelMapping eventId="Get Player Action Choice" labelId="Get Player Action Choice"/>
+                <labelMapping eventId="Perform Player Attack" labelId="Perform Player Attack"/>
+                <labelMapping eventId="Perform Player Item Use" labelId="Perform Player Item Use"/>
+                <labelMapping eventId="Initialize Player Conditions" labelId="Initialize Player Conditions"/>
+                <labelMapping eventId="Perform Player Special Actions" labelId="Perform Player Special Actions"/>
+                <labelMapping eventId="Check for Deaths" labelId="Check for Deaths"/>
+                <labelMapping eventId="Finalize Player Conditions &amp; Resources" labelId="Finalize Player Conditions &amp; Resources"/>
+                <labelMapping eventId="Perform Player Search" labelId="Perform Player Search"/>
+            </labelMappings>
+        </resources>
+        <constraints>
+            <conditions>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Get Player Action Choice" targetId="Perform Player Attack"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Get Player Action Choice" targetId="Perform Player Item Use"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Get Player Action Choice" targetId="Perform Player Movement"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Get Player Action Choice" targetId="Perform Player Special Actions"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Get Player Action Choice" targetId="Perform Player Heal &amp; Stabilize"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Get Player Action Choice" targetId="Check for Deaths"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Get Player Action Choice" targetId="Perform Player End Turn"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Get Player Action Choice" targetId="Perform Player Search"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Visualize Stats" targetId="Get Player Action Choice"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Initialize Player Conditions" targetId="Visualize Stats"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Perform Player Movement" targetId="Perform Player Resurrection"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Check for Deaths" targetId="Perform Player Resurrection"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Check for Deaths" targetId="Finalize Player Conditions &amp; Resources"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Perform Player End Turn" targetId="Finalize Player Conditions &amp; Resources"/>
+            </conditions>
+            <responses>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Get Player Action Choice" targetId="Perform Player End Turn"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Perform Player Attack" targetId="Get Player Action Choice"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Visualize Stats" targetId="Get Player Action Choice"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Perform Player Item Use" targetId="Get Player Action Choice"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Perform Player Item Use" targetId="Finalize Player Conditions &amp; Resources"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Perform Player Special Actions" targetId="Get Player Action Choice"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Perform Player Movement" targetId="Get Player Action Choice"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Perform Player Movement" targetId="Finalize Player Conditions &amp; Resources"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Initialize Player Conditions" targetId="Visualize Stats"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Perform Player Resurrection" targetId="Perform Player Movement"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Perform Player Resurrection" targetId="Perform Player Special Actions"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Perform Player Resurrection" targetId="Perform Player Search"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Perform Player Heal &amp; Stabilize" targetId="Get Player Action Choice"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Perform Player Heal &amp; Stabilize" targetId="Finalize Player Conditions &amp; Resources"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Perform Player End Turn" targetId="Check for Deaths"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Perform Player Search" targetId="Get Player Action Choice"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Perform Player Search" targetId="Finalize Player Conditions &amp; Resources"/>
+            </responses>
+            <includes>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Get Player Action Choice" targetId="Perform Player Attack"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Get Player Action Choice" targetId="Perform Player Item Use"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Get Player Action Choice" targetId="Perform Player Movement"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Get Player Action Choice" targetId="Perform Player Resurrection"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Get Player Action Choice" targetId="Perform Player Special Actions"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Get Player Action Choice" targetId="Perform Player Heal &amp; Stabilize"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Get Player Action Choice" targetId="Perform Player End Turn"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Get Player Action Choice" targetId="Perform Player Search"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Initialize Player Conditions" targetId="Visualize Stats"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Check for Deaths" targetId="Finalize Player Conditions &amp; Resources"/>
+            </includes>
+            <excludes>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Perform Player Attack" targetId="Perform Player Attack"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Perform Player Attack" targetId="Perform Player Resurrection"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Visualize Stats" targetId="Visualize Stats"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Perform Player Item Use" targetId="Perform Player Item Use"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Perform Player Resurrection" targetId="Perform Player Attack"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Perform Player Resurrection" targetId="Perform Player Item Use"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Perform Player Resurrection" targetId="Perform Player Resurrection"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Perform Player Resurrection" targetId="Perform Player Heal &amp; Stabilize"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Initialize Player Conditions" targetId="Initialize Player Conditions"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Perform Player Movement" targetId="Perform Player Movement"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Perform Player Special Actions" targetId="Perform Player Special Actions"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Perform Player Heal &amp; Stabilize" targetId="Perform Player Item Use"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Perform Player Heal &amp; Stabilize" targetId="Perform Player Special Actions"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Perform Player Heal &amp; Stabilize" targetId="Perform Player Heal &amp; Stabilize"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Perform Player Heal &amp; Stabilize" targetId="Perform Player Search"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Perform Player End Turn" targetId="Get Player Action Choice"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Perform Player End Turn" targetId="Perform Player End Turn"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Finalize Player Conditions &amp; Resources" targetId="Check for Deaths"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Finalize Player Conditions &amp; Resources" targetId="Finalize Player Conditions &amp; Resources"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Perform Player Search" targetId="Perform Player Search"/>
+            </excludes>
+        </constraints>
+    </specification>
+    <runtime>
+        <marking>
+            <globalStore></globalStore>
+            <executed/>
+            <included>
+                <event id="Visualize Stats"/>
+                <event id="Perform Player Movement"/>
+                <event id="Perform Player Resurrection"/>
+                <event id="Perform Player Heal &amp; Stabilize"/>
+                <event id="Perform Player End Turn"/>
+                <event id="Get Player Action Choice"/>
+                <event id="Perform Player Attack"/>
+                <event id="Perform Player Item Use"/>
+                <event id="Initialize Player Conditions"/>
+                <event id="Perform Player Special Actions"/>
+                <event id="Check for Deaths"/>
+                <event id="Finalize Player Conditions &amp; Resources"/>
+                <event id="Perform Player Search"/>
+            </included>
+            <pendingResponses/>
+        </marking>
+    </runtime>
+</dcrgraph>

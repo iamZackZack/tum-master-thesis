@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<dcrgraph dataTypesStatus="hide" filterLevel="-1" formGroupStyle="Normal" formLayoutStyle="Horizontal" graphBG="#EBEBEB" title="DCR" zoomLevel="0">
+    <specification>
+        <resources>
+            <events>
+                <event id="Set Rotation Variable">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Wait for Expansion Message Display">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Clear Rotation Message">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Determine Grid Expansion or Terrain Rotation">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Wait for Rotation Message Display">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Visualize Grid">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Clear Welcome Message">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Display Expansion Message">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Place Tile on Grid">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Find Suitable Terrain">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Transpose Terrain 90 Degrees">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Display Welcome Message">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Set Tile Variable">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Rotate Tile">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Display Rotation Message">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Set Grid Variable">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Wait for Welcome Message Display">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Clear Expansion Message">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Rotate Tile on Grid">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+            </events>
+            <labels>
+                <label id="Set Rotation Variable"/>
+                <label id="Wait for Expansion Message Display"/>
+                <label id="Clear Rotation Message"/>
+                <label id="Determine Grid Expansion or Terrain Rotation"/>
+                <label id="Wait for Rotation Message Display"/>
+                <label id="Visualize Grid"/>
+                <label id="Clear Welcome Message"/>
+                <label id="Display Expansion Message"/>
+                <label id="Place Tile on Grid"/>
+                <label id="Find Suitable Terrain"/>
+                <label id="Transpose Terrain 90 Degrees"/>
+                <label id="Display Welcome Message"/>
+                <label id="Set Tile Variable"/>
+                <label id="Rotate Tile"/>
+                <label id="Display Rotation Message"/>
+                <label id="Set Grid Variable"/>
+                <label id="Wait for Welcome Message Display"/>
+                <label id="Clear Expansion Message"/>
+                <label id="Rotate Tile on Grid"/>
+            </labels>
+            <labelMappings>
+                <labelMapping eventId="Set Rotation Variable" labelId="Set Rotation Variable"/>
+                <labelMapping eventId="Wait for Expansion Message Display" labelId="Wait for Expansion Message Display"/>
+                <labelMapping eventId="Clear Rotation Message" labelId="Clear Rotation Message"/>
+                <labelMapping eventId="Determine Grid Expansion or Terrain Rotation" labelId="Determine Grid Expansion or Terrain Rotation"/>
+                <labelMapping eventId="Wait for Rotation Message Display" labelId="Wait for Rotation Message Display"/>
+                <labelMapping eventId="Visualize Grid" labelId="Visualize Grid"/>
+                <labelMapping eventId="Clear Welcome Message" labelId="Clear Welcome Message"/>
+                <labelMapping eventId="Display Expansion Message" labelId="Display Expansion Message"/>
+                <labelMapping eventId="Place Tile on Grid" labelId="Place Tile on Grid"/>
+                <labelMapping eventId="Find Suitable Terrain" labelId="Find Suitable Terrain"/>
+                <labelMapping eventId="Transpose Terrain 90 Degrees" labelId="Transpose Terrain 90 Degrees"/>
+                <labelMapping eventId="Display Welcome Message" labelId="Display Welcome Message"/>
+                <labelMapping eventId="Set Tile Variable" labelId="Set Tile Variable"/>
+                <labelMapping eventId="Rotate Tile" labelId="Rotate Tile"/>
+                <labelMapping eventId="Display Rotation Message" labelId="Display Rotation Message"/>
+                <labelMapping eventId="Set Grid Variable" labelId="Set Grid Variable"/>
+                <labelMapping eventId="Wait for Welcome Message Display" labelId="Wait for Welcome Message Display"/>
+                <labelMapping eventId="Clear Expansion Message" labelId="Clear Expansion Message"/>
+                <labelMapping eventId="Rotate Tile on Grid" labelId="Rotate Tile on Grid"/>
+            </labelMappings>
+        </resources>
+        <constraints>
+            <conditions>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Set Rotation Variable" targetId="Rotate Tile"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Wait for Expansion Message Display" targetId="Clear Expansion Message"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Clear Rotation Message" targetId="Rotate Tile on Grid"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Determine Grid Expansion or Terrain Rotation" targetId="Find Suitable Terrain"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Determine Grid Expansion or Terrain Rotation" targetId="Transpose Terrain 90 Degrees"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Wait for Rotation Message Display" targetId="Clear Rotation Message"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Clear Welcome Message" targetId="Visualize Grid"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Display Expansion Message" targetId="Wait for Expansion Message Display"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Find Suitable Terrain" targetId="Display Expansion Message"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Transpose Terrain 90 Degrees" targetId="Display Rotation Message"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Set Tile Variable" targetId="Set Rotation Variable"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Set Tile Variable" targetId="Wait for Expansion Message Display"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Set Tile Variable" targetId="Place Tile on Grid"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Set Tile Variable" targetId="Wait for Welcome Message Display"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Display Welcome Message" targetId="Wait for Welcome Message Display"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Display Rotation Message" targetId="Wait for Rotation Message Display"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Set Grid Variable" targetId="Wait for Rotation Message Display"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Set Grid Variable" targetId="Place Tile on Grid"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Wait for Welcome Message Display" targetId="Clear Welcome Message"/>
+            </conditions>
+            <responses>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Clear Rotation Message" targetId="Rotate Tile on Grid"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Wait for Expansion Message Display" targetId="Clear Expansion Message"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Set Rotation Variable" targetId="Rotate Tile"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Wait for Rotation Message Display" targetId="Clear Rotation Message"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Clear Welcome Message" targetId="Visualize Grid"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Clear Welcome Message" targetId="Place Tile on Grid"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Display Expansion Message" targetId="Wait for Expansion Message Display"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Display Expansion Message" targetId="Set Tile Variable"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Display Expansion Message" targetId="Clear Expansion Message"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Find Suitable Terrain" targetId="Display Expansion Message"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Transpose Terrain 90 Degrees" targetId="Display Rotation Message"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Set Tile Variable" targetId="Set Grid Variable"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Set Tile Variable" targetId="Place Tile on Grid"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Display Welcome Message" targetId="Set Tile Variable"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Display Welcome Message" targetId="Set Grid Variable"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Display Welcome Message" targetId="Wait for Welcome Message Display"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Rotate Tile" targetId="Set Grid Variable"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Rotate Tile" targetId="Place Tile on Grid"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Display Rotation Message" targetId="Wait for Rotation Message Display"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Display Rotation Message" targetId="Set Grid Variable"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Wait for Welcome Message Display" targetId="Clear Welcome Message"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Clear Expansion Message" targetId="Place Tile on Grid"/>
+            </responses>
+            <includes>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Clear Rotation Message" targetId="Rotate Tile on Grid"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Determine Grid Expansion or Terrain Rotation" targetId="Find Suitable Terrain"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Determine Grid Expansion or Terrain Rotation" targetId="Transpose Terrain 90 Degrees"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Wait for Rotation Message Display" targetId="Clear Rotation Message"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Set Grid Variable" targetId="Wait for Rotation Message Display"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Find Suitable Terrain" targetId="Display Expansion Message"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Transpose Terrain 90 Degrees" targetId="Display Rotation Message"/>
+            </includes>
+            <excludes>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Set Rotation Variable" targetId="Set Rotation Variable"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Wait for Expansion Message Display" targetId="Wait for Expansion Message Display"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Clear Rotation Message" targetId="Clear Rotation Message"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Determine Grid Expansion or Terrain Rotation" targetId="Determine Grid Expansion or Terrain Rotation"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Wait for Rotation Message Display" targetId="Wait for Rotation Message Display"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Visualize Grid" targetId="Visualize Grid"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Clear Welcome Message" targetId="Clear Welcome Message"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Display Expansion Message" targetId="Display Expansion Message"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Place Tile on Grid" targetId="Place Tile on Grid"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Find Suitable Terrain" targetId="Clear Rotation Message"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Find Suitable Terrain" targetId="Display Welcome Message"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Find Suitable Terrain" targetId="Wait for Rotation Message Display"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Find Suitable Terrain" targetId="Visualize Grid"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Find Suitable Terrain" targetId="Clear Welcome Message"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Find Suitable Terrain" targetId="Display Rotation Message"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Find Suitable Terrain" targetId="Find Suitable Terrain"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Find Suitable Terrain" targetId="Wait for Welcome Message Display"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Find Suitable Terrain" targetId="Transpose Terrain 90 Degrees"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Find Suitable Terrain" targetId="Rotate Tile on Grid"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Transpose Terrain 90 Degrees" targetId="Set Rotation Variable"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Transpose Terrain 90 Degrees" targetId="Wait for Expansion Message Display"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Transpose Terrain 90 Degrees" targetId="Visualize Grid"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Transpose Terrain 90 Degrees" targetId="Clear Welcome Message"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Transpose Terrain 90 Degrees" targetId="Display Expansion Message"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Transpose Terrain 90 Degrees" targetId="Place Tile on Grid"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Transpose Terrain 90 Degrees" targetId="Find Suitable Terrain"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Transpose Terrain 90 Degrees" targetId="Transpose Terrain 90 Degrees"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Transpose Terrain 90 Degrees" targetId="Display Welcome Message"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Transpose Terrain 90 Degrees" targetId="Set Tile Variable"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Transpose Terrain 90 Degrees" targetId="Rotate Tile"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Transpose Terrain 90 Degrees" targetId="Wait for Welcome Message Display"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Transpose Terrain 90 Degrees" targetId="Clear Expansion Message"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Display Welcome Message" targetId="Display Welcome Message"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Set Tile Variable" targetId="Set Tile Variable"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Rotate Tile" targetId="Rotate Tile"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Display Rotation Message" targetId="Display Rotation Message"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Set Grid Variable" targetId="Set Grid Variable"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Wait for Welcome Message Display" targetId="Wait for Expansion Message Display"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Wait for Welcome Message Display" targetId="Determine Grid Expansion or Terrain Rotation"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Wait for Welcome Message Display" targetId="Display Expansion Message"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Wait for Welcome Message Display" targetId="Find Suitable Terrain"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Wait for Welcome Message Display" targetId="Wait for Welcome Message Display"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Wait for Welcome Message Display" targetId="Clear Expansion Message"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Clear Expansion Message" targetId="Clear Expansion Message"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Rotate Tile on Grid" targetId="Rotate Tile on Grid"/>
+            </excludes>
+        </constraints>
+    </specification>
+    <runtime>
+        <marking>
+            <globalStore></globalStore>
+            <executed/>
+            <included>
+                <event id="Set Rotation Variable"/>
+                <event id="Wait for Expansion Message Display"/>
+                <event id="Clear Rotation Message"/>
+                <event id="Determine Grid Expansion or Terrain Rotation"/>
+                <event id="Wait for Rotation Message Display"/>
+                <event id="Visualize Grid"/>
+                <event id="Clear Welcome Message"/>
+                <event id="Display Expansion Message"/>
+                <event id="Place Tile on Grid"/>
+                <event id="Find Suitable Terrain"/>
+                <event id="Transpose Terrain 90 Degrees"/>
+                <event id="Display Welcome Message"/>
+                <event id="Set Tile Variable"/>
+                <event id="Rotate Tile"/>
+                <event id="Display Rotation Message"/>
+                <event id="Set Grid Variable"/>
+                <event id="Wait for Welcome Message Display"/>
+                <event id="Clear Expansion Message"/>
+                <event id="Rotate Tile on Grid"/>
+            </included>
+            <pendingResponses/>
+        </marking>
+    </runtime>
+</dcrgraph>
