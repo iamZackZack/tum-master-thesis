@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<dcrgraph dataTypesStatus="hide" filterLevel="-1" formGroupStyle="Normal" formLayoutStyle="Horizontal" graphBG="#EBEBEB" title="DCR" zoomLevel="0">
+    <specification>
+        <resources>
+            <events>
+                <event id="Clear Movement Message">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Validate Position">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Visualize Grid">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Visualize Stats">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Display Unavailable Movement Message">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Reject: Terrain Not Revealed">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Update Player Position and Conditions">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Reject: Not Enough Movement">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Validate Move">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Wait for Position">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Approve: Valid Cell Choice">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Reject: Blocked Path">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Display Movement Message">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Manipulate Grid?">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Reject: Cell Occupied">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Wait for Message Display">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+            </events>
+            <labels>
+                <label id="Clear Movement Message"/>
+                <label id="Validate Position"/>
+                <label id="Visualize Grid"/>
+                <label id="Visualize Stats"/>
+                <label id="Display Unavailable Movement Message"/>
+                <label id="Reject: Terrain Not Revealed"/>
+                <label id="Update Player Position and Conditions"/>
+                <label id="Reject: Not Enough Movement"/>
+                <label id="Validate Move"/>
+                <label id="Wait for Position"/>
+                <label id="Approve: Valid Cell Choice"/>
+                <label id="Reject: Blocked Path"/>
+                <label id="Display Movement Message"/>
+                <label id="Manipulate Grid?"/>
+                <label id="Reject: Cell Occupied"/>
+                <label id="Wait for Message Display"/>
+            </labels>
+            <labelMappings>
+                <labelMapping eventId="Clear Movement Message" labelId="Clear Movement Message"/>
+                <labelMapping eventId="Validate Position" labelId="Validate Position"/>
+                <labelMapping eventId="Visualize Grid" labelId="Visualize Grid"/>
+                <labelMapping eventId="Visualize Stats" labelId="Visualize Stats"/>
+                <labelMapping eventId="Display Unavailable Movement Message" labelId="Display Unavailable Movement Message"/>
+                <labelMapping eventId="Reject: Terrain Not Revealed" labelId="Reject: Terrain Not Revealed"/>
+                <labelMapping eventId="Update Player Position and Conditions" labelId="Update Player Position and Conditions"/>
+                <labelMapping eventId="Reject: Not Enough Movement" labelId="Reject: Not Enough Movement"/>
+                <labelMapping eventId="Validate Move" labelId="Validate Move"/>
+                <labelMapping eventId="Wait for Position" labelId="Wait for Position"/>
+                <labelMapping eventId="Approve: Valid Cell Choice" labelId="Approve: Valid Cell Choice"/>
+                <labelMapping eventId="Reject: Blocked Path" labelId="Reject: Blocked Path"/>
+                <labelMapping eventId="Display Movement Message" labelId="Display Movement Message"/>
+                <labelMapping eventId="Manipulate Grid?" labelId="Manipulate Grid?"/>
+                <labelMapping eventId="Reject: Cell Occupied" labelId="Reject: Cell Occupied"/>
+                <labelMapping eventId="Wait for Message Display" labelId="Wait for Message Display"/>
+            </labelMappings>
+        </resources>
+        <constraints>
+            <conditions>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Update Player Position and Conditions" targetId="Manipulate Grid?"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Validate Position" targetId="Update Player Position and Conditions"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Validate Position" targetId="Reject: Not Enough Movement"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Validate Position" targetId="Approve: Valid Cell Choice"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Validate Position" targetId="Reject: Cell Occupied"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Validate Position" targetId="Reject: Terrain Not Revealed"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Validate Move" targetId="Clear Movement Message"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Validate Move" targetId="Display Movement Message"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Validate Move" targetId="Display Unavailable Movement Message"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Wait for Position" targetId="Validate Position"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Visualize Grid" targetId="Visualize Stats"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Approve: Valid Cell Choice" targetId="Manipulate Grid?"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Manipulate Grid?" targetId="Visualize Grid"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Display Movement Message" targetId="Wait for Position"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Reject: Cell Occupied" targetId="Reject: Blocked Path"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Display Unavailable Movement Message" targetId="Wait for Message Display"/>
+            </conditions>
+            <responses>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Validate Position" targetId="Update Player Position and Conditions"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Validate Position" targetId="Approve: Valid Cell Choice"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Visualize Stats" targetId="Clear Movement Message"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Visualize Grid" targetId="Visualize Stats"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Display Unavailable Movement Message" targetId="Wait for Message Display"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Reject: Terrain Not Revealed" targetId="Display Movement Message"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Update Player Position and Conditions" targetId="Manipulate Grid?"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Reject: Not Enough Movement" targetId="Display Movement Message"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Validate Move" targetId="Clear Movement Message"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Wait for Position" targetId="Validate Position"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Approve: Valid Cell Choice" targetId="Manipulate Grid?"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Reject: Blocked Path" targetId="Reject: Not Enough Movement"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Manipulate Grid?" targetId="Visualize Grid"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Display Movement Message" targetId="Wait for Position"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Reject: Cell Occupied" targetId="Display Movement Message"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Wait for Message Display" targetId="Clear Movement Message"/>
+            </responses>
+            <includes>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Validate Position" targetId="Reject: Not Enough Movement"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Validate Position" targetId="Reject: Blocked Path"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Validate Position" targetId="Reject: Cell Occupied"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Validate Position" targetId="Reject: Terrain Not Revealed"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Validate Move" targetId="Display Unavailable Movement Message"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Wait for Position" targetId="Validate Position"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Visualize Grid" targetId="Visualize Stats"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Manipulate Grid?" targetId="Visualize Grid"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Display Movement Message" targetId="Wait for Position"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Display Unavailable Movement Message" targetId="Wait for Message Display"/>
+            </includes>
+            <excludes>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Clear Movement Message" targetId="Clear Movement Message"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Validate Position" targetId="Validate Position"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Visualize Grid" targetId="Visualize Grid"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Visualize Stats" targetId="Visualize Stats"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Display Unavailable Movement Message" targetId="Validate Position"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Display Unavailable Movement Message" targetId="Visualize Grid"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Display Unavailable Movement Message" targetId="Visualize Stats"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Display Unavailable Movement Message" targetId="Display Unavailable Movement Message"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Display Unavailable Movement Message" targetId="Reject: Terrain Not Revealed"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Display Unavailable Movement Message" targetId="Update Player Position and Conditions"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Display Unavailable Movement Message" targetId="Reject: Not Enough Movement"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Display Unavailable Movement Message" targetId="Wait for Position"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Display Unavailable Movement Message" targetId="Approve: Valid Cell Choice"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Display Unavailable Movement Message" targetId="Reject: Blocked Path"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Display Unavailable Movement Message" targetId="Display Movement Message"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Display Unavailable Movement Message" targetId="Manipulate Grid?"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Display Unavailable Movement Message" targetId="Reject: Cell Occupied"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Reject: Terrain Not Revealed" targetId="Reject: Not Enough Movement"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Reject: Terrain Not Revealed" targetId="Reject: Blocked Path"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Reject: Terrain Not Revealed" targetId="Reject: Cell Occupied"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Reject: Terrain Not Revealed" targetId="Reject: Terrain Not Revealed"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Update Player Position and Conditions" targetId="Update Player Position and Conditions"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Reject: Not Enough Movement" targetId="Reject: Not Enough Movement"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Validate Move" targetId="Validate Move"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Wait for Position" targetId="Wait for Position"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Approve: Valid Cell Choice" targetId="Approve: Valid Cell Choice"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Reject: Blocked Path" targetId="Reject: Blocked Path"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Manipulate Grid?" targetId="Manipulate Grid?"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Reject: Cell Occupied" targetId="Reject: Cell Occupied"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Wait for Message Display" targetId="Wait for Message Display"/>
+            </excludes>
+        </constraints>
+    </specification>
+    <runtime>
+        <marking>
+            <globalStore></globalStore>
+            <executed/>
+            <included>
+                <event id="Clear Movement Message"/>
+                <event id="Validate Position"/>
+                <event id="Visualize Grid"/>
+                <event id="Visualize Stats"/>
+                <event id="Display Unavailable Movement Message"/>
+                <event id="Reject: Terrain Not Revealed"/>
+                <event id="Update Player Position and Conditions"/>
+                <event id="Reject: Not Enough Movement"/>
+                <event id="Validate Move"/>
+                <event id="Wait for Position"/>
+                <event id="Approve: Valid Cell Choice"/>
+                <event id="Reject: Blocked Path"/>
+                <event id="Display Movement Message"/>
+                <event id="Manipulate Grid?"/>
+                <event id="Reject: Cell Occupied"/>
+                <event id="Wait for Message Display"/>
+            </included>
+            <pendingResponses/>
+        </marking>
+    </runtime>
+</dcrgraph>

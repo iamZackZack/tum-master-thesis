@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<dcrgraph dataTypesStatus="hide" filterLevel="-1" formGroupStyle="Normal" formLayoutStyle="Horizontal" graphBG="#EBEBEB" title="DCR" zoomLevel="0">
+    <specification>
+        <resources>
+            <events>
+                <event id="Rule: Player Can Overchannel by Adding More Mana if Available">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Rule: Attack Roll &lt; Enemy Armor Class -&gt; Miss">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Rule: Sneak/Reckless Attack Rolls with Advantage">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Rule: Regular Attack Rolls w/o Advantage">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Handle Damage">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Validate Attack Action">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Rule: Attack Roll &gt;= Enemy Armor Class -&gt; Hit">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Visualize Player Stats After Overchannel">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Visualize Intermediate Player Stats">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Get Player Attack Roll">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Display Action Result Message">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Sync Player Data">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Get Player Attack Target">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Reset Message Display">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Wait for Message Display">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Rule: Action &amp; Resources Used for Attack">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Rule: If Hidden Player Attacks, They Are No Longer Hidden">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+                <event id="Get Player Damage Roll">
+                    <custom>
+                        <visualization>
+                            <location xLoc="425" yLoc="50"/>
+                            <colors bg="#f9f7ed" stroke="#cccccc" textStroke="#000000"/>
+                        </visualization>
+                        <eventScope>private</eventScope>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                    </custom>
+                </event>
+            </events>
+            <labels>
+                <label id="Rule: Player Can Overchannel by Adding More Mana if Available"/>
+                <label id="Rule: Attack Roll &lt; Enemy Armor Class -&gt; Miss"/>
+                <label id="Rule: Sneak/Reckless Attack Rolls with Advantage"/>
+                <label id="Rule: Regular Attack Rolls w/o Advantage"/>
+                <label id="Handle Damage"/>
+                <label id="Validate Attack Action"/>
+                <label id="Rule: Attack Roll &gt;= Enemy Armor Class -&gt; Hit"/>
+                <label id="Visualize Player Stats After Overchannel"/>
+                <label id="Visualize Intermediate Player Stats"/>
+                <label id="Get Player Attack Roll"/>
+                <label id="Display Action Result Message"/>
+                <label id="Sync Player Data"/>
+                <label id="Get Player Attack Target"/>
+                <label id="Reset Message Display"/>
+                <label id="Wait for Message Display"/>
+                <label id="Rule: Action &amp; Resources Used for Attack"/>
+                <label id="Rule: If Hidden Player Attacks, They Are No Longer Hidden"/>
+                <label id="Get Player Damage Roll"/>
+            </labels>
+            <labelMappings>
+                <labelMapping eventId="Rule: Player Can Overchannel by Adding More Mana if Available" labelId="Rule: Player Can Overchannel by Adding More Mana if Available"/>
+                <labelMapping eventId="Rule: Attack Roll &lt; Enemy Armor Class -&gt; Miss" labelId="Rule: Attack Roll &lt; Enemy Armor Class -&gt; Miss"/>
+                <labelMapping eventId="Rule: Sneak/Reckless Attack Rolls with Advantage" labelId="Rule: Sneak/Reckless Attack Rolls with Advantage"/>
+                <labelMapping eventId="Rule: Regular Attack Rolls w/o Advantage" labelId="Rule: Regular Attack Rolls w/o Advantage"/>
+                <labelMapping eventId="Handle Damage" labelId="Handle Damage"/>
+                <labelMapping eventId="Validate Attack Action" labelId="Validate Attack Action"/>
+                <labelMapping eventId="Rule: Attack Roll &gt;= Enemy Armor Class -&gt; Hit" labelId="Rule: Attack Roll &gt;= Enemy Armor Class -&gt; Hit"/>
+                <labelMapping eventId="Visualize Player Stats After Overchannel" labelId="Visualize Player Stats After Overchannel"/>
+                <labelMapping eventId="Visualize Intermediate Player Stats" labelId="Visualize Intermediate Player Stats"/>
+                <labelMapping eventId="Get Player Attack Roll" labelId="Get Player Attack Roll"/>
+                <labelMapping eventId="Display Action Result Message" labelId="Display Action Result Message"/>
+                <labelMapping eventId="Sync Player Data" labelId="Sync Player Data"/>
+                <labelMapping eventId="Get Player Attack Target" labelId="Get Player Attack Target"/>
+                <labelMapping eventId="Reset Message Display" labelId="Reset Message Display"/>
+                <labelMapping eventId="Wait for Message Display" labelId="Wait for Message Display"/>
+                <labelMapping eventId="Rule: Action &amp; Resources Used for Attack" labelId="Rule: Action &amp; Resources Used for Attack"/>
+                <labelMapping eventId="Rule: If Hidden Player Attacks, They Are No Longer Hidden" labelId="Rule: If Hidden Player Attacks, They Are No Longer Hidden"/>
+                <labelMapping eventId="Get Player Damage Roll" labelId="Get Player Damage Roll"/>
+            </labelMappings>
+        </resources>
+        <constraints>
+            <conditions>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Rule: Player Can Overchannel by Adding More Mana if Available" targetId="Visualize Player Stats After Overchannel"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Display Action Result Message" targetId="Wait for Message Display"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Rule: Regular Attack Rolls w/o Advantage" targetId="Rule: Player Can Overchannel by Adding More Mana if Available"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Get Player Attack Target" targetId="Rule: Sneak/Reckless Attack Rolls with Advantage"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Get Player Attack Target" targetId="Rule: Regular Attack Rolls w/o Advantage"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Get Player Attack Target" targetId="Get Player Attack Roll"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Validate Attack Action" targetId="Display Action Result Message"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Validate Attack Action" targetId="Rule: Action &amp; Resources Used for Attack"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Reset Message Display" targetId="Sync Player Data"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Rule: Action &amp; Resources Used for Attack" targetId="Visualize Intermediate Player Stats"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Wait for Message Display" targetId="Reset Message Display"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Rule: Attack Roll &gt;= Enemy Armor Class -&gt; Hit" targetId="Rule: Player Can Overchannel by Adding More Mana if Available"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Rule: Attack Roll &gt;= Enemy Armor Class -&gt; Hit" targetId="Get Player Damage Roll"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Get Player Damage Roll" targetId="Handle Damage"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Get Player Attack Roll" targetId="Rule: Attack Roll &lt; Enemy Armor Class -&gt; Miss"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Get Player Attack Roll" targetId="Rule: If Hidden Player Attacks, They Are No Longer Hidden"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Get Player Attack Roll" targetId="Rule: Attack Roll &gt;= Enemy Armor Class -&gt; Hit"/>
+                <condition description="" filterLevel="0" groups="" time="" sourceId="Visualize Intermediate Player Stats" targetId="Get Player Attack Target"/>
+            </conditions>
+            <responses>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Rule: Player Can Overchannel by Adding More Mana if Available" targetId="Visualize Player Stats After Overchannel"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Rule: Attack Roll &lt; Enemy Armor Class -&gt; Miss" targetId="Display Action Result Message"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Rule: Sneak/Reckless Attack Rolls with Advantage" targetId="Get Player Attack Roll"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Handle Damage" targetId="Display Action Result Message"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Rule: Regular Attack Rolls w/o Advantage" targetId="Get Player Attack Roll"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Validate Attack Action" targetId="Display Action Result Message"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Rule: Attack Roll &gt;= Enemy Armor Class -&gt; Hit" targetId="Get Player Damage Roll"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Visualize Player Stats After Overchannel" targetId="Get Player Damage Roll"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Get Player Attack Roll" targetId="Display Action Result Message"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Visualize Intermediate Player Stats" targetId="Get Player Attack Target"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Display Action Result Message" targetId="Wait for Message Display"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Get Player Attack Target" targetId="Get Player Attack Roll"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Reset Message Display" targetId="Sync Player Data"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Wait for Message Display" targetId="Reset Message Display"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Rule: If Hidden Player Attacks, They Are No Longer Hidden" targetId="Display Action Result Message"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Rule: Action &amp; Resources Used for Attack" targetId="Visualize Intermediate Player Stats"/>
+                <response description="" filterLevel="0" groups="" time="" sourceId="Get Player Damage Roll" targetId="Handle Damage"/>
+            </responses>
+            <includes>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Rule: Player Can Overchannel by Adding More Mana if Available" targetId="Visualize Player Stats After Overchannel"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Display Action Result Message" targetId="Wait for Message Display"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Get Player Attack Target" targetId="Rule: Sneak/Reckless Attack Rolls with Advantage"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Get Player Attack Target" targetId="Rule: Regular Attack Rolls w/o Advantage"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Validate Attack Action" targetId="Rule: Action &amp; Resources Used for Attack"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Reset Message Display" targetId="Sync Player Data"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Rule: Action &amp; Resources Used for Attack" targetId="Visualize Intermediate Player Stats"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Wait for Message Display" targetId="Reset Message Display"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Rule: Attack Roll &gt;= Enemy Armor Class -&gt; Hit" targetId="Rule: Player Can Overchannel by Adding More Mana if Available"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Get Player Damage Roll" targetId="Handle Damage"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Get Player Attack Roll" targetId="Rule: Attack Roll &lt; Enemy Armor Class -&gt; Miss"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Get Player Attack Roll" targetId="Rule: Attack Roll &gt;= Enemy Armor Class -&gt; Hit"/>
+                <include description="" filterLevel="0" groups="" time="" sourceId="Visualize Intermediate Player Stats" targetId="Get Player Attack Target"/>
+            </includes>
+            <excludes>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Rule: Player Can Overchannel by Adding More Mana if Available" targetId="Rule: Player Can Overchannel by Adding More Mana if Available"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Rule: Player Can Overchannel by Adding More Mana if Available" targetId="Rule: If Hidden Player Attacks, They Are No Longer Hidden"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Rule: Attack Roll &lt; Enemy Armor Class -&gt; Miss" targetId="Rule: Attack Roll &lt; Enemy Armor Class -&gt; Miss"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Rule: Attack Roll &lt; Enemy Armor Class -&gt; Miss" targetId="Handle Damage"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Rule: Attack Roll &lt; Enemy Armor Class -&gt; Miss" targetId="Rule: Attack Roll &gt;= Enemy Armor Class -&gt; Hit"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Rule: Attack Roll &lt; Enemy Armor Class -&gt; Miss" targetId="Get Player Damage Roll"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Rule: Sneak/Reckless Attack Rolls with Advantage" targetId="Rule: Player Can Overchannel by Adding More Mana if Available"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Rule: Sneak/Reckless Attack Rolls with Advantage" targetId="Rule: Sneak/Reckless Attack Rolls with Advantage"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Rule: Sneak/Reckless Attack Rolls with Advantage" targetId="Rule: Regular Attack Rolls w/o Advantage"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Rule: Sneak/Reckless Attack Rolls with Advantage" targetId="Visualize Player Stats After Overchannel"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Rule: Regular Attack Rolls w/o Advantage" targetId="Rule: Sneak/Reckless Attack Rolls with Advantage"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Rule: Regular Attack Rolls w/o Advantage" targetId="Rule: Regular Attack Rolls w/o Advantage"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Handle Damage" targetId="Handle Damage"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Validate Attack Action" targetId="Validate Attack Action"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Rule: Attack Roll &gt;= Enemy Armor Class -&gt; Hit" targetId="Rule: Attack Roll &lt; Enemy Armor Class -&gt; Miss"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Rule: Attack Roll &gt;= Enemy Armor Class -&gt; Hit" targetId="Rule: Attack Roll &gt;= Enemy Armor Class -&gt; Hit"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Visualize Player Stats After Overchannel" targetId="Visualize Player Stats After Overchannel"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Visualize Intermediate Player Stats" targetId="Visualize Intermediate Player Stats"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Get Player Attack Roll" targetId="Get Player Attack Roll"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Display Action Result Message" targetId="Display Action Result Message"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Sync Player Data" targetId="Sync Player Data"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Get Player Attack Target" targetId="Get Player Attack Target"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Reset Message Display" targetId="Reset Message Display"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Wait for Message Display" targetId="Wait for Message Display"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Rule: Action &amp; Resources Used for Attack" targetId="Rule: Action &amp; Resources Used for Attack"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Rule: If Hidden Player Attacks, They Are No Longer Hidden" targetId="Rule: If Hidden Player Attacks, They Are No Longer Hidden"/>
+                <exclude description="" filterLevel="0" groups="" time="" sourceId="Get Player Damage Roll" targetId="Get Player Damage Roll"/>
+            </excludes>
+        </constraints>
+    </specification>
+    <runtime>
+        <marking>
+            <globalStore></globalStore>
+            <executed/>
+            <included>
+                <event id="Rule: Player Can Overchannel by Adding More Mana if Available"/>
+                <event id="Rule: Attack Roll &lt; Enemy Armor Class -&gt; Miss"/>
+                <event id="Rule: Sneak/Reckless Attack Rolls with Advantage"/>
+                <event id="Rule: Regular Attack Rolls w/o Advantage"/>
+                <event id="Handle Damage"/>
+                <event id="Validate Attack Action"/>
+                <event id="Rule: Attack Roll &gt;= Enemy Armor Class -&gt; Hit"/>
+                <event id="Visualize Player Stats After Overchannel"/>
+                <event id="Visualize Intermediate Player Stats"/>
+                <event id="Get Player Attack Roll"/>
+                <event id="Display Action Result Message"/>
+                <event id="Sync Player Data"/>
+                <event id="Get Player Attack Target"/>
+                <event id="Reset Message Display"/>
+                <event id="Wait for Message Display"/>
+                <event id="Rule: Action &amp; Resources Used for Attack"/>
+                <event id="Rule: If Hidden Player Attacks, They Are No Longer Hidden"/>
+                <event id="Get Player Damage Roll"/>
+            </included>
+            <pendingResponses/>
+        </marking>
+    </runtime>
+</dcrgraph>
