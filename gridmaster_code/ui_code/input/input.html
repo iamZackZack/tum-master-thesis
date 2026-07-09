@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Input</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="../gnd.css">
+  <link rel="stylesheet" href="input.css?v=5">
+</head>
+<body>
+  <main class="frame-wrap">
+    <div class="panel">
+      <header class="panel-head">
+        <h1 id="title">Input</h1>
+      </header>
+
+      <section class="panel-body">
+        <p id="message" class="muted">Please enter a value and press Submit.</p>
+
+        <div class="input-row">
+          <input id="the-input" type="text" autocomplete="off" placeholder="Enter value..." />
+        </div>
+
+        <div class="actions">
+          <button id="submit-btn" class="primary">Submit</button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+
+      const rawTitle = params.get('title');
+      const playerId = params.get('player_id');
+      const title = (rawTitle.includes('#') && playerId)
+        ? rawTitle.replace('#', playerId)
+        : rawTitle;
+
+      const titleElement = document.getElementById('title');
+      const messageElement = document.getElementById('message');
+      const input = document.getElementById('the-input');
+      const button = document.getElementById('submit-btn');
+
+      titleElement.textContent = title;
+      messageElement.innerHTML = (params.get('message')).replace(/\\n/g, '<br>');
+      input.value = params.get('default');
+      input.placeholder = params.get('placeholder');
+
+      const callbackUrl = window.name;
+
+      function submitValue() {
+        button.disabled = true;
+        fetch(callbackUrl, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ value: input.value })
+        });
+      }
+
+      button.addEventListener('click', submitValue);
+      input.addEventListener('keydown', (ev) => {
+        if (ev.key === 'Enter' && !button.disabled) submitValue();
+      });
+
+      input.focus();
+      input.select();
+    });
+  </script>
+</body>
+</html>

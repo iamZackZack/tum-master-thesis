@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Instruction</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="../gnd.css">
+    <link rel="stylesheet" href="instruction.css?v=6">
+</head>
+
+<body>
+    <section id="instruction">
+        <div class="box">
+            <h1 id="instr-title">Instruction</h1>
+            <p id="instr-message" class="muted"></p>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const params = new URLSearchParams(window.location.search);
+
+            let title = params.get("title");
+            const message = params.get("message");
+            const player_id = params.get("player_id");
+
+            if (player_id) {
+                title = title.replace("#", player_id);
+            }
+
+            const titleEl = document.getElementById("instr-title");
+            const msgEl = document.getElementById("instr-message");
+
+            titleEl.textContent = title;
+            msgEl.innerHTML = message.replace(/\\n/g, "<br>");
+        });
+    </script>
+</body>
+</html>

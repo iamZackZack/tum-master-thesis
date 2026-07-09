@@ -1,0 +1,82 @@
+html,
+body {
+  margin-top: 0px;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg);
+  color: var(--fg);
+  font: 15px/1.5 system-ui, Segoe UI, Roboto, Ubuntu, Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.center {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box {
+  box-sizing: border-box;
+  width: 100%;
+  height: 90%;
+  max-width: 420px;
+  max-height: 90%;
+  border: 2px solid #223141;
+  background: linear-gradient(180deg, #111a23, #0e1720);
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.3);
+  display: flex;
+  flex-direction: column;
+}
+
+#action-title {
+  margin: 0 0 8px;
+  font-size: clamp(1rem, 2.2vmin, 1.3rem);
+}
+
+#action-message {
+  margin: 0;
+}
+
+.action-list {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.action-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid #2a3544;
+  background: #0e151d;
+  font-size: clamp(0.85rem, 1.8vmin, 1rem);
+}
+
+.action-button .label {
+  font-weight: 600;
+}
+
+.action-button .meta {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+.hint {
+  font-size: 0.9rem;
+  margin-top: 10px;
+}

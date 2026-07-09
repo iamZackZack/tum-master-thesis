@@ -1,0 +1,83 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg);
+  color: var(--fg);
+  font: 15px/1.5 system-ui, Segoe UI, Roboto, Ubuntu, Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: #17212b;
+  border: 2px solid #223141;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.cell {
+  background: #101922;
+  border: 1px solid #1f2d3b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  border-radius: 0;
+  font-size: clamp(0.9rem, 2.6vmin, 1.6rem);
+}
+
+.cell:hover {
+  transform: scale(1.03);
+}
+
+.terrain { background: #354759; }
+
+.occupied { color: #0b0f14; }
+
+.rogue     { background: var(--rogue); }
+.wizard    { background: var(--wizard); }
+.cleric    { background: var(--cleric); }
+.barbarian { background: var(--barbarian); }
+.mimic     { background: var(--mimic); }
+
+.wall-top    { border-top:    3px solid #cfe6ff; }
+.wall-bottom { border-bottom: 3px solid #cfe6ff; }
+.wall-left   { border-left:   3px solid #cfe6ff; }
+.wall-right  { border-right:  3px solid #cfe6ff; }
+
+.cell.effect {
+  color: rgba(255,255,255,0.9);
+  font-weight: 800;
+  font-size: clamp(0.75rem, 2.2vmin, 1.2rem);
+}
+
+.effect-rogue     { background: color-mix(in srgb, var(--rogue) 55%, #0b0f14); }
+.effect-wizard    { background: color-mix(in srgb, var(--wizard) 55%, #0b0f14); }
+.effect-cleric    { background: color-mix(in srgb, var(--cleric) 55%, #0b0f14); }
+.effect-barbarian { background: color-mix(in srgb, var(--barbarian) 55%, #0b0f14); }
+
+.effect-S { outline: 2px solid rgba(255,255,255,0.25); outline-offset: -2px; }
+.effect-E { outline: 2px dashed rgba(255,255,255,0.25); outline-offset: -2px; }

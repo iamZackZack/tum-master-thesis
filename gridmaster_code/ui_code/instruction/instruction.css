@@ -1,0 +1,47 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg);
+  color: var(--fg);
+  font: 15px/1.5 system-ui, Segoe UI, Roboto, Ubuntu, Arial, sans-serif;
+}
+
+#instruction {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 16px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box {
+  width: min(760px, 96vw);
+  max-height: 100%;
+  background: linear-gradient(180deg, #111a23, #0e1720);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px 24px 20px;
+  box-shadow: var(--shadow);
+  overflow: auto;
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-weight: 700;
+  letter-spacing: .2px;
+  font-size: clamp(1rem, 2.2vmin, 1.3rem);
+}
+
+p {
+  margin: 0;
+}
+
+.muted {
+  color: var(--muted);
+}
